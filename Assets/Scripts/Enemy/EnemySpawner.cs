@@ -45,8 +45,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator DoSpawn()
     {
-        Instantiate(EnemyPrefab, Spawnpoint.position, Spawnpoint.rotation);
-        EnemyPrefab.GetComponent<EnemyMovement>().Path = PathToUse;
+        // Instancier l'ennemi et récupérer l'instance
+        Transform enemyInstance = Instantiate(EnemyPrefab, Spawnpoint.position, Spawnpoint.rotation);
+
+        // Assigner le chemin à l'instance
+        enemyInstance.GetComponent<EnemyMovement>().Path = PathToUse;
+
         SpawnedEnemyCount++;
         EnemyNumber++;
 

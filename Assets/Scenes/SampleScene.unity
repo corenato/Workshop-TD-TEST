@@ -1569,7 +1569,7 @@ MonoBehaviour:
   TimeBetweenWave: 5
   CountDown: 2
   SpawnedEnemyCount: 0
-  PathToUse: {fileID: 1735786247}
+  PathToUse: {fileID: 1528555350}
   StartEnemyNumber: 0
 --- !u!4 &1407935434
 Transform:
@@ -1680,7 +1680,6 @@ Transform:
   - {fileID: 975117273}
   - {fileID: 1528555349}
   - {fileID: 404302729}
-  - {fileID: 1735786246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528555348
@@ -2036,7 +2035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735786245}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2044,7 +2043,7 @@ Transform:
   - {fileID: 1461995545}
   - {fileID: 1611289797}
   - {fileID: 1119496243}
-  m_Father: {fileID: 1523456812}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1735786247
 MonoBehaviour:
@@ -2093,7 +2092,7 @@ MonoBehaviour:
   TimeBetweenWave: 5
   CountDown: 2
   SpawnedEnemyCount: 0
-  PathToUse: {fileID: 1528555350}
+  PathToUse: {fileID: 1735786247}
   StartEnemyNumber: 0
 --- !u!4 &1839160792
 Transform:
@@ -2398,3 +2397,4 @@ SceneRoots:
   - {fileID: 1523456812}
   - {fileID: 1407935434}
   - {fileID: 1839160792}
+  - {fileID: 1735786246}
