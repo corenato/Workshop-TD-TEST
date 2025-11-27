@@ -27,11 +27,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if(WayPointIndex >= Path.Points.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return;
         }
         
         WayPointIndex++;
         Target = Path.Points[WayPointIndex];
+    }
+
+    private void EndPath()
+    {
+        EnemySpawner.SpawnedEnemyCount--;
+        Destroy(gameObject);
     }
 }

@@ -1,59 +1,77 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Jobs;
+using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private Transform EnemyPrefab;
+    public Wave[] Waves;
     [SerializeField] private Transform Spawnpoint;
-    [SerializeField] private float TimeBetweenWave = 5f;
+    [SerializeField] private float TimeBetweenWave = 2f;
     [SerializeField] private float CountDown = 2f;
-    [SerializeField] private float SpawnedEnemyCount = 0f;       
+    public static int SpawnedEnemyCount = 0;       
     public WayPoints PathToUse;
-    private float MaxEnemySpawn = 10f;
+    private int WaveIndex = 0;
 
-    public static int EnemyNumber;
     public int StartEnemyNumber = 0;
 
     public void Start()
     {
-        EnemyNumber = StartEnemyNumber;
+        Debug.Log(WaveIndex);
     }
 
 
     void Update()
     {
+            if (WaveIndex >= Waves.Length)
+            {
+                Debug.Log("bravo terminée");
+                return;
+            }
 
-        if (SpawnedEnemyCount >= MaxEnemySpawn)
-        {
+            if (SpawnedEnemyCount > 0)
+            {
+            return;
+            }
 
-            StopCoroutine("DoSpawn");
+            if(CountDown <= 0)
+            {
+                StartCoroutine(DoSpawn());
+                CountDown = TimeBetweenWave;
+            return;
+            }
 
-
-        }
-        if (CountDown <= 0f && SpawnedEnemyCount < MaxEnemySpawn)
-        {
-            StartCoroutine("DoSpawn");
-            CountDown = TimeBetweenWave;
-
-
-        }
-
-
-        CountDown -= Time.deltaTime;
+            
+            CountDown -= Time.deltaTime;
     }
 
     IEnumerator DoSpawn()
     {
-        // Instancier l'ennemi et récupérer l'instance
-        Transform enemyInstance = Instantiate(EnemyPrefab, Spawnpoint.position, Spawnpoint.rotation);
+        Wave wave = Waves[WaveIndex];
 
-        // Assigner le chemin à l'instance
-        enemyInstance.GetComponent<EnemyMovement>().Path = PathToUse;
+        foreach (var enemyEntry in wave.Enemies)
+        {
+            for (int i = 0; i < enemyEntry.Count; i++)
+            {
 
-        SpawnedEnemyCount++;
-        EnemyNumber++;
+                SpawnEnemy(enemyEntry.Enemy);
 
-        yield return null;
+                yield return new WaitForSeconds(1f / enemyEntry.rate);
+            }
+        }
+
+        WaveIndex++;
+
+        
     }
+
+
+    void SpawnEnemy(GameObject enemy)
+    {
+            GameObject instance = Instantiate(enemy, Spawnpoint.position, Spawnpoint.rotation);
+            instance.GetComponent<EnemyMovement>().Path = PathToUse;
+        
+            SpawnedEnemyCount++;
+    }
+    
 }

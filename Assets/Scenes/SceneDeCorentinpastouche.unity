@@ -1752,7 +1752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &931264940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,11 +1765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd9144fe9467b04eba7300d66e21de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 2393259026772826012, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+  Waves: []
   Spawnpoint: {fileID: 931264941}
   TimeBetweenWave: 5
   CountDown: 2
-  SpawnedEnemyCount: 0
   PathToUse: {fileID: 1588850698}
   StartEnemyNumber: 0
 --- !u!4 &931264941
@@ -2456,11 +2455,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd9144fe9467b04eba7300d66e21de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 2393259026772826012, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+  Waves:
+  - Enemies:
+    - Enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      Count: 1
+      rate: 2
+  - Enemies:
+    - Enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      Count: 3
+      rate: 2
+  - Enemies:
+    - Enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      Count: 1
+      rate: 2
+  - Enemies:
+    - Enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      Count: 1
+      rate: 2
+    - Enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      Count: 2
+      rate: 2
   Spawnpoint: {fileID: 1407935434}
-  TimeBetweenWave: 5
+  TimeBetweenWave: 1
   CountDown: 2
-  SpawnedEnemyCount: 0
   PathToUse: {fileID: 1528555350}
   StartEnemyNumber: 0
 --- !u!4 &1407935434
@@ -2626,7 +2643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d353c7f572ebb4d9f015f6b785e68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Points: []
+  Points:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1560422313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,7 +3208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1839160791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3202,11 +3221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd9144fe9467b04eba7300d66e21de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 2393259026772826012, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+  Waves: []
   Spawnpoint: {fileID: 1839160792}
   TimeBetweenWave: 5
   CountDown: 2
-  SpawnedEnemyCount: 0
   PathToUse: {fileID: 1735786247}
   StartEnemyNumber: 0
 --- !u!4 &1839160792
