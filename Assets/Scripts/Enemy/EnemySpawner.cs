@@ -7,7 +7,9 @@ public class EnemySpawner : MonoBehaviour
 {
     public Wave[] Waves;
     [SerializeField] private Transform Spawnpoint;
+    [SerializeField] private float TimeBetweenEnemies = 1f;
     [SerializeField] private float TimeBetweenWave = 2f;
+    [SerializeField] private float EnemyCountDown = 2f;
     [SerializeField] private float CountDown = 2f;
     public static int SpawnedEnemyCount = 0;       
     public WayPoints PathToUse;
@@ -23,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        TimeBetweenWave = Random.Range(0f, 10f);
+        
             
         if (WaveIndex >= Waves.Length)
         {
@@ -40,9 +42,10 @@ public class EnemySpawner : MonoBehaviour
         {
             StartCoroutine(DoSpawn());
             CountDown = TimeBetweenWave;
+            
             return;
         }
-
+        
         CountDown -= Time.deltaTime;
     }
 
@@ -56,8 +59,9 @@ public class EnemySpawner : MonoBehaviour
             {
 
                 SpawnEnemy(enemyEntry.Enemy);
+                TimeBetweenEnemies = Random.Range(0f, 5f);
 
-                yield return new WaitForSeconds(1f / enemyEntry.rate);
+                yield return new WaitForSeconds(TimeBetweenEnemies / enemyEntry.rate);
             }
         }
 

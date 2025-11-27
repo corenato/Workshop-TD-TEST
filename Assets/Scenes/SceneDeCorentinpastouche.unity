@@ -1767,7 +1767,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waves: []
   Spawnpoint: {fileID: 931264941}
+  TimeBetweenEnemies: 1
   TimeBetweenWave: 5
+  EnemyCountDown: 2
   CountDown: 2
   PathToUse: {fileID: 1588850698}
   StartEnemyNumber: 0
@@ -2476,7 +2478,9 @@ MonoBehaviour:
       Count: 2
       rate: 2
   Spawnpoint: {fileID: 1407935434}
-  TimeBetweenWave: 1
+  TimeBetweenEnemies: 1
+  TimeBetweenWave: 12
+  EnemyCountDown: 2
   CountDown: 2
   PathToUse: {fileID: 1528555350}
   StartEnemyNumber: 0
@@ -3223,7 +3227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waves: []
   Spawnpoint: {fileID: 1839160792}
+  TimeBetweenEnemies: 1
   TimeBetweenWave: 5
+  EnemyCountDown: 2
   CountDown: 2
   PathToUse: {fileID: 1735786247}
   StartEnemyNumber: 0
