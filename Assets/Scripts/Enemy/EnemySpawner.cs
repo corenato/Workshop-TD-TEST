@@ -23,26 +23,27 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-            if (WaveIndex >= Waves.Length)
-            {
-                Debug.Log("bravo terminée");
-                return;
-            }
-
-            if (SpawnedEnemyCount > 0)
-            {
-            return;
-            }
-
-            if(CountDown <= 0)
-            {
-                StartCoroutine(DoSpawn());
-                CountDown = TimeBetweenWave;
-            return;
-            }
-
+        TimeBetweenWave = Random.Range(0f, 10f);
             
-            CountDown -= Time.deltaTime;
+        if (WaveIndex >= Waves.Length)
+        {
+            Debug.Log("bravo terminée");
+            return;
+        }
+
+        if (SpawnedEnemyCount > 0)
+        {
+            return;
+        }
+
+        if(CountDown <= 0)
+        {
+            StartCoroutine(DoSpawn());
+            CountDown = TimeBetweenWave;
+            return;
+        }
+
+        CountDown -= Time.deltaTime;
     }
 
     IEnumerator DoSpawn()
