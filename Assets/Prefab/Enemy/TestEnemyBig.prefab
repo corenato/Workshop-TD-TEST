@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2839d094a3ef17144b6112b19299a41a, type: 2}
+  - {fileID: 2100000, guid: d1a232aadf34e3245b555134627c846b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: -3349333781268738123}
   - component: {fileID: 4524243747533579546}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: TestEnemyBig
   m_TagString: GroundEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: {fileID: 0}
-  Speed: 10
+  Speed: 5
 --- !u!114 &-3349333781268738123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2044e59066e2b145b3c91f41a72f8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTotalLife: 5
+  EnemyTotalLife: 10
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   BulletTag: Bullet
 --- !u!65 &4524243747533579546

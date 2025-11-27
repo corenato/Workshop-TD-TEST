@@ -118,6 +118,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2393259026772826012}
   - component: {fileID: 2180693340314734269}
+  - component: {fileID: 2187487971672215091}
+  - component: {fileID: 3493992854985499399}
   m_Layer: 0
   m_Name: 'TestAirEnemy '
   m_TagString: Untagged
@@ -155,3 +157,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: {fileID: 0}
   Speed: 10
+--- !u!65 &2187487971672215091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367948566667848430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9999999, y: 5.9999986, z: 1.9999999}
+  m_Center: {x: 0.50000006, y: 1.0000002, z: 0}
+--- !u!114 &3493992854985499399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367948566667848430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2044e59066e2b145b3c91f41a72f8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyTotalLife: 5
+  DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
+  BulletTag: Bullet
