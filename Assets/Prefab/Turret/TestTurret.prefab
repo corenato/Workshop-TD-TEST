@@ -407,7 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Range: 6
-  EnemyTag: Enemy
+  EnemyTag: GroundEnemy
+  AirEnemyTag: AirEnemy
   PartToRotate: {fileID: 4520125272838815762}
   TurnSpeed: 10
   Firerate: 6

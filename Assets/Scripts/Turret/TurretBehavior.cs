@@ -6,7 +6,8 @@ public class TurretBehavior : MonoBehaviour
     [SerializeField] private Transform Target;
     public float Range = 2f;
 
-    public string EnemyTag = "Enemy";
+    public string EnemyTag = "GroundEnemy";
+    public string AirEnemyTag = "AirEnemy";
 
     public Transform PartToRotate;
 
@@ -60,11 +61,22 @@ public class TurretBehavior : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+        GameObject[] groundEnemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(AirEnemyTag);
         float ShortestDistance = Mathf.Infinity;
         GameObject NearestEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in groundEnemies)
+        {
+            float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (DistanceToEnemy < ShortestDistance)
+            {
+                ShortestDistance = DistanceToEnemy;
+                NearestEnemy = enemy;
+            }
+
+        }
+        foreach (GameObject enemy in airEnemies)
         {
             float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (DistanceToEnemy < ShortestDistance)
