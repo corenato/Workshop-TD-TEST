@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - AirEnemy
   - Bullet
+  - Base
   layers:
   - Default
   - TransparentFX

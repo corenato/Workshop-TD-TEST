@@ -5,9 +5,10 @@ public class EnemyLife : MonoBehaviour
 {
     
     
-    [SerializeField] private float EnemyTotalLife = 5f;
+   [SerializeField] private int EnemyTotalLife = 5;
     public GameObject DyingEffect;
     public string BulletTag = "Bullet";
+    public string BaseTag = "Base";
 
 
     void Start()
@@ -30,18 +31,22 @@ public class EnemyLife : MonoBehaviour
     {
         if (other.tag == BulletTag)
         {
-            EnemyTotalLife = EnemyTotalLife - 1f;
+            EnemyTotalLife = EnemyTotalLife - 1;
             
 
         }
+        if (other.tag == BaseTag)
+        {
+            EnemyDied();
+            EnemySpawner.SpawnedEnemyCount--;
+        }
     }
 
-    void EnemyDied()
+    public void EnemyDied()
     {
         GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
         Destroy(EffectINS, 2f);
         EnemySpawner.SpawnedEnemyCount--;
-
         Destroy(gameObject);
     }
 }
