@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class TurretBehavior : MonoBehaviour
+public class TurretBehaviorAir : MonoBehaviour
 {
    
     [SerializeField] private Transform Target;
     public float Range = 2f;
 
-    public string EnemyTag = "GroundEnemy";
-    public string AirEnemyTag = "AirEnemy";
+    public string EnemyTag = "AirEnemy";
+    
 
     public Transform PartToRotate;
 
@@ -61,21 +61,11 @@ public class TurretBehavior : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] groundEnemies = GameObject.FindGameObjectsWithTag(EnemyTag);
-        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(AirEnemyTag);
+        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+
         float ShortestDistance = Mathf.Infinity;
         GameObject NearestEnemy = null;
 
-        foreach (GameObject enemy in groundEnemies)
-        {
-            float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (DistanceToEnemy < ShortestDistance)
-            {
-                ShortestDistance = DistanceToEnemy;
-                NearestEnemy = enemy;
-            }
-
-        }
         foreach (GameObject enemy in airEnemies)
         {
             float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
@@ -86,6 +76,7 @@ public class TurretBehavior : MonoBehaviour
             }
 
         }
+
 
         if (NearestEnemy != null && ShortestDistance <= Range)
         {
