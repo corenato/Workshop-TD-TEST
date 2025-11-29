@@ -2,37 +2,62 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class TowerBuild : MonoBehaviour
+public class TowerBuild : MonoBehaviour,IPointerDownHandler
 {
     [SerializeField] private GameObject buildPanel;
     [SerializeField] private GameObject halo;
-    
-    
-    
-    
-    
+
+    public Vector3 offset;
+    public TileManager tileManager;
+
+    private GameObject turret;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //halo.SetActive(true);
-        //Debug.Log("Halo avant : " + halo.activeSelf);
+        tileManager = FindAnyObjectByType<TileManager>(); //Cherche le TileManager et l'assigne à la variable correspondante
+        TileManager.instance.RegisterType(this); //Tout GameObject equipe de ce script s'identifie comme tuile constructible
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetHalo() //Illumine toutes les tiles sur lesquelles le joueur peut construire
     {
+       
+        if (turret != null) //Si une tourelle est déja construite sur une tile constructible alors rien ne se passe
+        {
+            return;
+        }
+
+        Instantiate(halo,transform.position + offset, Quaternion.identity);
+    }
+
+    public void SetHaloOff() //Eteint toutes les tiles sur lesquelles le joueur peut construire
+    {
+        GameObject[] HaloList = GameObject.FindGameObjectsWithTag("Halo");
         
+        foreach (GameObject Halo in HaloList)
+        {
+            Destroy(Halo);
+        }
+
     }
 
 
-    public void SetHaloColor()
+
+    public void OnPointerDown(PointerEventData eventData) //Quand je clique sur une tile : 
     {
-        Debug.Log("hello");
-        Debug.Log("Halo avant : " + halo.activeSelf);
-        //halo.SetActive(false);
-        Instantiate(halo,transform.position, Quaternion.identity);
-        Debug.Log("Halo après : " + halo.activeSelf);
-        Debug.Log("coucou");
+        if(turret != null) //Si une tourelle est déja construite sur une tile constructible alors rien ne se passe
+        {
+            return;
+        }
+
+        GameObject TurretToBuild = TileManager.instance.GetTurretToBuild();  //Detecte quelle tourelle est sélectionnee
+        turret = (GameObject)Instantiate(TurretToBuild, transform.position, Quaternion.identity); //Construit la tourelle à l'emplacement de la tile
+        tileManager.DestroyHalo();
+
     }
 }
