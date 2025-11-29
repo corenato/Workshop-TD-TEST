@@ -9,6 +9,7 @@ TagManager:
   - AirEnemy
   - Bullet
   - Base
+  - Constructible
   layers:
   - Default
   - TransparentFX
