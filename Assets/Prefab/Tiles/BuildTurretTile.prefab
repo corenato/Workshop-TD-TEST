@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8212225460631910326}
   - component: {fileID: 8219512551928280266}
   m_Layer: 0
-  m_Name: BuildTile
+  m_Name: BuildTurretTile
   m_TagString: Constructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,10 +6,15 @@ public class TileManager : MonoBehaviour
 {
     public static TileManager instance;
     public List <TowerBuild> buildableTiles = new List<TowerBuild>();
+    public List <MineBuild> buildableMineTiles = new List<MineBuild> ();
 
     public GameObject turretToBuild;
     public GameObject turretAirPrefab;
     public GameObject turretGroundPrefab;
+
+    public GameObject mineToBuild;
+    public GameObject mineCopperPrefab;
+    public GameObject mineGoldPrefab;
 
 
 
@@ -33,7 +38,23 @@ public class TileManager : MonoBehaviour
     {
         foreach (TowerBuild tile in TileManager.instance.buildableTiles)
         {
-            tile.SetHalo();
+            if (turretToBuild == null)
+            {
+                tile.SetHalo();
+            }
+        }      
+
+        
+    }
+
+    public void CreateHaloMine()
+    {
+        foreach (MineBuild tile in TileManager.instance.buildableMineTiles)
+        {
+            if (mineToBuild == null)
+            {
+                tile.SetHalo();
+            }
         }
     }
 
@@ -43,6 +64,14 @@ public class TileManager : MonoBehaviour
         {
             tile.SetHaloOff();
         }
+
+        foreach (MineBuild tile in TileManager.instance.buildableMineTiles)
+        {
+            tile.SetHaloOff();
+        }
+
+        turretToBuild = null;
+        mineToBuild = null;
     }
 
     public void SelectGroundTurret() //La tourelle sol est sélectionnee
@@ -53,5 +82,25 @@ public class TileManager : MonoBehaviour
     public void SelectAirTurret() //La tourelle air est sélectionnee
     {
         turretToBuild = turretAirPrefab;
+    }
+
+    public GameObject GetMineToBuild() //Retourne quelle mine a ete selectionnee
+    {
+        return mineToBuild;
+    }
+
+    public void RegisterTypeMine(MineBuild a) //Ajouter toutes les cases auto-identifiees comme constructibles dans la liste des tiles constructibles
+    {
+        buildableMineTiles.Add(a);
+    }
+
+    public void SelectCopperMine()
+    {
+        mineToBuild = mineCopperPrefab;
+    }
+
+    public void SelectGoldMine()
+    {
+        mineToBuild = mineGoldPrefab;
     }
 }
