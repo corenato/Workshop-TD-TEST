@@ -25,19 +25,19 @@ public class EnemyMovement : MonoBehaviour
 
     private void GetNextWayPoint()
     {
-        if(WayPointIndex >= Path.Points.Length - 1)
+        /*if(WayPointIndex >= Path.Points.Length - 1)
         {
             EndPath();
             return;
-        }
+        }*/
         
         WayPointIndex++;
         Target = Path.Points[WayPointIndex];
     }
 
-    private void EndPath()
+    /*private void EndPath()
     {
-        EnemySpawner.SpawnedEnemyCount--;
+        EnemySpawner.AliveEnemyInWave--;
         Destroy(gameObject);
-    }
+    }*/
 }

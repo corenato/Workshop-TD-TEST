@@ -10,6 +10,7 @@ public class EnemyLife : MonoBehaviour
     public string BulletTag = "Bullet";
     public string BaseTag = "Base";
 
+    private bool IsDead = false;
 
     void Start()
     {
@@ -20,33 +21,43 @@ public class EnemyLife : MonoBehaviour
 
     private void Update()
     {
-        if (EnemyTotalLife <= 0)
-        {
-            EnemyDied();
-
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (IsDead)
+        {
+            return;
+        }
         if (other.tag == BulletTag)
         {
             EnemyTotalLife = EnemyTotalLife - 1;
             
+            if (EnemyTotalLife <= 0)
+            {
+
+                EnemyDied();
+
+            }
 
         }
         if (other.tag == BaseTag)
         {
+            
+            
             EnemyDied();
-            EnemySpawner.SpawnedEnemyCount--;
         }
     }
 
     public void EnemyDied()
     {
+        IsDead = true;
+
+        
         GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
         Destroy(EffectINS, 2f);
-        EnemySpawner.SpawnedEnemyCount--;
         Destroy(gameObject);
+        EnemySpawner.SpawnedEnemyCount--;
     }
 }
