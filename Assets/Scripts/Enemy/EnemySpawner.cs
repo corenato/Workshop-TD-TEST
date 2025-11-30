@@ -6,13 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public Wave[] Waves;
     [SerializeField] private Transform[] SpawnPoints;
-    [SerializeField] private float TimeBetweenEnemies = 1f;
+    //[SerializeField] private float TimeBetweenEnemies = 1f;
     [SerializeField] private float TimeBetweenWave = 2f;
     //[SerializeField] private float EnemyCountDown = 2f;
     [SerializeField] private float CountDown = 2f;
-    [SerializeField] private float MinRange = 0f;
-    [SerializeField] private float MaxRange = 5f;
+    //[SerializeField] private float MinRange = 0f;
+    //[SerializeField] private float MaxRange = 5f;
     public static int SpawnedEnemyCount = 0;
+
     public WayPoints PathToUse;
     private int WaveIndex = 0;
     public int StartEnemyNumber = 0;
@@ -27,7 +28,29 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
+        
         if (WaveIndex >= Waves.Length)
+        {
+            Debug.Log("Wave terminer");
+            return;
+        }
+                
+
+        if (SpawnedEnemyCount > 0)
+        {
+            return;
+        }
+                
+
+        CountDown -= Time.deltaTime;
+
+        if (CountDown <= 0)
+        {
+             StartCoroutine(DoSpawn());
+             CountDown = TimeBetweenWave;
+        }
+        
+        /*if (WaveIndex >= Waves.Length)
         {
             Debug.Log("bravo terminée");
             return;
@@ -42,18 +65,25 @@ public class EnemySpawner : MonoBehaviour
             CountDown = TimeBetweenWave;
             return;
         }
-        CountDown -= Time.deltaTime;
+        CountDown -= Time.deltaTime;*/
     }
     IEnumerator DoSpawn()
     {
         Wave wave = Waves[WaveIndex];
+
+        int total = 0;
+        foreach (var entry in wave.Enemies)
+        { 
+            total += entry.Count;
+        }
+
         foreach (var enemyEntry in wave.Enemies)
         {
             for (int i = 0; i < enemyEntry.Count; i++) 
             { 
                 SpawnEnemy(enemyEntry.Enemy); 
-                TimeBetweenEnemies = Random.Range(MinRange, MaxRange);
-                yield return new WaitForSeconds(TimeBetweenEnemies / enemyEntry.rate); 
+                //TimeBetweenEnemies = Random.Range(MinRange, MaxRange);
+                yield return new WaitForSeconds(2f / enemyEntry.rate); 
             }
         }
 
@@ -70,7 +100,8 @@ public class EnemySpawner : MonoBehaviour
         instance.GetComponent<EnemyMovement>().Path = wp;
 
 
-        SpawnedEnemyCount++; 
+        SpawnedEnemyCount++;
+        Debug.Log(SpawnedEnemyCount);
     }
 }
 
