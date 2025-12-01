@@ -94,4 +94,9 @@ public class TurretBehaviorGround : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, Range);
     }
 
+    public void OnClickLevelOne() 
+    {
+        Range = Range + 2;
+        Debug.Log(Range);
+    }
 }
