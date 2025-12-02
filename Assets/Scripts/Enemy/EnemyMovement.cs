@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void EndPath()
     {
-        EnemySpawner.SpawnedEnemyCount--;
+        EnemySpawner.spawnedEnemyCount--;
         Destroy(gameObject);
     }
 }

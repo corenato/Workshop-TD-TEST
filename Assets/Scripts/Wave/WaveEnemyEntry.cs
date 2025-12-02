@@ -2,7 +2,7 @@ using UnityEngine;
 [System.Serializable]
 public class WaveEnemyEntry
 {
-    public GameObject Enemy;
-    public int Count;
+    public GameObject enemy;
+    public int count;
     public float rate;
 }

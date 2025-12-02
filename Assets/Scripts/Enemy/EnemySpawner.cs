@@ -1,21 +1,21 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Jobs;
-using UnityEngine.UIElements;
+using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     public Wave[] Waves;
-    [SerializeField] private Transform[] SpawnPoints;
+    [SerializeField] private Transform[] spawnPoints;
     //[SerializeField] private float TimeBetweenEnemies = 1f;
-    [SerializeField] private float TimeBetweenWave = 2f;
+    [SerializeField] private float timeBetweenWave = 2f;
     //[SerializeField] private float EnemyCountDown = 2f;
-    [SerializeField] private float CountDown = 2f;
+    [SerializeField] private float countDown = 2f;
     //[SerializeField] private float MinRange = 0f;
     //[SerializeField] private float MaxRange = 5f;
-    public static int SpawnedEnemyCount = 0;
+    public static int spawnedEnemyCount = 0;
+    [SerializeField] private EnemyManager enemyManager;
 
     public WayPoints PathToUse;
-    private int WaveIndex = 0;
+    public int WaveIndex = 0;
     public int StartEnemyNumber = 0;
 
     void Awake()
@@ -28,26 +28,29 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
-        
-        if (WaveIndex >= Waves.Length)
+        //Debug.Log(Time.time);
+
+        //if (WaveIndex <= Waves.Length -1)
+        //{
+        //    Debug.Log("Wave terminer");
+        //    return;
+        //}
+
+
+        if (spawnedEnemyCount > 0)
         {
-            Debug.Log("Wave terminer");
             return;
         }
-                
 
-        if (SpawnedEnemyCount > 0)
+
+
+        countDown -= Time.deltaTime;
+
+        if (countDown <= 0)
         {
-            return;
-        }
-                
-
-        CountDown -= Time.deltaTime;
-
-        if (CountDown <= 0)
-        {
-             StartCoroutine(DoSpawn());
-             CountDown = TimeBetweenWave;
+            StartCoroutine(DoSpawn());
+            WaveIndex++;
+            countDown = timeBetweenWave;
         }
         
         /*if (WaveIndex >= Waves.Length)
@@ -70,38 +73,38 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator DoSpawn()
     {
         Wave wave = Waves[WaveIndex];
+        //spawnedEnemyCount++;
 
-        int total = 0;
-        foreach (var entry in wave.Enemies)
-        { 
-            total += entry.Count;
-        }
+        //int total = wave.enemies.Count;
 
-        foreach (var enemyEntry in wave.Enemies)
+        foreach (var enemyEntry in wave.enemies)
         {
-            for (int i = 0; i < enemyEntry.Count; i++) 
-            { 
-                SpawnEnemy(enemyEntry.Enemy); 
+            for (int i = 0; i < enemyEntry.count; i++) 
+            {
+               var chosen = wave.enemies[Random.Range(0, wave.enemies.Count)];
+               var chosenGO = chosen.enemy;
+
+                SpawnEnemy(chosenGO);
                 //TimeBetweenEnemies = Random.Range(MinRange, MaxRange);
-                yield return new WaitForSeconds(2f / enemyEntry.rate); 
+
+
+                yield return new WaitForSeconds(enemyEntry.rate); 
             }
         }
 
-        
-        WaveIndex++;
     }
     void SpawnEnemy(GameObject enemy) 
     { 
-        Transform randomSpawn = SpawnPoints[Random.Range(0,SpawnPoints.Length)];  
+        Transform randomSpawn = spawnPoints[Random.Range(0,spawnPoints.Length)];  
         GameObject instance = Instantiate(enemy, randomSpawn.position, randomSpawn.rotation);
 
 
         WayPoints wp = randomSpawn.GetComponent<WayPoints>();
-        instance.GetComponent<EnemyMovement>().Path = wp;
+        instance.GetComponent<EnemyManager>().Path = wp;
 
 
-        SpawnedEnemyCount++;
-        Debug.Log(SpawnedEnemyCount);
+        spawnedEnemyCount++;
+        Debug.Log(spawnedEnemyCount);
     }
 }
 

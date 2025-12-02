@@ -117,10 +117,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2393259026772826012}
-  - component: {fileID: 2180693340314734269}
-  - component: {fileID: -3349333781268738123}
   - component: {fileID: 4524243747533579546}
   - component: {fileID: 6532809764907549896}
+  - component: {fileID: -8464139024680998393}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: GroundEnemy
@@ -144,35 +143,6 @@ Transform:
   - {fileID: 1372579044491326164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2180693340314734269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367948566667848430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 458fecc7ccb51c447a0bbfeac14fc717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: {fileID: 0}
-  Speed: 10
---- !u!114 &-3349333781268738123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367948566667848430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2044e59066e2b145b3c91f41a72f8fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyTotalLife: 5
-  DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
-  BulletTag: Bullet
 --- !u!65 &4524243747533579546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,3 +191,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8464139024680998393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367948566667848430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2c1b56244af544cb196fbbbfa5272d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
+  bulletTag: Bullet
+  baseTag: Base
+  Path: {fileID: 0}
+  Speed: 5
+  Target: {fileID: 0}

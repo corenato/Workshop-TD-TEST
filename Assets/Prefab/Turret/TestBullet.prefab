@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   BulletSpeed: 30
+  groundEnemyTag: GroundEnemy
+  bulletDamage: 5
 --- !u!54 &6073174033735786609
 Rigidbody:
   m_ObjectHideFlags: 0

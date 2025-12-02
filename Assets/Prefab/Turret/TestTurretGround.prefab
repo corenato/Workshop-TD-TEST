@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 4416483566797746579}
   m_Layer: 0
   m_Name: TestTurretGround
-  m_TagString: Untagged
+  m_TagString: GroundTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,7 +408,6 @@ MonoBehaviour:
   Target: {fileID: 0}
   Range: 6
   EnemyTag: GroundEnemy
-  AirEnemyTag: AirEnemy
   PartToRotate: {fileID: 4520125272838815762}
   TurnSpeed: 10
   Firerate: 6

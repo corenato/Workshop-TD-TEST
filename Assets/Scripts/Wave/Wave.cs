@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Wave 
 {
-    public WaveEnemyEntry[] Enemies;
+    public List<WaveEnemyEntry> enemies;
 
 }

@@ -11,6 +11,8 @@ TagManager:
   - Base
   - Constructible
   - Halo
+  - GroundTurret
+  - AirTurret
   layers:
   - Default
   - TransparentFX

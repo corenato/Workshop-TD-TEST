@@ -58,6 +58,7 @@ public class EnemyLife : MonoBehaviour
         GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
         Destroy(EffectINS, 2f);
         Destroy(gameObject);
-        EnemySpawner.SpawnedEnemyCount--;
+        EnemySpawner.spawnedEnemyCount--;
+        Debug.Log(EnemySpawner.spawnedEnemyCount);
     }
 }
