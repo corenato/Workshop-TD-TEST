@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private int currentHealth;
+    [SerializeField] private GameObject mainBase;
     public GameObject DyingEffect;
     public string bulletTag = "Bullet";
     public string baseTag = "Base";
@@ -28,13 +30,25 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        Vector3 Dir = Target.position - transform.position;
-        transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, Target.position) <= 0.3f)
+        if (this.gameObject.CompareTag("GroundEnemy"))
         {
-            GetNextWayPoint();
+            Vector3 Dir = Target.position - transform.position;
+            transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(transform.position, Target.position) <= 0.3f)
+            {
+                GetNextWayPoint();
+            }
         }
+
+        if (this.gameObject.CompareTag("AirEnemy"))
+        {
+            Target = Path.Points[Path.Points.Length-2];
+            Vector3 Dir = Target.position - transform.position;
+            transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
+        }
+        
+       
     }
 
     public void EnemyDied()

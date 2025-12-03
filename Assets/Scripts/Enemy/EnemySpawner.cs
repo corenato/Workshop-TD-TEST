@@ -35,8 +35,13 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
-        if (spawnedEnemyCount == deadEnemiesNumber)
+        if (deadEnemiesNumber >= spawnedEnemyCount)
         {
+            if (enemiesToSpawn.Count > 0)
+            {
+                return;
+            }
+            
             countDown -= Time.deltaTime;
 
             if (countDown <= 0)
@@ -54,6 +59,29 @@ public class EnemySpawner : MonoBehaviour
         if (WaveIndex < 0 || WaveIndex >= Waves.Length)
             yield break;
 
+        Wave wave = Waves[WaveIndex];
+
+        // Calculate initial number of enemies (GenerateEnemyList has populated enemiesToSpawn)
+        int totalEnemies = enemiesToSpawn.Count;
+
+        // Guard against division by zero and negative/zero durations
+        float spawnInterval = 1f;
+        if (totalEnemies > 0 && wave.duration > 0f)
+        {
+            spawnInterval = wave.duration / totalEnemies;
+            //spawnInterval = Mathf.Max(0.01f, spawnInterval); // avoid zero / too small
+        }
+
+        // Choose allowed spawn points for this wave (fall back to global spawnPoints)
+        Transform[] allowed = (wave.allowedSpawnPoints != null && wave.allowedSpawnPoints.Length > 0)
+            ? wave.allowedSpawnPoints
+            : spawnPoints;
+
+        if (allowed == null || allowed.Length == 0)
+        {
+            yield break;
+        }
+
         // Spawn until the list is empty. Pick a random index each time.
         while (enemiesToSpawn.Count > 0)
         {
@@ -63,15 +91,15 @@ public class EnemySpawner : MonoBehaviour
             // Remove the chosen enemy from the list to avoid duplicates and to keep the loop correct
             enemiesToSpawn.RemoveAt(index);
 
-            SpawnEnemy(enemyToSpawn);
+            SpawnEnemy(enemyToSpawn, allowed);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(spawnInterval);
         }
-        // No need to Clear() — list should already be empty
     }
-    void SpawnEnemy(GameObject enemy) 
-    { 
-        Transform randomSpawn = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];  
+    void SpawnEnemy(GameObject enemy, Transform[] allowedSpawnPoints)
+    {
+        // pick a random allowed spawn transform
+        Transform randomSpawn = allowedSpawnPoints[UnityEngine.Random.Range(0, allowedSpawnPoints.Length)];
         GameObject instance = Instantiate(enemy, randomSpawn.position, randomSpawn.rotation);
 
         WayPoints wp = randomSpawn.GetComponent<WayPoints>();
@@ -83,6 +111,13 @@ public class EnemySpawner : MonoBehaviour
     public static void DecreaseEnemyCount()
     {
         deadEnemiesNumber++;
+
+        if (spawnedEnemyCount > 0 && deadEnemiesNumber >= spawnedEnemyCount)
+        {
+            spawnedEnemyCount = 0;
+            deadEnemiesNumber = 0;
+        }
+        //Debug.Log("Dead : " + deadEnemiesNumber);
     }
 
     private void GenerateEnemyList()
