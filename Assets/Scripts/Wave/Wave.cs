@@ -6,4 +6,5 @@ public class Wave
 {
     public List<WaveEnemyEntry> enemies;
 
+
 }

@@ -11303,7 +11303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.802419
+      value: -21.31
       objectReference: {fileID: 0}
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15094,7 +15094,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22532,14 +22532,14 @@ MonoBehaviour:
   Waves:
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
-      count: 5
-      rate: 2
+      amount: 4
+      rate: 1
     - enemy: {fileID: 6367948566667848430, guid: b310535187af8054faaaf9458e5219b1, type: 3}
-      count: 5
-      rate: 2
+      amount: 2
+      rate: 1
   - enemies:
-    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
-      count: 10
+    - enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      amount: 10
       rate: 0.5
   spawnPoints:
   - {fileID: 1407935434}
@@ -22548,6 +22548,11 @@ MonoBehaviour:
   timeBetweenWave: 2
   countDown: 2
   enemyManager: {fileID: 0}
+  waveEnemyEntry:
+    enemy: {fileID: 0}
+    amount: 0
+    rate: 0
+  enemiesToSpawn: []
   PathToUse: {fileID: 0}
   WaveIndex: 0
   StartEnemyNumber: 0

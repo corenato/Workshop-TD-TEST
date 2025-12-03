@@ -5,7 +5,7 @@ public class EnemyManager : MonoBehaviour
 {
     
     
-   [SerializeField] private int maxHealth = 5;
+    [SerializeField] private int maxHealth = 5;
     [SerializeField] private int currentHealth;
     public GameObject DyingEffect;
     public string bulletTag = "Bullet";
@@ -44,9 +44,9 @@ public class EnemyManager : MonoBehaviour
         
         GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
         Destroy(EffectINS, 2f);
+        EnemySpawner.DecreaseEnemyCount();
         Destroy(gameObject);
-        EnemySpawner.spawnedEnemyCount--;
-        Debug.Log(EnemySpawner.spawnedEnemyCount);
+        //Debug.Log(EnemySpawner.spawnedEnemyCount);
     }
 
     private void GetNextWayPoint()
@@ -63,13 +63,13 @@ public class EnemyManager : MonoBehaviour
 
     private void EndPath()
     {
-        EnemySpawner.spawnedEnemyCount--;
+        EnemySpawner.DecreaseEnemyCount();
         Destroy(gameObject);
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage; 
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
@@ -81,6 +81,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (other.tag == baseTag)
         {
+            //Debug.Log("Collision");
             EnemyDied();
         }
 

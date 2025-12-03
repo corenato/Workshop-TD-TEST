@@ -3,6 +3,6 @@ using UnityEngine;
 public class WaveEnemyEntry
 {
     public GameObject enemy;
-    public int count;
+    public int amount;
     public float rate;
 }

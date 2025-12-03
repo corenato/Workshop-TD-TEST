@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1372579044491326164}
   - component: {fileID: 588981666140612665}
   - component: {fileID: 2121743284612704622}
-  - component: {fileID: 8391069207971981547}
+  - component: {fileID: 1146666490349596887}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8391069207971981547
+--- !u!65 &1146666490349596887
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2393259026772826012}
   - component: {fileID: 4524243747533579546}
-  - component: {fileID: 6532809764907549896}
+  - component: {fileID: -856289977497599110}
   - component: {fileID: -8464139024680998393}
   m_Layer: 0
   m_Name: TestEnemy
@@ -164,7 +164,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6532809764907549896
+--- !u!54 &-856289977497599110
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
