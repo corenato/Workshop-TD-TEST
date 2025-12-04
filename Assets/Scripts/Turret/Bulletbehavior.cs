@@ -11,6 +11,7 @@ public class Bulletbehavior : MonoBehaviour
 
     [SerializeField] private string groundEnemyTag = "GroundEnemy";
     [SerializeField] private int bulletDamage;
+    [SerializeField] private LayerMask enemyLayer;
 
     public void Seek(Transform _Target)
     {
@@ -48,8 +49,9 @@ public class Bulletbehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag(groundEnemyTag))
+        if (collision.gameObject.TryGetComponent(out EnemyManager enemyManager))
         {
+            Debug.Log(enemyLayer);
             collision.gameObject.GetComponent<EnemyManager>().TakeDamage(bulletDamage);
         }
     }

@@ -15,6 +15,8 @@ public class EnemyManager : MonoBehaviour
 
     private bool IsDead = false;
 
+    public Vector3 targetPosition;
+    public Vector3 offset;
     public WayPoints Path;
     public float Speed = 10f;
     public Transform Target;
@@ -22,8 +24,31 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        Target = Path.Points[0];
         currentHealth = maxHealth;
+
+        if (this.gameObject.CompareTag("GroundEnemy"))
+        {
+            Target = Path.Points[0];
+        }
+
+
+        if (this.gameObject.CompareTag("AirEnemy"))
+        {
+            Target = mainBase.transform;
+            Vector3 position = transform.position;
+            // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
+            position.y += offset.y;
+            transform.position = position;
+        }
+
+        if (this.gameObject.CompareTag("KamikazeEnemy"))
+        {
+            Target = mainBase.transform;
+            Vector3 position = transform.position;
+            // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
+            position.y += offset.y;
+            transform.position = position;
+        }
 
     }
 
@@ -43,12 +68,23 @@ public class EnemyManager : MonoBehaviour
 
         if (this.gameObject.CompareTag("AirEnemy"))
         {
-            Target = Path.Points[Path.Points.Length-2];
+
+            targetPosition = Target.transform.position;
+            targetPosition.y += offset.y;
             Vector3 Dir = Target.position - transform.position;
             transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
         }
-        
-       
+
+        if (this.gameObject.CompareTag("KamikazeEnemy"))
+        {
+
+            targetPosition = Target.transform.position;
+            targetPosition.y += offset.y;
+            Vector3 Dir = Target.position - transform.position;
+            transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
+        }
+
+
     }
 
     public void EnemyDied()
@@ -93,11 +129,28 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == baseTag)
+        if (other.gameObject.CompareTag("Base"))
         {
-            //Debug.Log("Collision");
+            Debug.Log("Collision");
             EnemyDied();
         }
+
+        if (Target.gameObject.CompareTag("Base"))
+        {
+            if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("AirTurret"))
+            {
+                //Debug.Log("Target changed : " + other.gameObject.name);
+                Target = other.gameObject.transform;
+            }
+
+            if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("GroundTurret"))
+            {
+                //Debug.Log("Target changed : " + other.gameObject.name);
+                Target = other.gameObject.transform;
+            }
+        }
+
+        
 
         if (IsDead)
         {

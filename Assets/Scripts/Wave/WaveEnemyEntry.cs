@@ -4,5 +4,5 @@ public class WaveEnemyEntry
 {
     public GameObject enemy;
     public int amount;
-    public float rate;
+    //public float rate;
 }

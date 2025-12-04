@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 588981666140612665}
   - component: {fileID: 2121743284612704622}
   - component: {fileID: 8391069207971981547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4524243747533579546}
   - component: {fileID: -233484018840892650}
   - component: {fileID: -8354161263023489315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestEnemysmall
   m_TagString: GroundEnemy
   m_Icon: {fileID: 0}
@@ -205,9 +205,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  mainBase: {fileID: 332244757944470637, guid: 3a9e3783eb373384a8a1f4ce71291f51, type: 3}
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   bulletTag: Bullet
   baseTag: Base
+  targetPosition: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   Path: {fileID: 0}
   Speed: 5
   Target: {fileID: 0}

@@ -6,15 +6,15 @@ public class TurretBehaviorAir : MonoBehaviour
     [SerializeField] private Transform Target;
     public float Range = 2f;
 
-    public string EnemyTag = "AirEnemy";
-    
+    public string airEnemyTag = "AirEnemy";
+
 
     public Transform PartToRotate;
 
     [SerializeField] private float TurnSpeed = 10f;
 
     public float Firerate = 1f;
-    private float FireCoutDown = 0f;
+    public float FireCoutDown = 0f;
 
     public GameObject BulletPrefab;
     public Transform FirePoint;
@@ -28,6 +28,8 @@ public class TurretBehaviorAir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FireCoutDown -= Time.deltaTime;
+
         if (Target == null)
         {
             return;
@@ -41,11 +43,8 @@ public class TurretBehaviorAir : MonoBehaviour
         if (FireCoutDown <= 0f)
         {
             Shoot();
-            FireCoutDown = 1 / Firerate;
+            FireCoutDown = Firerate;
         }
-
-        FireCoutDown -= Time.deltaTime;
-
     }
 
     void Shoot()
@@ -61,7 +60,7 @@ public class TurretBehaviorAir : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(airEnemyTag); 
 
         float ShortestDistance = Mathf.Infinity;
         GameObject NearestEnemy = null;

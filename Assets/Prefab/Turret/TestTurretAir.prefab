@@ -369,6 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370140859682689349}
   - component: {fileID: 3503375702437671467}
+  - component: {fileID: 20119001372175496}
   m_Layer: 0
   m_Name: TestTurretAir
   m_TagString: AirTurret
@@ -407,9 +408,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Range: 6
-  EnemyTag: AirEnemy
+  airEnemyTag: AirEnemy
   PartToRotate: {fileID: 4520125272838815762}
-  TurnSpeed: 10
+  TurnSpeed: 20
   Firerate: 1
   BulletPrefab: {fileID: 7054791219434266484, guid: 26b6b336d43093b41ba83bf3de13abdb, type: 3}
   FirePoint: {fileID: 5359938102093338828}
+--- !u!135 &20119001372175496
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150069158098898786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}

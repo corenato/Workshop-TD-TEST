@@ -103,4 +103,9 @@ public class TileManager : MonoBehaviour
     {
         mineToBuild = mineGoldPrefab;
     }
+
+    public void SlowMotion()
+    {
+        Time.timeScale = 0.2f;
+    }
 }

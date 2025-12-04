@@ -28,6 +28,8 @@ public class TurretBehaviorGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FireCoutDown -= Time.deltaTime;
+
         if (Target == null)
         {
             return;
@@ -43,9 +45,6 @@ public class TurretBehaviorGround : MonoBehaviour
             Shoot();
             FireCoutDown = 1 / Firerate;
         }
-
-        FireCoutDown -= Time.deltaTime;
-
     }
 
     void Shoot()
