@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/S_MainMenu.unity
+    guid: 6f608150444a4fd44809b5d7c8239d08
+  - enabled: 1
     path: Assets/Scenes/SceneDeCorentinpastouche.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/S_Settings.unity
+    guid: b0db64a1b1484864aa0465c98230c631
+  - enabled: 1
+    path: Assets/Scenes/S_Zoo.unity
+    guid: f85690abf2e9b8848abf53cd44692bb6
+  - enabled: 1
+    path: Assets/Scenes/S_Blockout.unity
+    guid: f8882c62111873849913d4893401f780
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
