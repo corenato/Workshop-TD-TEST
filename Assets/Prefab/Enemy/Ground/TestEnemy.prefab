@@ -205,7 +205,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  mainBase: {fileID: 332244757944470637, guid: 3a9e3783eb373384a8a1f4ce71291f51, type: 3}
+  damageToTurret: 0
+  damageToBase: 5
+  scrapDrop: 10
+  mainBase: {fileID: 0}
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   bulletTag: Bullet
   baseTag: Base

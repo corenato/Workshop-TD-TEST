@@ -51,7 +51,7 @@ public class Bulletbehavior : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out EnemyManager enemyManager))
         {
-            Debug.Log(enemyLayer);
+            //Debug.Log(enemyLayer);
             collision.gameObject.GetComponent<EnemyManager>().TakeDamage(bulletDamage);
         }
     }

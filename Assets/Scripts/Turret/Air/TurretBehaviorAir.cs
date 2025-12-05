@@ -4,15 +4,13 @@ public class TurretBehaviorAir : MonoBehaviour
 {
    
     [SerializeField] private Transform Target;
-    public float Range = 2f;
-
-    public string airEnemyTag = "AirEnemy";
-
-
-    public Transform PartToRotate;
-
+    [SerializeField] public int turretMaxHealth;
+    [SerializeField] public int turretCurrentHealth;
     [SerializeField] private float TurnSpeed = 10f;
 
+    public float Range = 2f;
+    public string airEnemyTag = "AirEnemy";
+    public Transform PartToRotate;
     public float Firerate = 1f;
     public float FireCoutDown = 0f;
 
@@ -22,6 +20,7 @@ public class TurretBehaviorAir : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        turretCurrentHealth = turretMaxHealth;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
     }
 
@@ -91,6 +90,17 @@ public class TurretBehaviorAir : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Range);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        turretCurrentHealth -= damage;
+        //Debug.Log("Damage");
+
+        if (turretCurrentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

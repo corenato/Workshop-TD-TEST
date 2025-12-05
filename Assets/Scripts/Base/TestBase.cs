@@ -2,14 +2,32 @@ using UnityEngine;
 
 public class TestBase : MonoBehaviour
 {
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("OUCH");
+    [SerializeField] private int maxBaseHealth;
+    [SerializeField] private int currentBaseHealth;
 
-    //    EnemyLife life = other.GetComponent<EnemyLife>();
-    //    if (life != null)
-    //    {
-    //        life.EnemyDied();
-    //    }
-    //}
+    [SerializeField] public int currentScrap;
+
+
+    void Start()
+    {
+        currentBaseHealth = maxBaseHealth;
+        currentScrap = 0;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentBaseHealth -= damage;
+        //Debug.Log(currentBaseHealth);
+
+        if (currentBaseHealth <= 0)
+        {
+            //GameOver();
+        }
+    }
+
+    public void ScrapGain(int scrap)
+    {
+        currentScrap += scrap;
+        Debug.Log("Current scrap : " +  currentScrap);
+    }
 }

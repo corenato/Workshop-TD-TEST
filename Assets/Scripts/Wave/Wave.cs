@@ -6,7 +6,7 @@ public class Wave
 {
     public List<WaveEnemyEntry> enemies;
 
-    public int duration = 10;
+    public float duration = 10;
 
     public Transform[] allowedSpawnPoints;
 

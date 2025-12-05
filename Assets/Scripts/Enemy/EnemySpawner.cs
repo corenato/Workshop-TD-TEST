@@ -65,10 +65,11 @@ public class EnemySpawner : MonoBehaviour
         int totalEnemies = enemiesToSpawn.Count;
 
         // Guard against division by zero and negative/zero durations
-        float spawnInterval = 1f;
+        float spawnInterval = 0f;
         if (totalEnemies > 0 && wave.duration > 0f)
         {
             spawnInterval = wave.duration / totalEnemies;
+            //Debug.Log(spawnInterval);
             //spawnInterval = Mathf.Max(0.01f, spawnInterval); // avoid zero / too small
         }
 
