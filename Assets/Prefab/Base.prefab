@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2360773013878862237}
   - component: {fileID: 7063573555193121720}
   - component: {fileID: 6203764055828844172}
+  - component: {fileID: 8368165569755170376}
   - component: {fileID: 7165140378389621727}
   m_Layer: 0
   m_Name: Base
@@ -103,6 +104,21 @@ MonoBehaviour:
   maxBaseHealth: 100
   currentBaseHealth: 0
   currentScrap: 0
+  currentCopper: 0
+--- !u!114 &8368165569755170376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332244757944470637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436abc5bb69f44e458c26765b39ec37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copperMine: {fileID: 0}
+  mainBase: {fileID: 0}
 --- !u!65 &7165140378389621727
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class TowerBuild : MonoBehaviour,IPointerDownHandler
     public Vector3 offset;
     public TileManager tileManager;
 
-    private GameObject turret;
+    public GameObject turret;
 
 
 
@@ -54,7 +54,7 @@ public class TowerBuild : MonoBehaviour,IPointerDownHandler
         {
             return;
         }
-
+        
         GameObject TurretToBuild = TileManager.instance.GetTurretToBuild();  //Detecte quelle tourelle est sélectionnee
         turret = (GameObject)Instantiate(TurretToBuild, transform.position, Quaternion.identity); //Construit la tourelle à l'emplacement de la tile
         tileManager.DestroyHalo();

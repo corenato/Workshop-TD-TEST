@@ -15,7 +15,7 @@ public class MineBuild : MonoBehaviour, IPointerDownHandler
     public TestBase mainBase;
     public EnemySpawner enemySpawner;
 
-    private GameObject mine;
+    public GameObject mine;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,7 +53,6 @@ public class MineBuild : MonoBehaviour, IPointerDownHandler
         {
             return;
         }
-
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
         mine = (GameObject)Instantiate(MineToBuild, transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
         mine.GetComponent<CopperMine>().mainBase = mainBase;

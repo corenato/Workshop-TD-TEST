@@ -8,17 +8,17 @@ public class TestBase : MonoBehaviour
     [SerializeField] public int currentScrap;
     [SerializeField] public int currentCopper;
 
-    [SerializeField] private CopperMine copperMine;
-    [SerializeField] private GameObject cpMine;
+    //[SerializeField] private CopperMine copperMine;
+    //[SerializeField] private GameObject cpMine;
 
 
     void Start()
     {
-        cpMine = GameObject.FindGameObjectWithTag("CopperMine");
-        copperMine = cpMine.GetComponent<CopperMine>();
+        //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
+        //copperMine = cpMine.GetComponent<CopperMine>();
         currentBaseHealth = maxBaseHealth;
         currentScrap = 0;
-        currentCopper = copperMine.resourceTotal;
+        //currentCopper = copperMine.resourceTotal;
     }
 
     void Update()

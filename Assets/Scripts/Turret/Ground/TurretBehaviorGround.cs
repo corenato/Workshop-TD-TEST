@@ -42,7 +42,7 @@ public class TurretBehaviorGround : MonoBehaviour
         if (FireCoutDown <= 0f)
         {
             Shoot();
-            FireCoutDown = 1 / Firerate;
+            FireCoutDown = Firerate;
         }
     }
 

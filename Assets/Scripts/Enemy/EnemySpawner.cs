@@ -54,6 +54,7 @@ public class EnemySpawner : MonoBehaviour
                 StartCoroutine(oneWave());
                 WaveIndex++;
                 countDown = timeBetweenWave;
+                copperMine.hasMinedThisTurn = false;
             }
         }
 
@@ -113,24 +114,11 @@ public class EnemySpawner : MonoBehaviour
         instance.GetComponent<EnemyManager>().Path = wp;
 
         enemiesSpawned.Add(instance);
-
-        //spawnedEnemyCount++;
-        Debug.Log("Spawned : " + spawnedEnemyCount);
     }
 
     public void DecreaseEnemyCount(GameObject enemy)
     {
-        //deadEnemiesNumber++;
         enemiesSpawned.Remove(enemy);
-
-        //if (enemiesToSpawn.Count <= 0 && deadEnemiesNumber >= spawnedEnemyCount)
-        //{
-        //    spawnedEnemyCount = 0;
-        //    deadEnemiesNumber = 0;
-        //    Debug.Log("Resetspawn " + spawnedEnemyCount);
-        //    Debug.Log("Resetdead " + deadEnemiesNumber);
-        //}
-        //Debug.Log("Dead : " + deadEnemiesNumber);
     }
 
     private void GenerateEnemyList()

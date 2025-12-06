@@ -2,22 +2,27 @@ using UnityEngine;
 
 public class CopperMine : MonoBehaviour
 {
-    [SerializeField] private int mineGlobalLevel;
-    [SerializeField] private int mineProductionLevel;
-    [SerializeField] private int mineDurabilityLevel;
-    [SerializeField] private int mineDurability;
-    [SerializeField] private int resourceGain;
-    [SerializeField] private int resourceRaw;
-    [SerializeField] public int resourceTotal;
+    public int mineGlobalLevel;
+    public int mineProductionLevel;
+    public int mineDurabilityLevel;
+    public int mineDurability;
+    public int resourceGain;
+    public int resourceRaw;
+    public int resourceTotal;
 
     public TestBase mainBase;
+    public ResourceManager resourceManager;
     public EnemySpawner enemySpawner;
 
     public bool isMining = true;
+    public bool hasMinedThisTurn;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
+        resourceManager = mainBase.GetComponent<ResourceManager>();
+
         mineGlobalLevel = 1;
         mineProductionLevel = 0;
         mineDurabilityLevel = 0;
@@ -26,7 +31,8 @@ public class CopperMine : MonoBehaviour
         resourceTotal = 0;
         isMining = true;
         enemySpawner.copperMine = this;
-    }
+        hasMinedThisTurn = false;
+}
 
     // Update is called once per frame
     void Update()
@@ -38,10 +44,12 @@ public class CopperMine : MonoBehaviour
     {
         if (isMining == true)
         {
-            Debug.Log("Before : " + resourceTotal);
-            resourceTotal += resourceGain;
-            UpdateDurability();
-            Debug.Log("After : " + resourceTotal);
+            if (hasMinedThisTurn == false)
+            {
+                resourceTotal += resourceGain;
+                UpdateDurability();
+                hasMinedThisTurn = true;
+            }
         }
     }
 
@@ -58,14 +66,11 @@ public class CopperMine : MonoBehaviour
         }
     }
 
-    public void UpgradeProduction()
-    {
-        mineProductionLevel++;
-        resourceRaw = Mathf.CeilToInt((float)(resourceRaw * 1.5));
-    }
-
     public void UpgradeDurability()
     {
-
+        mineDurability++;
+        mineDurabilityLevel++;
+        mineGlobalLevel++;
+        isMining = true;
     }
 }

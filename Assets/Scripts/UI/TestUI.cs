@@ -5,6 +5,7 @@ public class TestUI : MonoBehaviour
 {
     [SerializeField] private TestBase mainBase;
     [SerializeField] private CopperMine copperMine;
+    [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private TextMeshProUGUI scrapAmount;
     [SerializeField] private TextMeshProUGUI copperAmount;
     
@@ -18,6 +19,6 @@ public class TestUI : MonoBehaviour
     void Update()
     {
         scrapAmount.text = "Scrap : " + mainBase.currentScrap;
-        copperAmount.text = "Copper : " + copperMine.resourceTotal;
+        copperAmount.text = "Copper : " + enemySpawner.copperMine.resourceTotal;
     }
 }

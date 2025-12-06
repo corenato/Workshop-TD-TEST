@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4598317277343304731}
   - component: {fileID: 245588707082965903}
   - component: {fileID: 424961750334252742}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 7032197775756220745}
   - component: {fileID: 2879706361041921504}
   - component: {fileID: 5264468849766975871}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 8374587813689253145}
   - component: {fileID: 5906511980870456693}
   - component: {fileID: 8164479751231127478}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5359938102093338828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 20119001372175496}
   - component: {fileID: -4360840882991215920}
   - component: {fileID: 4060012935941723842}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestTurretAir
   m_TagString: AirTurret
   m_Icon: {fileID: 0}
@@ -415,7 +415,7 @@ MonoBehaviour:
   Range: 6
   airEnemyTag: AirEnemy
   PartToRotate: {fileID: 4520125272838815762}
-  Firerate: 1
+  Firerate: 0.5
   FireCoutDown: 0
   BulletPrefab: {fileID: 7054791219434266484, guid: 26b6b336d43093b41ba83bf3de13abdb, type: 3}
   FirePoint: {fileID: 5359938102093338828}
