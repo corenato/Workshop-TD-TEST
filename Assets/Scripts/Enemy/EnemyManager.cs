@@ -11,7 +11,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int damageToTurret;
     [SerializeField] private int damageToBase;
     [SerializeField] private int scrapDrop;
-    
+
+    public EnemySpawner enemySpawner;
+    [Space]
     public GameObject mainBase;
     public GameObject DyingEffect;
     public string bulletTag = "Bullet";
@@ -84,8 +86,8 @@ public class EnemyManager : MonoBehaviour
         
         GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
         Destroy(EffectINS, 2f);
-        EnemySpawner.DecreaseEnemyCount();
-        Destroy(gameObject);
+        enemySpawner.DecreaseEnemyCount(this.gameObject);
+        Destroy(this.gameObject);
         //Debug.Log(EnemySpawner.spawnedEnemyCount);
     }
 
@@ -103,8 +105,8 @@ public class EnemyManager : MonoBehaviour
 
     private void EndPath()
     {
-        EnemySpawner.DecreaseEnemyCount();
-        Destroy(gameObject);
+        enemySpawner.DecreaseEnemyCount(this.gameObject);
+        Destroy(this.gameObject);
     }
 
     public void TakeDamage(int damage)

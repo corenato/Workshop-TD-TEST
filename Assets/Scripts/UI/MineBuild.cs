@@ -12,6 +12,8 @@ public class MineBuild : MonoBehaviour, IPointerDownHandler
 
     public Vector3 offset;
     public TileManager tileManager;
+    public TestBase mainBase;
+    public EnemySpawner enemySpawner;
 
     private GameObject mine;
 
@@ -54,6 +56,8 @@ public class MineBuild : MonoBehaviour, IPointerDownHandler
 
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
         mine = (GameObject)Instantiate(MineToBuild, transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
+        mine.GetComponent<CopperMine>().mainBase = mainBase;
+        mine.GetComponent<CopperMine>().enemySpawner = enemySpawner;
         tileManager.DestroyHalo();
 
     }

@@ -17,6 +17,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] public WaveEnemyEntry waveEnemyEntry;
     [SerializeField] private List<GameObject> enemiesToSpawn;
+    [SerializeField] private List<GameObject> enemiesSpawned;
+
+    public CopperMine copperMine;
+    [SerializeField] private GameObject cpMine;
 
     public WayPoints PathToUse;
     public int WaveIndex = 0;
@@ -31,18 +35,18 @@ public class EnemySpawner : MonoBehaviour
     }
     public void Start()
     {
-        Debug.Log(WaveIndex);
+        
     }
     void Update()
     {
-        if (deadEnemiesNumber >= spawnedEnemyCount)
+        if (enemiesToSpawn.Count == 0 && enemiesSpawned.Count == 0)
         {
-            if (enemiesToSpawn.Count > 0)
-            {
-                return;
-            }
-            
             countDown -= Time.deltaTime;
+
+            if(copperMine != null)
+            {
+                copperMine.ProduceResource();
+            }
 
             if (countDown <= 0)
             {
@@ -52,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
                 countDown = timeBetweenWave;
             }
         }
+
     }
     IEnumerator oneWave()
     {
@@ -104,20 +109,27 @@ public class EnemySpawner : MonoBehaviour
         GameObject instance = Instantiate(enemy, randomSpawn.position, randomSpawn.rotation);
 
         WayPoints wp = randomSpawn.GetComponent<WayPoints>();
+        instance.GetComponent<EnemyManager>().enemySpawner = this;
         instance.GetComponent<EnemyManager>().Path = wp;
 
-        spawnedEnemyCount++;
+        enemiesSpawned.Add(instance);
+
+        //spawnedEnemyCount++;
+        Debug.Log("Spawned : " + spawnedEnemyCount);
     }
 
-    public static void DecreaseEnemyCount()
+    public void DecreaseEnemyCount(GameObject enemy)
     {
-        deadEnemiesNumber++;
+        //deadEnemiesNumber++;
+        enemiesSpawned.Remove(enemy);
 
-        if (spawnedEnemyCount > 0 && deadEnemiesNumber >= spawnedEnemyCount)
-        {
-            spawnedEnemyCount = 0;
-            deadEnemiesNumber = 0;
-        }
+        //if (enemiesToSpawn.Count <= 0 && deadEnemiesNumber >= spawnedEnemyCount)
+        //{
+        //    spawnedEnemyCount = 0;
+        //    deadEnemiesNumber = 0;
+        //    Debug.Log("Resetspawn " + spawnedEnemyCount);
+        //    Debug.Log("Resetdead " + deadEnemiesNumber);
+        //}
         //Debug.Log("Dead : " + deadEnemiesNumber);
     }
 
