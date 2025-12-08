@@ -3,6 +3,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public CopperMine copperMine;
+    public GoldMine goldMine;
     public TestBase mainBase;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +16,7 @@ public class ResourceManager : MonoBehaviour
     void Update()
     {
         copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
     }
 
     public void UpgradeCopperProduction()
@@ -77,6 +79,73 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 50;
             copperMine.mineDurability = 3 + copperMine.mineDurabilityLevel;
             copperMine.isMining = true;
+        }
+    }
+
+    public void UpgradeGoldProduction()
+    {
+        if (goldMine.mineProductionLevel == 0)
+        {
+            if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
+            {
+                mainBase.currentScrap -= 42;
+                copperMine.resourceTotal -= 9;
+                goldMine.mineProductionLevel++;
+                goldMine.mineGlobalLevel++;
+                goldMine.resourceRaw = Mathf.CeilToInt((float)(goldMine.resourceRaw * 1.5));
+            }
+        }
+
+        else if (goldMine.mineProductionLevel == 1)
+        {
+            if (mainBase.currentScrap >= 27 && copperMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
+            {
+                mainBase.currentScrap -= 27;
+                copperMine.resourceTotal -= 14;
+                goldMine.resourceTotal -= 7;
+                goldMine.mineProductionLevel++;
+                goldMine.mineGlobalLevel++;
+                goldMine.resourceRaw = Mathf.CeilToInt((float)(goldMine.resourceRaw * 1.5));
+            }
+        }
+    }
+
+    public void UpgradeGoldDurability()
+    {
+        if (goldMine.mineDurabilityLevel == 0)
+        {
+            if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
+            {
+                mainBase.currentScrap -= 42;
+                copperMine.resourceTotal -= 9;
+                goldMine.mineDurabilityLevel++;
+                goldMine.mineGlobalLevel++;
+                goldMine.mineDurability++;
+                goldMine.isMining = true;
+            }
+        }
+        else if (goldMine.mineDurabilityLevel == 1)
+        {
+            if (mainBase.currentScrap >= 27 && goldMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
+            {
+                mainBase.currentScrap -= 27;
+                copperMine.resourceTotal -= 14;
+                goldMine.resourceTotal -= 7;
+                goldMine.mineDurabilityLevel++;
+                goldMine.mineGlobalLevel++;
+                goldMine.mineDurability++;
+                goldMine.isMining = true;
+            }
+        }
+    }
+
+    public void RepairGoldMine()
+    {
+        if (goldMine.mineDurability <= 0 && mainBase.currentScrap >= 50)
+        {
+            mainBase.currentScrap -= 50;
+            goldMine.mineDurability = 3 + goldMine.mineDurabilityLevel;
+            goldMine.isMining = true;
         }
     }
 }

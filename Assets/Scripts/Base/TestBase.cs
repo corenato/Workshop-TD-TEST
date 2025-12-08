@@ -6,7 +6,7 @@ public class TestBase : MonoBehaviour
     [SerializeField] private int currentBaseHealth;
 
     [SerializeField] public int currentScrap;
-    [SerializeField] public int currentCopper;
+    //[SerializeField] public int currentCopper;
 
     //[SerializeField] private CopperMine copperMine;
     //[SerializeField] private GameObject cpMine;

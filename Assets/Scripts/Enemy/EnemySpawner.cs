@@ -22,6 +22,9 @@ public class EnemySpawner : MonoBehaviour
     public CopperMine copperMine;
     [SerializeField] private GameObject cpMine;
 
+    public GoldMine goldMine;
+    [SerializeField] private GameObject gdMine;
+
     public WayPoints PathToUse;
     public int WaveIndex = 0;
     public int StartEnemyNumber = 0;
@@ -46,6 +49,11 @@ public class EnemySpawner : MonoBehaviour
             if(copperMine != null)
             {
                 copperMine.ProduceResource();
+            }
+
+            if(goldMine != null)
+            {
+                goldMine.ProduceResource();
             }
 
             if (countDown <= 0)

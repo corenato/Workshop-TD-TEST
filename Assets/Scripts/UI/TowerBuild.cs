@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class TowerBuild : MonoBehaviour,IPointerDownHandler
+public class TowerBuild : MonoBehaviour
 {
     [SerializeField] private GameObject buildPanel;
     [SerializeField] private GameObject halo;
@@ -13,8 +13,6 @@ public class TowerBuild : MonoBehaviour,IPointerDownHandler
     public TileManager tileManager;
 
     public GameObject turret;
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +46,7 @@ public class TowerBuild : MonoBehaviour,IPointerDownHandler
 
 
 
-    public void OnPointerDown(PointerEventData eventData) //Quand je clique sur une tile : 
+    public void InstallTurret() //Quand je clique sur une tile : 
     {
         if(turret != null) //Si une tourelle est déja construite sur une tile constructible alors rien ne se passe
         {

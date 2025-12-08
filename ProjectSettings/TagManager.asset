@@ -15,6 +15,7 @@ TagManager:
   - AirTurret
   - KamikazeEnemy
   - CopperMine
+  - GoldMine
   layers:
   - Default
   - TransparentFX
