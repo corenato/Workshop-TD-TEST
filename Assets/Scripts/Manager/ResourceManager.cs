@@ -5,11 +5,13 @@ public class ResourceManager : MonoBehaviour
     public CopperMine copperMine;
     public GoldMine goldMine;
     public TestBase mainBase;
+    public MineBuild[] mineBuild;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainBase = this.gameObject.GetComponent<TestBase>();
+        mineBuild = FindObjectsByType<MineBuild>((FindObjectsSortMode)FindObjectsInactive.Exclude);
     }
 
     // Update is called once per frame
@@ -17,6 +19,25 @@ public class ResourceManager : MonoBehaviour
     {
         copperMine = FindAnyObjectByType<CopperMine>();
         goldMine = FindAnyObjectByType<GoldMine>();
+    }
+
+    public void BuildCopperMine(MineBuild mineBuild)
+    {
+        if(mainBase.currentScrap >= 40)
+        {
+            mainBase.currentScrap -= 40;
+            mineBuild.InstallMine();
+        }
+    }
+
+    public void BuildGoldMine(MineBuild mineBuild)
+    {
+        if (mainBase.currentScrap >= 32 && copperMine.resourceTotal >= 4)
+        {
+            mainBase.currentScrap -= 32;
+            copperMine.resourceTotal -= 4;
+            mineBuild.InstallMine();
+        }
     }
 
     public void UpgradeCopperProduction()
@@ -147,5 +168,10 @@ public class ResourceManager : MonoBehaviour
             goldMine.mineDurability = 3 + goldMine.mineDurabilityLevel;
             goldMine.isMining = true;
         }
+    }
+
+    public void GroundTurretToDamage()
+    {
+
     }
 }

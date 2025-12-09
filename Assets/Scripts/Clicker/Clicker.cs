@@ -1,20 +1,24 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Clicker : MonoBehaviour
 {
     [SerializeField] private float depthDetection = 1000f;
-    [SerializeField] private MineBuild mineBuild;
+    public MineBuild mineBuild;
     [SerializeField] private TowerBuild towerBuild;
+    [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private TileManager tileManager;
+    
 
     private bool canBuild;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        resourceManager = FindAnyObjectByType<ResourceManager>();
+        tileManager = FindAnyObjectByType<TileManager>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,14 @@ public class Clicker : MonoBehaviour
                 canBuild = true;
             }
 
+            else if(hit.collider.gameObject.CompareTag("GroundTurret") || hit.collider.gameObject.CompareTag("AirTurret"))
+            {
+                //hit.collider.gameObject.GetComponent<>();
+                mineBuild = null;
+                canBuild = false;
+            }
+
+
             else
             {
                 mineBuild = null;
@@ -45,15 +57,26 @@ public class Clicker : MonoBehaviour
     {
         if (canBuild)
         {
-            if(mineBuild != null)
+
+            if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("CopperMine"))
             {
-                mineBuild.InstallMine();
+                resourceManager.BuildCopperMine(mineBuild);
             }
-            
-            if(towerBuild != null)
+
+            else if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("GoldMine"))
+            {
+                resourceManager.BuildGoldMine(mineBuild);
+            }
+
+            else if (towerBuild != null)
             {
                 towerBuild.InstallTurret();
             }
         }
+    }
+
+    public void OnTurretClick()
+    {
+
     }
 }

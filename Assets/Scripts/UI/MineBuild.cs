@@ -9,6 +9,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
 {
     [SerializeField] private GameObject buildPanel;
     [SerializeField] private GameObject halo;
+    [SerializeField] private Clicker clicker;
 
     public Vector3 offset;
     public TileManager tileManager;
@@ -23,6 +24,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
     {
         mainBase = FindAnyObjectByType<TestBase>();
         enemySpawner = FindAnyObjectByType<EnemySpawner>();
+        clicker = FindAnyObjectByType<Clicker>();
         tileManager = FindAnyObjectByType<TileManager>(); //Cherche le TileManager et l'assigne à la variable correspondante
         TileManager.instance.RegisterTypeMine(this); //Tout GameObject equipe de ce script s'identifie comme tuile constructible
     }
@@ -56,12 +58,24 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
         {
             return;
         }
+        Debug.Log("1");
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
-        mine = (GameObject)Instantiate(MineToBuild, transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
+        Debug.Log("2");
+        mine = (GameObject)Instantiate(MineToBuild, clicker.mineBuild.transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
+        Debug.Log("3");
         tileManager.DestroyHalo();
-        mine.GetComponent<CopperMine>().mainBase = mainBase;
-        mine.GetComponent<CopperMine>().enemySpawner = enemySpawner;
-        mine.GetComponent<GoldMine>().mainBase = mainBase;
-        mine.GetComponent<GoldMine>().enemySpawner = enemySpawner;
+
+        if (mine.GetComponent<CopperMine>() != null)
+        {
+            mine.GetComponent<CopperMine>().mainBase = mainBase;
+            mine.GetComponent<CopperMine>().enemySpawner = enemySpawner;
+        }
+       
+        if (mine.GetComponent<GoldMine>() != null)
+        {
+            mine.GetComponent<GoldMine>().mainBase = mainBase;
+            mine.GetComponent<GoldMine>().enemySpawner = enemySpawner;
+        }
+
     }
 }

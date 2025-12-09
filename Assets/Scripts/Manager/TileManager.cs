@@ -24,6 +24,11 @@ public class TileManager : MonoBehaviour
       instance = this;
     }
 
+    private void Update()
+    {
+        //Debug.Log(mineToBuild);
+    }
+
     public GameObject GetTurretToBuild() //Retourne quelle tourelle a ete selectionnee
     {
         return turretToBuild;

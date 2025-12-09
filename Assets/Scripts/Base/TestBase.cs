@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TestBase : MonoBehaviour
 {
-    [SerializeField] private int maxBaseHealth;
-    [SerializeField] private int currentBaseHealth;
+    [SerializeField] public int maxBaseHealth;
+    [SerializeField] public int currentBaseHealth;
 
     [SerializeField] public int currentScrap;
     //[SerializeField] public int currentCopper;
@@ -12,7 +12,7 @@ public class TestBase : MonoBehaviour
     //[SerializeField] private GameObject cpMine;
 
 
-    void Start()
+    void Awake()
     {
         //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
         //copperMine = cpMine.GetComponent<CopperMine>();

@@ -21,7 +21,7 @@ public class CopperMine : MonoBehaviour
     void Start()
     {
         //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
-        resourceManager = mainBase.GetComponent<ResourceManager>();
+        //resourceManager = mainBase.GetComponent<ResourceManager>();
 
         mineGlobalLevel = 1;
         mineProductionLevel = 0;

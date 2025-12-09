@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "TDInputs",
+    "maps": [
+        {
+            "name": "TDGame",
+            "id": "33c9cc3e-e9f0-43bc-a007-53c69f5a76c9",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "cadc8f1d-a9c1-4528-87b1-ecd941e32da3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5919372d-6d3b-4741-bfbb-ad635ba6bca7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

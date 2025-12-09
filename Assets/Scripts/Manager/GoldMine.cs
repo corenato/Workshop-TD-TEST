@@ -18,11 +18,11 @@ public class GoldMine : MonoBehaviour
     public bool hasMinedThisTurn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Start()
     {
         //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
-        resourceManager = mainBase.GetComponent<ResourceManager>();
-
+        //resourceManager = mainBase.GetComponent<ResourceManager>();
+        Debug.Log("Gold Mine started");
         mineGlobalLevel = 1;
         mineProductionLevel = 0;
         mineDurabilityLevel = 0;

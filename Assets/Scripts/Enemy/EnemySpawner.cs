@@ -63,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
                 WaveIndex++;
                 countDown = timeBetweenWave;
                 copperMine.hasMinedThisTurn = false;
+                goldMine.hasMinedThisTurn = false;
             }
         }
 
