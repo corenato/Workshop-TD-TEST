@@ -3,7 +3,7 @@ using UnityEngine;
 public class TEST_PauseMenu : MonoBehaviour
 {
     [Header("Citation")]
-    private string citation = "Written with the help of Leo Chevry.";
+    private string citation = "Written with the help of Ewan.";
 
 
     public Canvas PauseCanvas;

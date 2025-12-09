@@ -10,7 +10,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("S_Blockout");
+        SceneManager.LoadScene("S_Test_UI_InGame");
     }
 
     public void SettingsScreen()

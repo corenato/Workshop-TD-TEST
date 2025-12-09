@@ -20,6 +20,19 @@ public class PauseMenu : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isActive)
+            {
+                PauseCanvas.enabled = true;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Resume();
+            }
+        }
+
         //Debug
         if (Input.GetKeyDown(KeyCode.P))
         {
