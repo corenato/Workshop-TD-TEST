@@ -189,7 +189,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 3, z: 0}
   Path: {fileID: 0}
-  Speed: 10
+  Speed: 4
   Target: {fileID: 0}
 --- !u!54 &8263816972788582412
 Rigidbody:

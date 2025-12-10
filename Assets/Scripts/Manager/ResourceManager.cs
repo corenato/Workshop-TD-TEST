@@ -6,12 +6,15 @@ public class ResourceManager : MonoBehaviour
     public GoldMine goldMine;
     public TestBase mainBase;
     public MineBuild[] mineBuild;
+    public GameObject selectedTurret;
+    public TurretBehaviorGround turretBehaviorGround;
+    public TurretBehaviorAir turretBehaviorAir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainBase = this.gameObject.GetComponent<TestBase>();
-        mineBuild = FindObjectsByType<MineBuild>((FindObjectsSortMode)FindObjectsInactive.Exclude);
+        mineBuild = FindObjectsByType<MineBuild>((FindObjectsSortMode)FindObjectsInactive.Include);
     }
 
     // Update is called once per frame
@@ -170,8 +173,67 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public void GroundTurretToDamage()
+    public void UpgradeGroundToLV2Damage()
     {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        turretBehaviorGround = selectedTurret.GetComponent<TurretBehaviorGround>();
 
+        if(mainBase.currentScrap >= 40 && copperMine.resourceTotal >= 10)
+        {
+            mainBase.currentScrap -= 40;
+            copperMine.resourceTotal -= 10;
+            turretBehaviorGround.GroundLV2DamageStats();
+            selectedTurret = null;
+            turretBehaviorGround = null;
+        }
+    }
+
+    public void UpgradeGroundToLV2Firerate()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        turretBehaviorGround = selectedTurret.GetComponent<TurretBehaviorGround>();
+
+        if (mainBase.currentScrap >= 40 && copperMine.resourceTotal >= 10)
+        {
+            mainBase.currentScrap -= 40;
+            copperMine.resourceTotal -= 10;
+            turretBehaviorGround.GroundLV2FirerateStats();
+            selectedTurret = null;
+            turretBehaviorGround = null;
+        }
+    }
+
+    public void UpgradeAirToLV2Damage()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        turretBehaviorAir = selectedTurret.GetComponent<TurretBehaviorAir>();
+
+        if (mainBase.currentScrap >= 49 && copperMine.resourceTotal >= 11)
+        {
+            mainBase.currentScrap -= 49;
+            copperMine.resourceTotal -= 11;
+            turretBehaviorAir.AirLV2DamageStats();
+            selectedTurret = null;
+            turretBehaviorGround = null;
+        }
+    }
+
+    public void UpgradeAirToLV2Range()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        turretBehaviorAir = selectedTurret.GetComponent<TurretBehaviorAir>();
+
+        if (mainBase.currentScrap >= 49 && copperMine.resourceTotal >= 11)
+        {
+            mainBase.currentScrap -= 49;
+            copperMine.resourceTotal -= 11;
+            turretBehaviorAir.AirLV2RangeStats();
+            selectedTurret = null;
+            turretBehaviorGround = null;
+        }
     }
 }

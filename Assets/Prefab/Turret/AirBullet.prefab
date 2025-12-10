@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7393431755294816171}
   - component: {fileID: -3172332815972237795}
   m_Layer: 0
-  m_Name: TestBullet
+  m_Name: AirBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1f3e29f349d85445a006a7ed050715d, type: 2}
+  - {fileID: 2100000, guid: 2839d094a3ef17144b6112b19299a41a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   ImpactEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   BulletSpeed: 30
   groundEnemyTag: GroundEnemy
-  bulletDamage: 5
+  bulletDamage: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

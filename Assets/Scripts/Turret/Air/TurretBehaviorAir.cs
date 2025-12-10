@@ -7,21 +7,27 @@ public class TurretBehaviorAir : MonoBehaviour
     [SerializeField] public int turretMaxHealth;
     [SerializeField] public int turretCurrentHealth;
     [SerializeField] private float TurnSpeed = 10f;
+    public ResourceManager resourceManager;
 
     public float Range = 2f;
     public string airEnemyTag = "AirEnemy";
     public Transform PartToRotate;
     public float Firerate = 1f;
     public float FireCoutDown = 0f;
+    public int turretBulletDamage;
 
+    public GameObject towerPanel;
+    public GameObject upgradePanel;
     public GameObject BulletPrefab;
     public Transform FirePoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        upgradePanel.SetActive(false);
         turretCurrentHealth = turretMaxHealth;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
+        turretBulletDamage = 6;
     }
 
     // Update is called once per frame
@@ -49,10 +55,11 @@ public class TurretBehaviorAir : MonoBehaviour
     void Shoot()
     {
         GameObject BulletGO = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        Bulletbehavior Bullet = BulletGO.GetComponent<Bulletbehavior>();
+        GroundBullet Bullet = BulletGO.GetComponent<GroundBullet>();
 
         if (Bullet != null)
         {
+            Bullet.bulletDamage = turretBulletDamage;
             Bullet.Seek(Target);
         }
     }
@@ -101,6 +108,31 @@ public class TurretBehaviorAir : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void AirLV2DamageStats()
+    {
+        turretBulletDamage = 9;
+        Range = 5f;
+        turretMaxHealth = 10;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+    }
+
+    public void AirLV2RangeStats()
+    {
+        turretBulletDamage = 7;
+        Range = 6f;
+        turretMaxHealth = 10;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+    }
+
+    public void OnUpgradeButtonClick()
+    {
+        towerPanel.SetActive(false);
+        upgradePanel.SetActive(true);
+        resourceManager.selectedTurret = this.gameObject;
     }
 
 }

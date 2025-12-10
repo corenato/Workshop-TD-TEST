@@ -208,6 +208,7 @@ MonoBehaviour:
   damageToTurret: 0
   damageToBase: 5
   scrapDrop: 20
+  enemySpawner: {fileID: 0}
   mainBase: {fileID: 0}
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   bulletTag: Bullet

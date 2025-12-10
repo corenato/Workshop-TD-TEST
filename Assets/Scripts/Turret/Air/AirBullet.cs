@@ -1,22 +1,23 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Bulletbehavior : MonoBehaviour
+public class AirBullet : MonoBehaviour
 {
 
     private Transform target;
-
     public GameObject ImpactEffect;
     public float BulletSpeed = 30f;
 
-    [SerializeField] private string groundEnemyTag = "GroundEnemy";
-    [SerializeField] private int bulletDamage;
+    [SerializeField] private string groundEnemyTag = "AirEnemy";
+    public int bulletDamage;
     [SerializeField] private LayerMask enemyLayer;
+
 
     public void Seek(Transform _Target)
     {
         target = _Target;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -53,6 +54,8 @@ public class Bulletbehavior : MonoBehaviour
         {
             //Debug.Log(enemyLayer);
             collision.gameObject.GetComponent<EnemyManager>().TakeDamage(bulletDamage);
+            Debug.Log("Damage : " + bulletDamage);
         }
     }
 }
+
