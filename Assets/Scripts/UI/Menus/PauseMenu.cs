@@ -10,17 +10,18 @@ public class PauseMenu : MonoBehaviour
 
     
     public Canvas PauseCanvas;
+    public Canvas Canvas_Settings;
     public bool isActive = false;
 
-
-        public void Start()
+    public void Start()
     {
         PauseCanvas.enabled = false;
+        Canvas_Settings.enabled = false;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Canvas_Settings.enabled == false)
         {
             if (!isActive)
             {
@@ -34,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         //Debug
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && Canvas_Settings.enabled == false)
         {
             if (!isActive)
             {
@@ -58,7 +59,9 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsScreen()
     {
-        SceneManager.LoadScene("S_Settings");
+        PauseCanvas.enabled = false;
+        Canvas_Settings.enabled = true;
+        Time.timeScale = 0f;
     }
 
     public void MainMenu()
