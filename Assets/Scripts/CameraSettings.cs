@@ -24,17 +24,17 @@ public class CameraSettings : MonoBehaviour
     public float panAllowHeight = 40f;
 
     [Header("Optional bounds (XZ)")]
-    public bool useBounds = false;
-    public float minX = -50f;
-    public float maxX = 50f;
-    public float minZ = -50f;
-    public float maxZ = 50f;
+    public bool useBounds;
+    public float minX = -13.5f;
+    public float maxX = 13.5f;
+    public float minZ = -15f;
+    public float maxZ = 15f;
 
     private Vector3 lastMousePos;
 
     void Start()
     {
-
+        useBounds = true;
         mainCamera.transform.position = defaultPosition;
     }
 
