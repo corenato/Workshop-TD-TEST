@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurretBehaviorGround : MonoBehaviour
 {
@@ -20,11 +21,23 @@ public class TurretBehaviorGround : MonoBehaviour
     public GameObject upgradePanel;
     public GameObject BulletPrefab;
     public Transform FirePoint;
+    public Button damageLv2Button;
+    public Button firerateLv2Button;
+    public Button damageLV3Type1Button;
+    public Button damageLV3Type2Button;
+    public Button firerateLV3Type1Button;
+    public Button firerateLV3Type2Button;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         upgradePanel.SetActive(false);
+        damageLv2Button.interactable = true;
+        firerateLv2Button.interactable = true;
+        damageLV3Type1Button.interactable = false;
+        damageLV3Type2Button.interactable = false;
+        firerateLV3Type1Button.interactable = false;
+        firerateLV3Type2Button.interactable = false;
         turretCurrentHealth = turretMaxHealth;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
         turretBulletDamage = 6;
@@ -117,6 +130,34 @@ public class TurretBehaviorGround : MonoBehaviour
         turretMaxHealth = 10;
         turretCurrentHealth = turretMaxHealth;
         upgradePanel.SetActive(false);
+        damageLv2Button.interactable = false;
+        firerateLv2Button.interactable = false;
+        damageLV3Type1Button.interactable = true;
+        damageLV3Type2Button.interactable = true;
+    }
+
+    public void GroundLV3Damage1Stats()
+    {
+        turretBulletDamage = 12;
+        Firerate = 1.1f;
+        Range = 5f;
+        turretMaxHealth = 15;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+        damageLV3Type1Button.interactable = false;
+        damageLV3Type2Button.interactable = false;
+    }
+
+    public void GroundLV3Damage2Stats()
+    {
+        turretBulletDamage = 15;
+        Firerate = 1.43f;
+        Range = 5f;
+        turretMaxHealth = 15;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+        damageLV3Type1Button.interactable = false;
+        damageLV3Type2Button.interactable = false;
     }
 
     public void GroundLV2FirerateStats()
@@ -126,6 +167,34 @@ public class TurretBehaviorGround : MonoBehaviour
         turretMaxHealth = 10;
         turretCurrentHealth = turretMaxHealth;
         upgradePanel.SetActive(false);
+        damageLv2Button.interactable = false;
+        firerateLv2Button.interactable = false;
+        firerateLV3Type1Button.interactable = true;
+        firerateLV3Type2Button.interactable = true;
+    }
+
+    public void GroundLV3Firerate1Stats()
+    {
+        turretBulletDamage = 7;
+        Firerate = 0.83f;
+        Range = 6f;
+        turretMaxHealth = 15;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+        firerateLV3Type1Button.interactable = false;
+        firerateLV3Type2Button.interactable = false;
+    }
+
+    public void GroundLV3Firerate2Stats()
+    {
+        turretBulletDamage = 7;
+        Firerate = 0.67f;
+        Range = 5f;
+        turretMaxHealth = 15;
+        turretCurrentHealth = turretMaxHealth;
+        upgradePanel.SetActive(false);
+        firerateLV3Type1Button.interactable = false;
+        firerateLV3Type2Button.interactable = false;
     }
 
     public void OnUpgradeButtonClick()

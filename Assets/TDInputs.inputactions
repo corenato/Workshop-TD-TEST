@@ -18,15 +18,37 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "5919372d-6d3b-4741-bfbb-ad635ba6bca7",
+                    "name": "1D Axis",
+                    "id": "6c038bcd-fa31-45ea-b7ab-eb3bd7e16bf3",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "59c084d1-8112-4dbe-9310-91de73909a34",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "15a95e0c-46de-43f8-9d55-6332b7f03ce8",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Click",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         }

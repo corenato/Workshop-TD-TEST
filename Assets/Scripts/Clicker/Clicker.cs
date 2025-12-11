@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -66,45 +67,46 @@ public class Clicker : MonoBehaviour
 
     public void OnBuild(InputAction.CallbackContext context)
     {
-        if (canBuild)
+        if (context.performed)
         {
-
-            if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("CopperMine"))
+            if (canBuild)
             {
-                resourceManager.BuildCopperMine(mineBuild);
+
+                if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("CopperMine"))
+                {
+                    resourceManager.BuildCopperMine(mineBuild);
+                }
+
+                else if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("GoldMine"))
+                {
+                    resourceManager.BuildGoldMine(mineBuild);
+                }
+
+                else if (towerBuild != null && TileManager.instance.turretToBuild.CompareTag("GroundTurret"))
+                {
+                    resourceManager.BuildGroundTurret(towerBuild);
+                    towerBuild.resourceManager = resourceManager;
+                }
+
+                else if (towerBuild != null && TileManager.instance.turretToBuild.CompareTag("AirTurret"))
+                {
+                    resourceManager.BuildGroundTurret(towerBuild);
+                    towerBuild.resourceManager = resourceManager;
+                }
             }
 
-            else if (mineBuild != null && TileManager.instance.mineToBuild.CompareTag("GoldMine"))
+            if (canUpgrade)
             {
-                resourceManager.BuildGoldMine(mineBuild);
+                if (currentTurret.CompareTag("GroundTurret"))
+                {
+                    currentTurret.GetComponent<TurretBehaviorGround>().towerPanel.SetActive(true);
+                }
+
+                if (currentTurret.CompareTag("AirTurret"))
+                {
+                    currentTurret.GetComponent<TurretBehaviorAir>().towerPanel.SetActive(true);
+                }
             }
-
-            else if (towerBuild != null)
-            {
-                towerBuild.InstallTurret();
-                towerBuild.resourceManager = resourceManager;
-            }
-        }
-
-        if(canUpgrade)
-        {
-            if (currentTurret.CompareTag("GroundTurret"))
-            {
-                //Debug.Log("Upgrade button activated");
-                currentTurret.GetComponent<TurretBehaviorGround>().towerPanel.SetActive(true);
-            }
-
-            if (currentTurret.CompareTag("AirTurret"))
-            {
-                //Debug.Log("Upgrade button activated");
-                currentTurret.GetComponent<TurretBehaviorAir>().towerPanel.SetActive(true);
-                //resourceManager.selectedTurret = currentTurret;
-            }
-        }
-    }
-
-    public void OnTurretClick()
-    {
-
+        }   
     }
 }

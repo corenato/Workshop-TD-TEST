@@ -104,7 +104,6 @@ MonoBehaviour:
   maxBaseHealth: 100
   currentBaseHealth: 0
   currentScrap: 0
-  currentCopper: 0
 --- !u!114 &8368165569755170376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   copperMine: {fileID: 0}
+  goldMine: {fileID: 0}
   mainBase: {fileID: 0}
+  mineBuild: []
+  selectedTurret: {fileID: 0}
+  turretBehaviorGround: {fileID: 0}
+  turretBehaviorAir: {fileID: 0}
 --- !u!65 &7165140378389621727
 BoxCollider:
   m_ObjectHideFlags: 0
