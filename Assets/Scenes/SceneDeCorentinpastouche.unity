@@ -150,6 +150,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1839160792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &42882974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.770424
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.952977
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 908c0dccaeb591844a37393449546856, type: 3}
+      propertyPath: m_Name
+      value: SM_Level1_Tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 908c0dccaeb591844a37393449546856, type: 3}
 --- !u!1 &81376453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019fcfd8f1be9ef468f33f8d18d0b331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxBaseHealth: 0
+  currentBaseHealth: 0
+  currentScrap: 0
 --- !u!1 &1119496242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,7 +3431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1a232aadf34e3245b555134627c846b, type: 2}
+  - {fileID: 2100000, guid: f8da3ea24f45a3c478f31eccf182b85b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3542,7 +3602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1621408913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3556,25 +3616,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Waves:
-  - Enemies:
-    - Enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
-      Count: 3
-      rate: 1
-  - Enemies:
-    - Enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
-      Count: 2
-      rate: 1
-  - Enemies:
-    - Enemy: {fileID: 6367948566667848430, guid: b310535187af8054faaaf9458e5219b1, type: 3}
-      Count: 3
-      rate: 1
-  SpawnPoints:
-  - {fileID: 1407935434}
-  - {fileID: 1839160792}
-  - {fileID: 931264941}
-  TimeBetweenWave: 2
-  CountDown: 2
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 5
+    - enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      amount: 5
+    duration: 10
+    allowedSpawnPoints:
+    - {fileID: 1407935434}
+  spawnPoints: []
+  timeBetweenWave: 2
+  countDown: 2
+  enemyManager: {fileID: 0}
+  waveEnemyEntry:
+    enemy: {fileID: 0}
+    amount: 0
+  enemiesToSpawn: []
+  enemiesSpawned: []
+  copperMine: {fileID: 0}
+  cpMine: {fileID: 0}
+  goldMine: {fileID: 0}
+  gdMine: {fileID: 0}
   PathToUse: {fileID: 0}
+  WaveIndex: 0
   StartEnemyNumber: 0
 --- !u!4 &1621408914
 Transform:
@@ -4413,3 +4477,4 @@ SceneRoots:
   - {fileID: 1594939114}
   - {fileID: 1072812118}
   - {fileID: 1602840609}
+  - {fileID: 42882974}
