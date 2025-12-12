@@ -36,7 +36,7 @@ public class CopperMine : MonoBehaviour
         mineDurabilityLevel = 0;
         mineDurability = 3;
         resourceRaw = 2;
-        resourceTotal = 0;
+        resourceTotal = 10;
         isMining = true;
         enemySpawner.copperMine = this;
         hasMinedThisTurn = false;

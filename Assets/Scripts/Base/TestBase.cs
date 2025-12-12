@@ -16,8 +16,9 @@ public class TestBase : MonoBehaviour
     {
         //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
         //copperMine = cpMine.GetComponent<CopperMine>();
+        maxBaseHealth = 200;
         currentBaseHealth = maxBaseHealth;
-        currentScrap = 0;
+        currentScrap = 60;
         //currentCopper = copperMine.resourceTotal;
     }
 

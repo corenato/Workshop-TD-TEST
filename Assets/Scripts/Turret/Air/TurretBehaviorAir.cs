@@ -38,9 +38,12 @@ public class TurretBehaviorAir : MonoBehaviour
         damageLV3Type2Button.interactable = false;
         rangeLV3Type1Button.interactable = false;
         rangeLV3Type2Button.interactable = false;
-        turretCurrentHealth = turretMaxHealth;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
-        turretBulletDamage = 6;
+        turretBulletDamage = 5;
+        Firerate = 1.43f;
+        Range = 4f;
+        turretMaxHealth = 5;
+        turretCurrentHealth = turretMaxHealth;
     }
 
     // Update is called once per frame
