@@ -6413,7 +6413,9 @@ MonoBehaviour:
   resourceManager: {fileID: 0}
   tileManager: {fileID: 0}
   currentTurret: {fileID: 0}
-  canUpgrade: 0
+  currentMine: {fileID: 0}
+  canUpgradeTurret: 0
+  canUpgradeMine: 0
 --- !u!4 &412867655
 Transform:
   m_ObjectHideFlags: 0

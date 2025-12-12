@@ -54,7 +54,6 @@ public class GroundBullet : MonoBehaviour
         {
             //Debug.Log(enemyLayer);
             collision.gameObject.GetComponent<EnemyManager>().TakeDamage(bulletDamage);
-            Debug.Log("Damage : " + bulletDamage);
         }
     }
 }
