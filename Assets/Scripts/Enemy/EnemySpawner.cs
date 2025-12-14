@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
     //[SerializeField] private float TimeBetweenEnemies = 1f;
     [SerializeField] private float timeBetweenWave = 2f;
     //[SerializeField] private float EnemyCountDown = 2f;
-    [SerializeField] private float countDown = 2f;
+    public float countDown = 2f;
+    public int fixedCountdown;
     //[SerializeField] private float MinRange = 0f;
     //[SerializeField] private float MaxRange = 5f;
     [SerializeField] public static int spawnedEnemyCount = 0;
@@ -27,8 +28,10 @@ public class EnemySpawner : MonoBehaviour
 
     public WayPoints PathToUse;
     public int WaveIndex = 0;
+    public int remainingWaves;
     public int StartEnemyNumber = 0;
     public static int deadEnemiesNumber = 0;
+    public bool isBuildPhase = false;
 
     void Awake()
     {
@@ -38,12 +41,16 @@ public class EnemySpawner : MonoBehaviour
     }
     public void Start()
     {
-        
+
     }
     void Update()
     {
+        remainingWaves = Waves.Length - WaveIndex;
+        fixedCountdown = Mathf.RoundToInt(countDown);
+
         if (enemiesToSpawn.Count == 0 && enemiesSpawned.Count == 0)
         {
+            isBuildPhase = true;
             countDown -= Time.deltaTime;
 
             if(copperMine != null)
@@ -58,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (countDown <= 0)
             {
+                isBuildPhase = false;
                 GenerateEnemyList();
                 StartCoroutine(oneWave());
                 WaveIndex++;

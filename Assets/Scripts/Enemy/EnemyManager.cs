@@ -37,6 +37,11 @@ public class EnemyManager : MonoBehaviour
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
             Target = Path.Points[0];
+            maxHealth = 20;
+            Speed = 2f;
+            damageToBase = 4;
+            damageToTurret = 0;
+            scrapDrop = 5;
         }
 
 
@@ -47,6 +52,11 @@ public class EnemyManager : MonoBehaviour
             // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
+            maxHealth = 25;
+            Speed = 2f;
+            damageToBase = 4;
+            damageToTurret = 0;
+            scrapDrop = 6;
         }
 
         if (this.gameObject.CompareTag("KamikazeEnemy"))
@@ -56,6 +66,11 @@ public class EnemyManager : MonoBehaviour
             // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
+            maxHealth = 12;
+            Speed = 4f;
+            damageToBase = 8;
+            damageToTurret = 8;
+            scrapDrop = 3;
         }
 
     }

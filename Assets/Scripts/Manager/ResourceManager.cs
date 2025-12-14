@@ -45,133 +45,147 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public void UpgradeCopperProduction()
+    public void UpgradeCopperProductionLV1()
     {
-        if (copperMine.mineProductionLevel == 0)
-        {
-            if (mainBase.currentScrap >= 60)
-            {
-                mainBase.currentScrap -= 60;
-                copperMine.mineProductionLevel++;
-                copperMine.mineGlobalLevel++;
-                copperMine.resourceRaw = Mathf.CeilToInt((float)(copperMine.resourceRaw * 1.5));
-            }
-        }
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
 
-        else if (copperMine.mineProductionLevel == 1)
+        if (mainBase.currentScrap >= 60)
         {
-            if (mainBase.currentScrap >= 48 && copperMine.resourceTotal >= 16)
-            {
-                mainBase.currentScrap -= 48;
-                copperMine.resourceTotal -= 16;
-                copperMine.mineProductionLevel++;
-                copperMine.mineGlobalLevel++;
-                copperMine.resourceRaw = Mathf.CeilToInt((float)(copperMine.resourceRaw * 1.5));
-            }
+            mainBase.currentScrap -= 60;
+            copperMine.ProductionLV1();
         }
     }
 
-    public void UpgradeCopperDurability()
+    public void UpgradeCopperProductionLV2()
     {
-        if (copperMine.mineDurabilityLevel == 0)
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 48 && copperMine.resourceTotal >= 16)
         {
-            if (mainBase.currentScrap >= 60)
-            {
-                mainBase.currentScrap -= 60;
-                copperMine.mineDurabilityLevel++;
-                copperMine.mineGlobalLevel++;
-                copperMine.mineDurability ++;
-                copperMine.isMining = true;
-            }
+            mainBase.currentScrap -= 48;
+            copperMine.resourceTotal -= 16;
+            copperMine.ProductionLV2();
         }
-        else if (copperMine.mineDurabilityLevel == 1)
+    }
+
+    public void UpgradeCopperDurabilityLV1()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 60)
         {
-            if (mainBase.currentScrap >= 48 && copperMine.resourceTotal >= 16)
-            {
-                mainBase.currentScrap -= 48;
-                copperMine.resourceTotal -= 16;
-                copperMine.mineDurabilityLevel++;
-                copperMine.mineGlobalLevel++;
-                copperMine.mineDurability ++;
-                copperMine.isMining = true;
-            }
+            mainBase.currentScrap -= 60;
+            copperMine.DurabilityLV1();
+        }
+    }
+
+    public void UpgradeCopperDurabilityLV2()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 48 && copperMine.resourceTotal >= 16)
+        {
+            mainBase.currentScrap -= 48;
+            copperMine.resourceTotal -= 16;
+            copperMine.DurabilityLV2();
         }
     }
 
     public void RepairCopperMine()
     {
-        if (copperMine.mineDurability <= 0 && mainBase.currentScrap >= 50)
-        {
-            mainBase.currentScrap -= 50;
-            copperMine.mineDurability = 3 + copperMine.mineDurabilityLevel;
-            copperMine.isMining = true;
-        }
-    }
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
 
-    public void UpgradeGoldProduction()
-    {
-        if (goldMine.mineProductionLevel == 0)
+        if (copperMine.isMining == false)
         {
-            if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
+            if (mainBase.currentScrap >= 50)
             {
-                mainBase.currentScrap -= 42;
-                copperMine.resourceTotal -= 9;
-                goldMine.mineProductionLevel++;
-                goldMine.mineGlobalLevel++;
-                goldMine.resourceRaw = Mathf.CeilToInt((float)(goldMine.resourceRaw * 1.5));
-            }
-        }
-
-        else if (goldMine.mineProductionLevel == 1)
-        {
-            if (mainBase.currentScrap >= 27 && copperMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
-            {
-                mainBase.currentScrap -= 27;
-                copperMine.resourceTotal -= 14;
-                goldMine.resourceTotal -= 7;
-                goldMine.mineProductionLevel++;
-                goldMine.mineGlobalLevel++;
-                goldMine.resourceRaw = Mathf.CeilToInt((float)(goldMine.resourceRaw * 1.5));
+                mainBase.currentScrap -= 50;
+                copperMine.RepairMine();
             }
         }
     }
 
-    public void UpgradeGoldDurability()
+    public void UpgradeGoldProductionLV1()
     {
-        if (goldMine.mineDurabilityLevel == 0)
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
         {
-            if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
-            {
-                mainBase.currentScrap -= 42;
-                copperMine.resourceTotal -= 9;
-                goldMine.mineDurabilityLevel++;
-                goldMine.mineGlobalLevel++;
-                goldMine.mineDurability++;
-                goldMine.isMining = true;
-            }
+            mainBase.currentScrap -= 42;
+            copperMine.resourceTotal -= 9;
+            goldMine.ProductionLV1();
         }
-        else if (goldMine.mineDurabilityLevel == 1)
+    }
+
+    public void UpgradeGoldProductionLV2()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 27 && copperMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
         {
-            if (mainBase.currentScrap >= 27 && goldMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
-            {
-                mainBase.currentScrap -= 27;
-                copperMine.resourceTotal -= 14;
-                goldMine.resourceTotal -= 7;
-                goldMine.mineDurabilityLevel++;
-                goldMine.mineGlobalLevel++;
-                goldMine.mineDurability++;
-                goldMine.isMining = true;
-            }
+            mainBase.currentScrap -= 27;
+            copperMine.resourceTotal -= 14;
+            goldMine.resourceTotal -= 7;
+            goldMine.ProductionLV2();
+        }
+    }
+
+    public void UpgradeGoldDurabilityLV1()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 42 && copperMine.resourceTotal >= 9)
+        {
+            mainBase.currentScrap -= 42;
+            copperMine.resourceTotal -= 9;
+            goldMine.DurabilityLV1();
+        }
+    }
+
+    public void UpgradeGoldDurabilityLV2()
+    {
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (mainBase.currentScrap >= 27 && copperMine.resourceTotal >= 14 && goldMine.resourceTotal >= 7)
+        {
+            mainBase.currentScrap -= 27;
+            copperMine.resourceTotal -= 14;
+            goldMine.resourceTotal -= 7;
+            goldMine.DurabilityLV2();
         }
     }
 
     public void RepairGoldMine()
     {
-        if (goldMine.mineDurability <= 0 && mainBase.currentScrap >= 50)
+        mainBase = FindAnyObjectByType<TestBase>();
+        copperMine = FindAnyObjectByType<CopperMine>();
+        goldMine = FindAnyObjectByType<GoldMine>();
+
+        if (goldMine.isMining == false)
         {
-            mainBase.currentScrap -= 50;
-            goldMine.mineDurability = 3 + goldMine.mineDurabilityLevel;
-            goldMine.isMining = true;
+            if (mainBase.currentScrap >= 50)
+            {
+                mainBase.currentScrap -= 50;
+                goldMine.RepairMine();
+            }
         }
     }
 

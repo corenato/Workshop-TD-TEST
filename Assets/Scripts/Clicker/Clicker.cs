@@ -14,7 +14,9 @@ public class Clicker : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private TileManager tileManager;
     [SerializeField] private GameObject currentTurret;
-    [SerializeField] private bool canUpgrade;
+    [SerializeField] private GameObject currentMine;
+    [SerializeField] private bool canUpgradeTurret;
+    [SerializeField] private bool canUpgradeMine;
 
 
     private bool canBuild;
@@ -40,14 +42,40 @@ public class Clicker : MonoBehaviour
                 towerBuild = hit.collider.gameObject.GetComponent<TowerBuild>();
                 canBuild = true;
                 currentTurret = null;
-                canUpgrade = false;
+                canUpgradeTurret = false;
+                canUpgradeMine = false;
+                currentMine = null;
             }
 
             else if(hit.collider.gameObject.CompareTag("GroundTurret") || hit.collider.gameObject.CompareTag("AirTurret"))
             {
                 //Debug.Log("Turret hovered");
                 currentTurret = hit.collider.gameObject;
-                canUpgrade = true;
+                canUpgradeTurret = true;
+                canUpgradeMine = false;
+                mineBuild = null;
+                towerBuild = null;
+                canBuild = false;
+                currentMine = null;
+            }
+
+            else if (hit.collider.gameObject.CompareTag("CopperMine"))
+            {
+                currentMine = hit.collider.gameObject;
+                currentTurret = null;
+                canUpgradeTurret = false;
+                canUpgradeMine = true;
+                mineBuild = null;
+                towerBuild = null;
+                canBuild = false;
+            }
+
+            else if (hit.collider.gameObject.CompareTag("GoldMine"))
+            {
+                currentMine = hit.collider.gameObject;
+                currentTurret = null;
+                canUpgradeTurret = false;
+                canUpgradeMine = true;
                 mineBuild = null;
                 towerBuild = null;
                 canBuild = false;
@@ -55,12 +83,14 @@ public class Clicker : MonoBehaviour
 
 
             else
-            {              
+            {
                 mineBuild = null;
                 towerBuild = null;
                 canBuild = false;
                 currentTurret = null;
-                canUpgrade = false;
+                canUpgradeTurret = false;
+                canUpgradeMine = false;
+                currentMine = null;
             }
         }
     }
@@ -95,16 +125,29 @@ public class Clicker : MonoBehaviour
                 }
             }
 
-            if (canUpgrade)
+            if (canUpgradeTurret)
             {
                 if (currentTurret.CompareTag("GroundTurret"))
                 {
                     currentTurret.GetComponent<TurretBehaviorGround>().towerPanel.SetActive(true);
                 }
 
-                if (currentTurret.CompareTag("AirTurret"))
+                else if (currentTurret.CompareTag("AirTurret"))
                 {
                     currentTurret.GetComponent<TurretBehaviorAir>().towerPanel.SetActive(true);
+                }             
+            }
+
+            if (canUpgradeMine)
+            {
+                if (currentMine.CompareTag("CopperMine"))
+                {
+                    currentMine.GetComponent<CopperMine>().upgradePanel.SetActive(true);
+                }
+
+                else if (currentMine.CompareTag("GoldMine"))
+                {
+                    currentMine.GetComponent<GoldMine>().upgradePanel.SetActive(true);
                 }
             }
         }   
