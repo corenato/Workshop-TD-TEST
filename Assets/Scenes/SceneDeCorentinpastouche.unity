@@ -3621,12 +3621,15 @@ MonoBehaviour:
       amount: 5
     - enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
       amount: 5
+    - enemy: {fileID: 6367948566667848430, guid: e3b63084361f14f489af2ad39c87aa4f, type: 3}
+      amount: 5
     duration: 10
     allowedSpawnPoints:
     - {fileID: 1407935434}
   spawnPoints: []
   timeBetweenWave: 2
   countDown: 2
+  fixedCountdown: 0
   enemyManager: {fileID: 0}
   waveEnemyEntry:
     enemy: {fileID: 0}
@@ -3639,7 +3642,9 @@ MonoBehaviour:
   gdMine: {fileID: 0}
   PathToUse: {fileID: 0}
   WaveIndex: 0
+  remainingWaves: 0
   StartEnemyNumber: 0
+  isBuildPhase: 0
 --- !u!4 &1621408914
 Transform:
   m_ObjectHideFlags: 0
@@ -4466,7 +4471,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4474,7 +4479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: -5.800001
       objectReference: {fileID: 0}
     - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
       propertyPath: m_LocalRotation.w

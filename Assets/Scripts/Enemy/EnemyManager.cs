@@ -196,9 +196,21 @@ public class EnemyManager : MonoBehaviour
     private void SetGroundPath()
     {
         Vector3 Dir = Target.position - transform.position;
+        Dir.y = 0f;
+
+        if(Dir != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Dir);
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    5f * Time.deltaTime
+                );
+        }
+
         transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, Target.position) <= 1f)
+        if (Vector3.Distance(transform.position, Target.position) <= 0.7f)
         {
             GetNextWayPoint();
         }
@@ -209,6 +221,17 @@ public class EnemyManager : MonoBehaviour
         targetPosition = Target.transform.position;
         targetPosition.y += offset.y;
         Vector3 Dir = Target.position - transform.position;
+        
+        if (Dir != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Dir);
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    5f * Time.deltaTime
+                );
+        }
+
         transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
     }
 }
