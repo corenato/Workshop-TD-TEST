@@ -58,11 +58,8 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
         {
             return;
         }
-        Debug.Log("1");
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
-        Debug.Log("2");
         mine = (GameObject)Instantiate(MineToBuild, clicker.mineBuild.transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
-        Debug.Log("3");
         tileManager.DestroyHalo();
 
         if (mine.GetComponent<CopperMine>() != null)
