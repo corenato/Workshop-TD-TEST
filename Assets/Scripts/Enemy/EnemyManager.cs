@@ -37,6 +37,11 @@ public class EnemyManager : MonoBehaviour
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
             Target = Path.Points[0];
+            maxHealth = 20;
+            Speed = 2f;
+            damageToBase = 4;
+            damageToTurret = 0;
+            scrapDrop = 5;
         }
 
 
@@ -47,6 +52,11 @@ public class EnemyManager : MonoBehaviour
             // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
+            maxHealth = 25;
+            Speed = 2f;
+            damageToBase = 4;
+            damageToTurret = 0;
+            scrapDrop = 6;
         }
 
         if (this.gameObject.CompareTag("KamikazeEnemy"))
@@ -56,6 +66,11 @@ public class EnemyManager : MonoBehaviour
             // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
+            maxHealth = 12;
+            Speed = 4f;
+            damageToBase = 8;
+            damageToTurret = 8;
+            scrapDrop = 3;
         }
 
     }
@@ -181,9 +196,21 @@ public class EnemyManager : MonoBehaviour
     private void SetGroundPath()
     {
         Vector3 Dir = Target.position - transform.position;
+        Dir.y = 0f;
+
+        if(Dir != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Dir);
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    5f * Time.deltaTime
+                );
+        }
+
         transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, Target.position) <= 1f)
+        if (Vector3.Distance(transform.position, Target.position) <= 0.7f)
         {
             GetNextWayPoint();
         }
@@ -194,6 +221,17 @@ public class EnemyManager : MonoBehaviour
         targetPosition = Target.transform.position;
         targetPosition.y += offset.y;
         Vector3 Dir = Target.position - transform.position;
+        
+        if (Dir != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Dir);
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    5f * Time.deltaTime
+                );
+        }
+
         transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
     }
 }
