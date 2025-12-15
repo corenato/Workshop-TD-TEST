@@ -44,6 +44,7 @@ public class TurretBehaviorAir : MonoBehaviour
         Range = 4f;
         turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
+        resourceManager = FindAnyObjectByType<ResourceManager>();
     }
 
     // Update is called once per frame

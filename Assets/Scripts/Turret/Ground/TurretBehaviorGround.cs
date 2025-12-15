@@ -44,6 +44,7 @@ public class TurretBehaviorGround : MonoBehaviour
         Range = 4f;
         turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
+        resourceManager = ResourceManager.Instance;
     }
 
     // Update is called once per frame
@@ -66,6 +67,16 @@ public class TurretBehaviorGround : MonoBehaviour
             Shoot();
             FireCoutDown = Firerate;
         }
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("I AM Enabled " + this.gameObject.name);
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("I AM DISABLED " + this.gameObject.name);
     }
 
     void Shoot()
@@ -202,9 +213,13 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void OnUpgradeButtonClick()
     {
+        resourceManager = ResourceManager.Instance;
+        resourceManager.selectedTurret = this.gameObject;
+        resourceManager.turretBehaviorGround = this;
+        //Debug.Log(resourceManager.selectedTurret + "from TBG");
         towerPanel.SetActive(false);
         upgradePanel.SetActive(true);
-        resourceManager.selectedTurret = this.gameObject;
+      
     }
    
 }

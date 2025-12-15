@@ -120,6 +120,7 @@ MonoBehaviour:
   goldMine: {fileID: 0}
   mainBase: {fileID: 0}
   mineBuild: []
+  towerBuild: []
   selectedTurret: {fileID: 0}
   turretBehaviorGround: {fileID: 0}
   turretBehaviorAir: {fileID: 0}

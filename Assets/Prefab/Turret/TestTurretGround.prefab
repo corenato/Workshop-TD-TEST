@@ -2609,7 +2609,7 @@ MonoBehaviour:
   TurnSpeed: 10
   turretMaxHealth: 5
   turretCurrentHealth: 0
-  resourceManager: {fileID: 8368165569755170376, guid: 3a9e3783eb373384a8a1f4ce71291f51, type: 3}
+  resourceManager: {fileID: 0}
   Range: 4
   EnemyTag: GroundEnemy
   PartToRotate: {fileID: 4520125272838815762}
