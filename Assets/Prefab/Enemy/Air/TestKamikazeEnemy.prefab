@@ -79,6 +79,9 @@ MonoBehaviour:
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   bulletTag: Bullet
   baseTag: Base
+  firstMesh: {fileID: 1709006747461850318}
+  secondMesh: {fileID: 2480654051327074318}
+  transformationCountdown: 0
   targetPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 3, z: 0}
   Path: {fileID: 0}
@@ -122,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 1709100808879019569, guid: a7e2b154906b9ef42b73f8d6e42b99c3, type: 3}
       propertyPath: m_Name
       value: Kamikaze_unfold
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709100808879019569, guid: a7e2b154906b9ef42b73f8d6e42b99c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2088582320408841355, guid: a7e2b154906b9ef42b73f8d6e42b99c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -216,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6134750003039381937, guid: df06377e5338dc547ba4caec411e7f77, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6802918354807780107, guid: df06377e5338dc547ba4caec411e7f77, type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,6 +18,9 @@ public class EnemyManager : MonoBehaviour
     public GameObject DyingEffect;
     public string bulletTag = "Bullet";
     public string baseTag = "Base";
+    public GameObject firstMesh;
+    public GameObject secondMesh;
+    public float transformationCountdown;
 
     private bool IsDead = false;
 
@@ -34,6 +37,9 @@ public class EnemyManager : MonoBehaviour
         currentHealth = maxHealth;
         mainBase = GameObject.FindGameObjectWithTag("Base");
 
+        firstMesh.SetActive(true);
+        secondMesh.SetActive(false);
+
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
             Target = Path.Points[0];
@@ -42,6 +48,7 @@ public class EnemyManager : MonoBehaviour
             damageToBase = 4;
             damageToTurret = 0;
             scrapDrop = 5;
+            transformationCountdown = 4f;
         }
 
 
@@ -57,6 +64,7 @@ public class EnemyManager : MonoBehaviour
             damageToBase = 4;
             damageToTurret = 0;
             scrapDrop = 6;
+            transformationCountdown = 4f;
         }
 
         if (this.gameObject.CompareTag("KamikazeEnemy"))
@@ -80,12 +88,16 @@ public class EnemyManager : MonoBehaviour
     {
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
-           SetGroundPath();
+           transformationCountdown -= Time.deltaTime;
+            SetGroundPath();
+            MeshTransformTimer();
         }
 
         if (this.gameObject.CompareTag("AirEnemy"))
         {
-           SetAirPath();
+            transformationCountdown -= Time.deltaTime;
+            SetAirPath();
+            MeshTransformTimer();
         }
 
         if (this.gameObject.CompareTag("KamikazeEnemy"))
@@ -150,6 +162,7 @@ public class EnemyManager : MonoBehaviour
             {
                 //Debug.Log("Target changed : " + other.gameObject.name);
                 Target = other.gameObject.transform;
+                MeshTransformTrigger();
 
             }
 
@@ -157,6 +170,7 @@ public class EnemyManager : MonoBehaviour
             {
                 //Debug.Log("Target changed : " + other.gameObject.name);
                 Target = other.gameObject.transform;
+                MeshTransformTrigger();
             }
             return;
         }
@@ -233,5 +247,22 @@ public class EnemyManager : MonoBehaviour
         }
 
         transform.Translate(Dir.normalized * Speed * Time.deltaTime, Space.World);
+    }
+
+    private void MeshTransformTimer()
+    {
+        if (transformationCountdown <= 0)
+        {
+            firstMesh.SetActive(false);
+            //IMPORT VFX FUMEE !!!
+            secondMesh.SetActive(true);
+        }
+    }
+
+    private void MeshTransformTrigger()
+    {
+        firstMesh.SetActive(false);
+        //IMPORT VFX FUMEE !!!
+        secondMesh.SetActive(true);
     }
 }
