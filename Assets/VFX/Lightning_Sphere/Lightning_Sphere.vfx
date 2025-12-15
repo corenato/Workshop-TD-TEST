@@ -44,12 +44,14 @@ MonoBehaviour:
     textSize: Small
   categories:
   - name: Color
-    collapsed: 0
+    collapsed: 1
   - name: Widht
-    collapsed: 0
-  - name: Lightning scale
-    collapsed: 0
+    collapsed: 1
   - name: Seed (pas obligatoire)
+    collapsed: 1
+  - name: Speed
+    collapsed: 1
+  - name: Scale
     collapsed: 0
   uiBounds:
     serializedVersion: 2
@@ -208,69 +210,6 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Speed
-    path: Speed
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.3
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: Lightning scale
-    path: 
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: 
-    realType: 
-    defaultValue:
-      m_Type:
-        m_SerializableType: 
-      m_SerializableObject: 
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: Min
-    path: Min
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.67
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: Max
-    path: Max
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 11.7
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
   - name: Seed (pas obligatoire)
     path: 
     tooltip: 
@@ -314,6 +253,84 @@ MonoBehaviour:
         m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       m_SerializableObject: 0
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Speed
+    path: 
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Speed
+    path: Speed
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1.3
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Scale
+    path: 
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Min
+    path: Min
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1.67
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Max
+    path: Max
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 11.7
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -586,7 +603,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614860}
   m_ExposedName: HearthColor
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: Color
   m_Min:
     m_Type:
@@ -812,7 +829,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614866}
   m_ExposedName: MinWidht
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: Widht
   m_Min:
     m_Type:
@@ -893,7 +910,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614868}
   m_ExposedName: MaxWidht
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 6
   m_Category: Widht
   m_Min:
     m_Type:
@@ -974,8 +991,8 @@ MonoBehaviour:
   - {fileID: 8926484042661614870}
   m_ExposedName: Min
   m_Exposed: 1
-  m_Order: 4
-  m_Category: Lightning scale
+  m_Order: 7
+  m_Category: Scale
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -1055,8 +1072,8 @@ MonoBehaviour:
   - {fileID: 8926484042661614872}
   m_ExposedName: Max
   m_Exposed: 1
-  m_Order: 5
-  m_Category: Lightning scale
+  m_Order: 8
+  m_Category: Scale
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -1136,7 +1153,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614874}
   m_ExposedName: Scale
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 3
   m_Category: Seed (pas obligatoire)
   m_Min:
     m_Type:
@@ -1217,7 +1234,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614876}
   m_ExposedName: Widht
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 5
   m_Category: Seed (pas obligatoire)
   m_Min:
     m_Type:
@@ -1298,7 +1315,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614878}
   m_ExposedName: Color Ext
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 9
   m_Category: Color
   m_Min:
     m_Type:
@@ -4838,8 +4855,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615044}
   m_ExposedName: Speed
   m_Exposed: 1
-  m_Order: 9
-  m_Category: Widht
+  m_Order: 1
+  m_Category: Speed
   m_Min:
     m_Type:
       m_SerializableType: 
