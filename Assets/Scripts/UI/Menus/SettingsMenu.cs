@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [SerializeField] private Slider audioSlider = null;
+
+
     public AudioMixer audioMixer;
 
     public Canvas Canvas_Settings;
@@ -32,6 +36,10 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
+        float volume;
+        audioMixer.GetFloat("Volume", out volume);
+        audioSlider.value = volume;
+        
         Canvas_GENERAL.enabled = true;
         Canvas_CONTROLS.enabled = false;
         I_Keyboard.enabled = true;
@@ -45,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Canvas_Settings.enabled = false;
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("S_MainMenu"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("S_MainMenu_Game"))
         {
             //Debug.Log("La scène 'Main Menu' est actuellement ouverte !");
             MainMenu.enabled = true;

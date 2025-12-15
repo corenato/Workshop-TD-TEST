@@ -1,3 +1,4 @@
+using System.Resources;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -5,25 +6,38 @@ public class ResourceManager : MonoBehaviour
     public CopperMine copperMine;
     public GoldMine goldMine;
     public TestBase mainBase;
+    public Clicker clicker;
     public MineBuild[] mineBuild;
     public TowerBuild[] towerBuild;
     public GameObject selectedTurret;
     public TurretBehaviorGround turretBehaviorGround;
     public TurretBehaviorAir turretBehaviorAir;
 
+    public static ResourceManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainBase = this.gameObject.GetComponent<TestBase>();
-        mineBuild = FindObjectsByType<MineBuild>((FindObjectsSortMode)FindObjectsInactive.Include);
-        towerBuild = FindObjectsByType<TowerBuild>((FindObjectsSortMode) FindObjectsInactive.Include);
+        mineBuild = FindObjectsByType<MineBuild>((FindObjectsSortMode)FindObjectsInactive.Exclude);
+        towerBuild = FindObjectsByType<TowerBuild>((FindObjectsSortMode) FindObjectsInactive.Exclude);
     }
 
     // Update is called once per frame
     void Update()
     {
-        copperMine = FindAnyObjectByType<CopperMine>();
-        goldMine = FindAnyObjectByType<GoldMine>();
+        //copperMine = FindAnyObjectByType<CopperMine>();
+        //goldMine = FindAnyObjectByType<GoldMine>();
     }
 
     public void BuildCopperMine(MineBuild mineBuild)
@@ -210,11 +224,15 @@ public class ResourceManager : MonoBehaviour
     public void UpgradeGroundToLV2Damage()
     {
         mainBase = FindAnyObjectByType<TestBase>();
+        Debug.Log("aa");
+        Debug.Log(selectedTurret + "bis");
+        //turretBehaviorGround = selectedTurret.GetComponent<TurretBehaviorGround>();
         copperMine = FindAnyObjectByType<CopperMine>();
-        turretBehaviorGround = selectedTurret.GetComponent<TurretBehaviorGround>();
-
-        if(mainBase.currentScrap >= 40 && copperMine.resourceTotal >= 10)
+        Debug.Log("bb");
+        
+        if (mainBase.currentScrap >= 40 && copperMine.resourceTotal >= 10)
         {
+            Debug.Log("cc");
             mainBase.currentScrap -= 40;
             copperMine.resourceTotal -= 10;
             turretBehaviorGround.GroundLV2DamageStats();
@@ -375,7 +393,7 @@ public class ResourceManager : MonoBehaviour
             copperMine.resourceTotal -= 11;
             turretBehaviorAir.AirLV2RangeStats();
             selectedTurret = null;
-            turretBehaviorGround = null;
+            turretBehaviorAir = null;
         }
     }
 

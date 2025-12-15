@@ -13,7 +13,8 @@ public class Clicker : MonoBehaviour
     [SerializeField] private TowerBuild towerBuild;
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private TileManager tileManager;
-    [SerializeField] private GameObject currentTurret;
+    public GameObject currentTurret;
+    public GameObject currentTurretToBuild;
     [SerializeField] private GameObject currentMine;
     [SerializeField] private bool canUpgradeTurret;
     [SerializeField] private bool canUpgradeMine;
@@ -24,13 +25,14 @@ public class Clicker : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        resourceManager = FindAnyObjectByType<ResourceManager>();
+        resourceManager = ResourceManager.Instance;
         tileManager = FindAnyObjectByType<TileManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(resourceManager.selectedTurret + "from clicker");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * depthDetection, Color.red);
 
@@ -129,7 +131,11 @@ public class Clicker : MonoBehaviour
             {
                 if (currentTurret.CompareTag("GroundTurret"))
                 {
+                    Debug.Log(currentTurret);
                     currentTurret.GetComponent<TurretBehaviorGround>().towerPanel.SetActive(true);
+                    currentTurretToBuild = currentTurret;
+                    resourceManager.selectedTurret = currentTurretToBuild;
+                    resourceManager.turretBehaviorGround = currentTurretToBuild.GetComponent<TurretBehaviorGround>();
                 }
 
                 else if (currentTurret.CompareTag("AirTurret"))
