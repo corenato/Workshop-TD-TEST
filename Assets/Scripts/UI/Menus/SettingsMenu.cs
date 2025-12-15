@@ -53,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
     {
         Canvas_Settings.enabled = false;
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("S_MainMenu"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("S_MainMenu_Game"))
         {
             //Debug.Log("La scène 'Main Menu' est actuellement ouverte !");
             MainMenu.enabled = true;

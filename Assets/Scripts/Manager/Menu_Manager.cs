@@ -11,7 +11,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("S_Test_UI_InGame");
+        SceneManager.LoadScene("Game");
         Canvas_Settings.enabled = false;
     }
 
@@ -30,5 +30,9 @@ public class Menu_Manager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
