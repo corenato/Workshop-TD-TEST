@@ -51,7 +51,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280580908563791471}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -631,8 +631,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 5977634520233706065}
   m_HandleRect: {fileID: 6790605974923677872}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -699,7 +699,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2499199523734910075}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -1833,6 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a268680f0cc093f4e8803008644ce9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSlider: {fileID: 1290411020550436715}
   audioMixer: {fileID: 24100000, guid: cfcc9832449d12244b70cf9f5fbdae7a, type: 2}
   Canvas_Settings: {fileID: 8754491704489048724}
   Canvas_GENERAL: {fileID: 8083700069300079789}
