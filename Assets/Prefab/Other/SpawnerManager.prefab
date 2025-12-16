@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2917314663185111159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3665483903782424670}
+  - component: {fileID: 6195787662627719845}
+  m_Layer: 0
+  m_Name: SpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3665483903782424670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917314663185111159}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12, y: 0, z: 12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6195787662627719845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917314663185111159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd9144fe9467b04eba7300d66e21de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waves:
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 5
+    duration: 10
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 10
+    duration: 15
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 20
+    duration: 20
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 15
+    duration: 25
+    allowedSpawnPoints:
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 20
+    duration: 20
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 10
+    duration: 15
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 10
+    - enemy: {fileID: 6367948566667848430, guid: e3b63084361f14f489af2ad39c87aa4f, type: 3}
+      amount: 5
+    duration: 25
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 15
+    - enemy: {fileID: 6367948566667848430, guid: e3b63084361f14f489af2ad39c87aa4f, type: 3}
+      amount: 10
+    duration: 20
+    allowedSpawnPoints:
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 20
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 10
+    duration: 25
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 20
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 20
+    - enemy: {fileID: 6367948566667848430, guid: e3b63084361f14f489af2ad39c87aa4f, type: 3}
+      amount: 10
+    duration: 35
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 10
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 30
+    - enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      amount: 3
+    duration: 30
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  - enemies:
+    - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
+      amount: 30
+    - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
+      amount: 30
+    - enemy: {fileID: 6367948566667848430, guid: e3b63084361f14f489af2ad39c87aa4f, type: 3}
+      amount: 20
+    - enemy: {fileID: 6367948566667848430, guid: 20445bd2a5c790b42aeba08a922880fc, type: 3}
+      amount: 5
+    duration: 40
+    allowedSpawnPoints:
+    - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  spawnPoints:
+  - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+  - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+  - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  timeBetweenWave: 10
+  countDown: 2
+  fixedCountdown: 0
+  enemyManager: {fileID: 0}
+  waveEnemyEntry:
+    enemy: {fileID: 0}
+    amount: 0
+  enemiesToSpawn: []
+  enemiesSpawned: []
+  copperMine: {fileID: 0}
+  cpMine: {fileID: 0}
+  goldMine: {fileID: 0}
+  gdMine: {fileID: 0}
+  testUI: {fileID: 0}
+  PathToUse: {fileID: 0}
+  WaveIndex: 0
+  remainingWaves: 0
+  StartEnemyNumber: 0
+  isBuildPhase: 0
