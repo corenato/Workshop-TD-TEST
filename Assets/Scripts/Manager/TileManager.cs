@@ -4,10 +4,10 @@ using UnityEngine.Rendering;
 
 public class TileManager : MonoBehaviour
 {
-    public static TileManager instance;
+    [Header("Script réalisé avec l'aide de Leo Chevry")]
     public List <TowerBuild> buildableTiles = new List<TowerBuild>();
     public List <MineBuild> buildableMineTiles = new List<MineBuild> ();
-
+    public static TileManager instance;
     public GameObject turretToBuild;
     public GameObject turretAirPrefab;
     public GameObject turretGroundPrefab;

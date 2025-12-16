@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
+    [Header("Script réalisé avec l'aide de Lea Parnaudeau")]
     public CopperMine copperMine;
     public GoldMine goldMine;
     public TestBase mainBase;

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Script réalisé avec l'aide de Clement Francoz")]
     public Wave[] Waves;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject lightPath1;

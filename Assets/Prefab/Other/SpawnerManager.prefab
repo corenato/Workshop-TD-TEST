@@ -51,24 +51,32 @@ MonoBehaviour:
     duration: 10
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 10
     duration: 15
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 20
     duration: 20
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 15
     duration: 25
     allowedSpawnPoints:
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 20
@@ -76,12 +84,17 @@ MonoBehaviour:
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
       amount: 10
     duration: 15
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: 2186e8a5628a91e46a0e3c75458ae23e, type: 3}
       amount: 10
@@ -91,6 +104,9 @@ MonoBehaviour:
     allowedSpawnPoints:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 15
@@ -100,6 +116,9 @@ MonoBehaviour:
     allowedSpawnPoints:
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
     - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 20
@@ -110,6 +129,10 @@ MonoBehaviour:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
     - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 20
@@ -122,6 +145,10 @@ MonoBehaviour:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
     - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 10
@@ -134,6 +161,10 @@ MonoBehaviour:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
     - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - enemies:
     - enemy: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
       amount: 30
@@ -148,12 +179,19 @@ MonoBehaviour:
     - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
     - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
     - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+    allowedLightPaths:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   spawnPoints:
   - {fileID: 895185272848382543, guid: 3e5543aac90c21e43bc155f3be05a826, type: 3}
   - {fileID: 5812886787353544866, guid: aae87a36bd16ab344af08ce8ca9e930f, type: 3}
   - {fileID: 4359764471889013261, guid: a068149691940c741bfe86545386f405, type: 3}
+  lightPath1: {fileID: 0}
+  lightPath2: {fileID: 0}
+  lightPath3: {fileID: 0}
   timeBetweenWave: 10
-  countDown: 2
+  countDown: 5
   fixedCountdown: 0
   enemyManager: {fileID: 0}
   waveEnemyEntry:

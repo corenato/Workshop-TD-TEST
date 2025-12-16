@@ -7,23 +7,19 @@ public class CameraSettings : MonoBehaviour
     public float minimumFOV = 25f;
     public Vector3 defaultPosition;
 
-    [Header("Zoom at cursor")]
-    [Tooltip("World units moved per scroll notch")]
     public float zoomSpeed = 5f;
-    [Tooltip("Clamp camera Y (height)")]
+
     public float minHeight = 10f;
     public float maxHeight = 100f;
-    [Tooltip("Y position of the ground plane used to sample world point under cursor")]
+
     public float groundY = 0f;
 
-    [Header("Panning")]
     public float panSpeed = 1f;
     public bool cameraSpacePan = true;
-    [Tooltip("If true, panning is allowed only when camera is at or below panAllowHeight")]
+
     public bool panOnlyWhenClose = false;
     public float panAllowHeight = 40f;
 
-    [Header("Optional bounds (XZ)")]
     public bool useBounds;
     public float minX = -13.5f;
     public float maxX = 13.5f;
@@ -42,17 +38,14 @@ public class CameraSettings : MonoBehaviour
     {
         if (mainCamera == null) return;
 
-        // Zoom at cursor (position-based)
         float scroll = Input.mouseScrollDelta.y;
         if (Mathf.Abs(scroll) > 0f)
         {
             ZoomAtCursor(scroll);
         }
 
-        // Determine if panning is allowed
         bool allowPan = !panOnlyWhenClose || mainCamera.transform.position.y <= panAllowHeight;
 
-        // Right-mouse drag panning
         if (allowPan)
         {
             if (Input.GetMouseButtonDown(1))
@@ -68,12 +61,10 @@ public class CameraSettings : MonoBehaviour
                     {
                         Vector3 right = mainCamera.transform.right;
                         Vector3 forward = Vector3.Scale(mainCamera.transform.forward, new Vector3(1f, 0f, 1f)).normalized;
-                        // invert so dragging moves the world under the cursor
                         move = (-right * delta.x + -forward * delta.y) * panSpeed * 0.01f;
                     }
                     else
                     {
-                        // world X/Z directly
                         move = new Vector3(-delta.x, 0f, -delta.y) * panSpeed;
                     }
 
@@ -94,7 +85,6 @@ public class CameraSettings : MonoBehaviour
 
     private void ZoomAtCursor(float scrollDelta)
     {
-        // Zoom IN (towards cursor): preserve world point under cursor
         if (scrollDelta > 0f)
         {
             Vector3 worldBefore = GetWorldPointAtCursor();
@@ -119,16 +109,14 @@ public class CameraSettings : MonoBehaviour
             return;
         }
 
-        // Zoom OUT (towards defaultPosition): move camera stepwise toward the default overview position
         if (scrollDelta < 0f)
         {
             if (defaultPosition != null)
             {
                 Vector3 camPos = mainCamera.transform.position;
-                float step = -scrollDelta * zoomSpeed; // scrollDelta is negative when unzooming
+                float step = -scrollDelta * zoomSpeed; 
                 Vector3 next = Vector3.MoveTowards(camPos, defaultPosition, step);
 
-                // clamp height and bounds
                 next.y = Mathf.Clamp(next.y, minHeight, maxHeight);
                 if (useBounds)
                 {
@@ -140,7 +128,6 @@ public class CameraSettings : MonoBehaviour
             }
             else
             {
-                // fallback: behave like previous zoom out (preserve cursor point)
                 Vector3 worldBefore = GetWorldPointAtCursor();
                 Vector3 camPos = mainCamera.transform.position + mainCamera.transform.forward * scrollDelta * zoomSpeed;
                 camPos.y = Mathf.Clamp(camPos.y, minHeight, maxHeight);
@@ -168,7 +155,6 @@ public class CameraSettings : MonoBehaviour
             return ray.GetPoint(enter);
         }
 
-        // fallback: a point in front of the camera
         return mainCamera.transform.position + mainCamera.transform.forward * 10f;
     }
 }

@@ -69,16 +69,6 @@ public class TurretBehaviorGround : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        Debug.Log("I AM Enabled " + this.gameObject.name);
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log("I AM DISABLED " + this.gameObject.name);
-    }
-
     void Shoot()
     {
         GameObject BulletGO = (GameObject)Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
@@ -216,7 +206,6 @@ public class TurretBehaviorGround : MonoBehaviour
         resourceManager = ResourceManager.Instance;
         resourceManager.selectedTurret = this.gameObject;
         resourceManager.turretBehaviorGround = this;
-        //Debug.Log(resourceManager.selectedTurret + "from TBG");
         towerPanel.SetActive(false);
         upgradePanel.SetActive(true);
       

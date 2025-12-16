@@ -59,7 +59,6 @@ public class EnemyManager : MonoBehaviour
         {
             Target = mainBase.transform;
             Vector3 position = transform.position;
-            // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
             maxHealth = 25;
@@ -74,7 +73,6 @@ public class EnemyManager : MonoBehaviour
         {
             Target = mainBase.transform;
             Vector3 position = transform.position;
-            // keep spawn height relative to original spawn Y; change to `p.y = offset.y;` for absolute world height
             position.y += offset.y;
             transform.position = position;
             maxHealth = 12;

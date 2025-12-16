@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
 {
+    [Header("Script réalisé avec l'aide de Leo Chevry")]
     [SerializeField] private GameObject buildPanel;
     [SerializeField] private GameObject halo;
     [SerializeField] private Clicker clicker;

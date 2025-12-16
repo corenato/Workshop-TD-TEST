@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class TowerBuild : MonoBehaviour
 {
+    [Header("Script réalisé avec l'aide de Leo Chevry")]
     [SerializeField] private GameObject buildPanel;
     [SerializeField] private GameObject halo;
     public ResourceManager resourceManager;

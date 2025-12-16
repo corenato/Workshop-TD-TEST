@@ -7,6 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Clicker : MonoBehaviour
 {
+    [Header("Script réalisé avec l'aide de Clement Francoz")]
     [SerializeField] private float depthDetection = 1000f;
     [SerializeField] private LayerMask layers;
     public MineBuild mineBuild;
@@ -21,18 +22,23 @@ public class Clicker : MonoBehaviour
 
 
     private bool canBuild;
-    
+    private bool normalSpeed;
+    private bool doubleSpeed;
+    private bool quadSpeed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         resourceManager = ResourceManager.Instance;
         tileManager = FindAnyObjectByType<TileManager>();
+        normalSpeed = true;
+        doubleSpeed = false;
+        quadSpeed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(resourceManager.selectedTurret + "from clicker");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * depthDetection, Color.red);
 
@@ -159,5 +165,35 @@ public class Clicker : MonoBehaviour
                 }
             }
         }   
+    }
+
+    public void FastForwardToggle(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (normalSpeed == true)
+            {
+                Debug.Log("aa");
+                Time.timeScale = 2f;
+                normalSpeed = false;
+                doubleSpeed = true;
+            }
+            
+            else if (doubleSpeed == true)
+            {
+                Debug.Log("bb");
+                Time.timeScale = 4f;
+                doubleSpeed = false;
+                quadSpeed = true;
+            }
+
+            else if (quadSpeed == true)
+            {
+                Debug.Log("cc");
+                Time.timeScale = 1f;
+                quadSpeed = false;
+                normalSpeed = true;
+            }
+        }
     }
 }
