@@ -15,11 +15,14 @@ public class TestUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI remainingWaves;
     [SerializeField] private TextMeshProUGUI buildPhaseTimer;
     [SerializeField] private GameObject timerPanel;
+    public GameObject gameOverPanel;
+    public GameObject winPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     // Update is called once per frame

@@ -26,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
     public GoldMine goldMine;
     [SerializeField] private GameObject gdMine;
 
+    public TestUI testUI;
+
     public WayPoints PathToUse;
     public int WaveIndex = 0;
     public int remainingWaves;
@@ -41,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void Start()
     {
-
+        testUI.winPanel.SetActive(false);
     }
     void Update()
     {
@@ -52,6 +54,11 @@ public class EnemySpawner : MonoBehaviour
         {
             isBuildPhase = true;
             countDown -= Time.deltaTime;
+
+            if (remainingWaves <= 0)
+            {
+                WinGame();
+            }
 
             if(copperMine != null)
             {
@@ -149,6 +156,12 @@ public class EnemySpawner : MonoBehaviour
                 enemiesToSpawn.Add(wave.enemies[i].enemy);
             }
         }
+    }
+
+    private void WinGame()
+    {
+        testUI.winPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
 

@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildPanel: {fileID: 0}
-  halo: {fileID: 7479631040129417467, guid: d79853a9a59a9f54eb4c8e2f8d56d13f, type: 3}
-  offset: {x: 0, y: 4, z: 0}
+  halo: {fileID: 5780875578121146957, guid: a6723844a36bef743bd7ed35782d490e, type: 3}
+  resourceManager: {fileID: 0}
+  offset: {x: 0, y: 0.5, z: 0}
   tileManager: {fileID: 0}
   turret: {fileID: 0}
 --- !u!65 &-8355597662115924134

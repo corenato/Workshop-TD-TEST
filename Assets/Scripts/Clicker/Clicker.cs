@@ -32,7 +32,7 @@ public class Clicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(resourceManager.selectedTurret + "from clicker");
+        //Debug.Log(resourceManager.selectedTurret + "from clicker");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * depthDetection, Color.red);
 

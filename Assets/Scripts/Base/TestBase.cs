@@ -6,6 +6,7 @@ public class TestBase : MonoBehaviour
     [SerializeField] public int currentBaseHealth;
 
     [SerializeField] public int currentScrap;
+    [SerializeField] private TestUI testUI;
     //[SerializeField] public int currentCopper;
 
     //[SerializeField] private CopperMine copperMine;
@@ -19,6 +20,7 @@ public class TestBase : MonoBehaviour
         maxBaseHealth = 200;
         currentBaseHealth = maxBaseHealth;
         currentScrap = 60;
+        testUI = FindAnyObjectByType<TestUI>();
         //currentCopper = copperMine.resourceTotal;
     }
 
@@ -34,7 +36,7 @@ public class TestBase : MonoBehaviour
 
         if (currentBaseHealth <= 0)
         {
-            //GameOver();
+            GameOver();
         }
     }
 
@@ -42,5 +44,12 @@ public class TestBase : MonoBehaviour
     {
         currentScrap += scrap;
         //Debug.Log("Current scrap : " +  currentScrap);
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        testUI.gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
