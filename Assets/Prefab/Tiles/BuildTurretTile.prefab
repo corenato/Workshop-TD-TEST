@@ -50,6 +50,7 @@ MonoBehaviour:
   halo: {fileID: 5780875578121146957, guid: a6723844a36bef743bd7ed35782d490e, type: 3}
   resourceManager: {fileID: 0}
   offset: {x: 0, y: 0.5, z: 0}
+  turretOffset: {x: 0, y: 1, z: 0}
   tileManager: {fileID: 0}
   turret: {fileID: 0}
 --- !u!65 &-8355597662115924134

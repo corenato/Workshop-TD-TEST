@@ -8045,63 +8045,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567178474}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &574669203
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.983342
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.6913772
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 370140859682689349, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8150069158098898786, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
-      propertyPath: m_Name
-      value: TestTurretGround
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
 --- !u!1 &578290468
 GameObject:
   m_ObjectHideFlags: 0
@@ -23329,7 +23272,7 @@ MonoBehaviour:
   buildableMineTiles: []
   turretToBuild: {fileID: 0}
   turretAirPrefab: {fileID: 8150069158098898786, guid: 52f6ff7b8107c2c4daf311f26cddb69f, type: 3}
-  turretGroundPrefab: {fileID: 8150069158098898786, guid: b49a035bad566c147ab8f0a74de7dba9, type: 3}
+  turretGroundPrefab: {fileID: 8150069158098898786, guid: 8191b54c41686cc41ba4dd07ed123618, type: 3}
   mineToBuild: {fileID: 0}
   mineCopperPrefab: {fileID: 7130225812462894052, guid: d9cb18f1bd7b7884c9367054b255d562, type: 3}
   mineGoldPrefab: {fileID: 7130225812462894052, guid: 169cfd9aff65a3b4b9c739879b71eedf, type: 3}
@@ -31333,4 +31276,3 @@ SceneRoots:
   - {fileID: 970468988}
   - {fileID: 1302090669}
   - {fileID: 528048189}
-  - {fileID: 574669203}
