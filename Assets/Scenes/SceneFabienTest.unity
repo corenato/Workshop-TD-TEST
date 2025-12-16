@@ -18995,6 +18995,7 @@ MonoBehaviour:
   health: {fileID: 632732419}
   currentWave: {fileID: 1939122416}
   remainingWaves: {fileID: 578290469}
+  actualWave: {fileID: 0}
   buildPhaseTimer: {fileID: 1967529215}
   timerPanel: {fileID: 1463189965}
   gameOverPanel: {fileID: 1876236978}
@@ -31296,6 +31297,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[2]'
       value: 
       objectReference: {fileID: 931264941}
+    - target: {fileID: 6195787662627719845, guid: 1b6f0de9129b6c74b9fcb31190936911, type: 3}
+      propertyPath: Waves.Array.data[0].enemies.Array.data[0].enemy
+      value: 
+      objectReference: {fileID: 6367948566667848430, guid: c292750a10a5fe04bb1d9a6c8ffc0d4f, type: 3}
     - target: {fileID: 6195787662627719845, guid: 1b6f0de9129b6c74b9fcb31190936911, type: 3}
       propertyPath: 'Waves.Array.data[0].allowedSpawnPoints.Array.data[0]'
       value: 

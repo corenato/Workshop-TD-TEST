@@ -81,6 +81,7 @@ MonoBehaviour:
   baseTag: Base
   firstMesh: {fileID: 1709006747461850318}
   secondMesh: {fileID: 2480654051327074318}
+  transfoVFX: {fileID: 9046014670668493873, guid: ced26bc8ee1119e40967e28714376bd7, type: 3}
   transformationCountdown: 0
   targetPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 3, z: 0}

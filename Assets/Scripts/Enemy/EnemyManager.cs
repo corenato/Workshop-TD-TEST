@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     public string baseTag = "Base";
     public GameObject firstMesh;
     public GameObject secondMesh;
+    public GameObject transfoVFX;
     public float transformationCountdown;
 
     private bool IsDead = false;
@@ -31,6 +32,7 @@ public class EnemyManager : MonoBehaviour
     public Transform Target;
     private int WayPointIndex = 0;
     private bool isDestroyed = false;
+    private bool isTransformed = false;
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class EnemyManager : MonoBehaviour
 
         firstMesh.SetActive(true);
         secondMesh.SetActive(false);
+        isTransformed = false;
 
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
@@ -162,7 +165,11 @@ public class EnemyManager : MonoBehaviour
             {
                 //Debug.Log("Target changed : " + other.gameObject.name);
                 Target = other.gameObject.transform;
-                MeshTransformTrigger();
+                
+                if(isTransformed == false)
+                {
+                    MeshTransformTrigger();
+                }
 
             }
 
@@ -170,7 +177,11 @@ public class EnemyManager : MonoBehaviour
             {
                 //Debug.Log("Target changed : " + other.gameObject.name);
                 Target = other.gameObject.transform;
-                MeshTransformTrigger();
+
+                if (isTransformed == false)
+                {
+                    MeshTransformTrigger();
+                }
             }
             return;
         }
@@ -251,18 +262,25 @@ public class EnemyManager : MonoBehaviour
 
     private void MeshTransformTimer()
     {
-        if (transformationCountdown <= 0)
+        if (transformationCountdown <= 0 && isTransformed == false)
         {
-            firstMesh.SetActive(false);
-            //IMPORT VFX FUMEE !!!
-            secondMesh.SetActive(true);
+            Instantiate(transfoVFX,transform.position, Quaternion.identity, transform);
+            Invoke("SetNewMesh", 0.5f);
+            isTransformed = true;
         }
     }
 
     private void MeshTransformTrigger()
     {
         firstMesh.SetActive(false);
-        //IMPORT VFX FUMEE !!!
+        Instantiate(transfoVFX, transform.position, Quaternion.identity, transform);
+        secondMesh.SetActive(true);
+        isTransformed = true;
+    }
+
+    private void SetNewMesh()
+    {
+        firstMesh.SetActive(false);
         secondMesh.SetActive(true);
     }
 }
