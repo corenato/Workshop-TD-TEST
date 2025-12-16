@@ -28,8 +28,8 @@ public class TestUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scrapAmount.text = "Scrap : " + mainBase.currentScrap;
-        health.text = "Health : " + mainBase.currentBaseHealth;
+        scrapAmount.text = mainBase.currentScrap.ToString();
+        health.text = mainBase.currentBaseHealth.ToString();
         currentWave.text = enemySpawner.WaveIndex.ToString();
         remainingWaves.text = enemySpawner.remainingWaves.ToString();
 
@@ -50,7 +50,7 @@ public class TestUI : MonoBehaviour
             timerPanel.SetActive(false);
         }
             
-        copperAmount.text = "Copper : " + enemySpawner.copperMine.resourceTotal;
-        goldAmount.text = "Gold : " + enemySpawner.goldMine.resourceTotal;
+        copperAmount.text = enemySpawner.copperMine.resourceTotal.ToString();
+        goldAmount.text = enemySpawner.goldMine.resourceTotal.ToString();
     }
 }

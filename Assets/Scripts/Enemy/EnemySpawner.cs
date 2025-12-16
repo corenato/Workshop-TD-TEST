@@ -43,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void Start()
     {
+        testUI = FindAnyObjectByType<TestUI>();
         testUI.winPanel.SetActive(false);
     }
     void Update()
