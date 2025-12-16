@@ -7,6 +7,9 @@ public class EnemySpawner : MonoBehaviour
 {
     public Wave[] Waves;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private GameObject lightPath1;
+    [SerializeField] private GameObject lightPath2;
+    [SerializeField] private GameObject lightPath3;
     //[SerializeField] private float TimeBetweenEnemies = 1f;
     [SerializeField] private float timeBetweenWave = 2f;
     //[SerializeField] private float EnemyCountDown = 2f;
@@ -37,6 +40,9 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        lightPath1.SetActive(false);
+        lightPath2.SetActive(false);
+        lightPath3.SetActive(false);
         // Ensure the list is initialized (prevents null refs when generating spawns)
         if (enemiesToSpawn == null)
             enemiesToSpawn = new List<GameObject>();
@@ -53,8 +59,11 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemiesToSpawn.Count == 0 && enemiesSpawned.Count == 0)
         {
+            DeactivateAllLightPaths();
             isBuildPhase = true;
             countDown -= Time.deltaTime;
+            ActivateLightPaths();
+
 
             if (remainingWaves <= 0)
             {
@@ -127,6 +136,26 @@ public class EnemySpawner : MonoBehaviour
 
             yield return new WaitForSeconds(spawnInterval);
         }
+    }
+
+    private void ActivateLightPaths()
+    {
+        Wave nextWave = Waves[WaveIndex];
+
+        foreach (GameObject lp in nextWave.allowedLightPaths)
+        {
+            if(lp != null)
+            {
+                lp.SetActive(true);
+            }
+        }
+    }
+
+    private void DeactivateAllLightPaths()
+    {
+        lightPath1.SetActive(false);
+        lightPath2.SetActive(false);
+        lightPath3.SetActive(false);
     }
     void SpawnEnemy(GameObject enemy, Transform[] allowedSpawnPoints)
     {

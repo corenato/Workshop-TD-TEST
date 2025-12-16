@@ -9,6 +9,7 @@ public class Wave
     public float duration = 10;
 
     public Transform[] allowedSpawnPoints;
+    public List<GameObject> allowedLightPaths;
 
 
 }
