@@ -20,6 +20,7 @@ public class TestBase : MonoBehaviour
         maxBaseHealth = 200;
         currentBaseHealth = maxBaseHealth;
         currentScrap = 60;
+        testUI = FindAnyObjectByType<TestUI>();
         //currentCopper = copperMine.resourceTotal;
     }
 
