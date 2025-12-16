@@ -44,7 +44,7 @@ public class TurretBehaviorAir : MonoBehaviour
         Range = 4f;
         turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
-        resourceManager = FindAnyObjectByType<ResourceManager>();
+        resourceManager = ResourceManager.Instance;
     }
 
     // Update is called once per frame
@@ -134,6 +134,10 @@ public class TurretBehaviorAir : MonoBehaviour
         turretMaxHealth = 10;
         turretCurrentHealth = turretMaxHealth;
         upgradePanel.SetActive(false);
+        damageLv2Button.interactable = false;
+        rangeLv2Button.interactable = false;
+        damageLV3Type1Button.interactable = true;
+        damageLV3Type2Button.interactable = true;
     }
 
     public void AirLV3Damage1Stats()
@@ -167,6 +171,10 @@ public class TurretBehaviorAir : MonoBehaviour
         turretMaxHealth = 10;
         turretCurrentHealth = turretMaxHealth;
         upgradePanel.SetActive(false);
+        damageLv2Button.interactable = false;
+        rangeLv2Button.interactable = false;
+        rangeLV3Type1Button.interactable = true;
+        rangeLV3Type2Button.interactable = true;
     }
 
     public void AirLV3Range1Stats()
@@ -195,9 +203,11 @@ public class TurretBehaviorAir : MonoBehaviour
 
     public void OnUpgradeButtonClick()
     {
+        resourceManager = ResourceManager.Instance;
+        resourceManager.selectedTurret = this.gameObject;
+        resourceManager.turretBehaviorAir = this;
         towerPanel.SetActive(false);
         upgradePanel.SetActive(true);
-        resourceManager.selectedTurret = this.gameObject;
     }
 
 }

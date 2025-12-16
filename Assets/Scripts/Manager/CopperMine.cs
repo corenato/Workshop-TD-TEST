@@ -81,14 +81,6 @@ public class CopperMine : MonoBehaviour
         }
     }
 
-    public void UpgradeDurability()
-    {
-        mineDurability++;
-        mineDurabilityLevel++;
-        mineGlobalLevel++;
-        isMining = true;
-    }
-
     public void ProductionLV1()
     {
         mineProductionLevel++;

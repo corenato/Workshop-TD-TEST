@@ -68,7 +68,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
             mine.GetComponent<CopperMine>().enemySpawner = enemySpawner;
         }
        
-        if (mine.GetComponent<GoldMine>() != null)
+        else if (mine.GetComponent<GoldMine>() != null)
         {
             mine.GetComponent<GoldMine>().mainBase = mainBase;
             mine.GetComponent<GoldMine>().enemySpawner = enemySpawner;

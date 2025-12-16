@@ -56,8 +56,8 @@ public class TowerBuild : MonoBehaviour
         
         GameObject TurretToBuild = TileManager.instance.GetTurretToBuild();  //Detecte quelle tourelle est sélectionnee
         turret = (GameObject)Instantiate(TurretToBuild, transform.position, Quaternion.identity); //Construit la tourelle à l'emplacement de la tile
-        turret.GetComponent<TurretBehaviorGround>().resourceManager=resourceManager;
         tileManager.DestroyHalo();
+        //turret.GetComponent<TurretBehaviorGround>().resourceManager=resourceManager;
 
     }
 }

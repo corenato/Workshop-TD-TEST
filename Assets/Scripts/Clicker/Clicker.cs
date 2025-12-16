@@ -131,7 +131,6 @@ public class Clicker : MonoBehaviour
             {
                 if (currentTurret.CompareTag("GroundTurret"))
                 {
-                    Debug.Log(currentTurret);
                     currentTurret.GetComponent<TurretBehaviorGround>().towerPanel.SetActive(true);
                     currentTurretToBuild = currentTurret;
                     resourceManager.selectedTurret = currentTurretToBuild;
@@ -141,6 +140,9 @@ public class Clicker : MonoBehaviour
                 else if (currentTurret.CompareTag("AirTurret"))
                 {
                     currentTurret.GetComponent<TurretBehaviorAir>().towerPanel.SetActive(true);
+                    currentTurretToBuild = currentTurret;
+                    resourceManager.selectedTurret = currentTurretToBuild;
+                    resourceManager.turretBehaviorAir = currentTurretToBuild.GetComponent<TurretBehaviorAir>();
                 }             
             }
 
