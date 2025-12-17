@@ -132,4 +132,9 @@ public class CopperMine : MonoBehaviour
         isMining = true;
         repairButton.interactable = false;
     }
+
+    public void CloseUpgradePanel()
+    {
+        upgradePanel.SetActive(false);
+    }
 }

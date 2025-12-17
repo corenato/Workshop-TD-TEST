@@ -75,11 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2c1b56244af544cb196fbbbfa5272d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 160
   currentHealth: 0
   damageToTurret: 0
-  damageToBase: 5
-  scrapDrop: 20
+  damageToBase: 16
+  scrapDrop: 56
   enemySpawner: {fileID: 0}
   mainBase: {fileID: 0}
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
@@ -92,7 +92,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
   Path: {fileID: 0}
-  Speed: 10
+  Speed: 1
   Target: {fileID: 0}
 --- !u!65 &9131025811599731414
 BoxCollider:
