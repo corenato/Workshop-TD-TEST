@@ -907,7 +907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Damages upgrade
-  descriptionText: 
+  descriptionText: "Damage: \t5 -> 9\nFire Rate: \t2\nRange: \t4 -> 5\nHealth: \t5
+    -> 10"
 --- !u!114 &6888321893116269435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 1
-  descriptionText: 
+  descriptionText: "Damage: \t5 -> 12\nFire Rate: \t1,1\nRange: \t5\nHealth: \t10
+    -> 15"
 --- !u!114 &5245731577824901339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2949,7 +2951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 1
-  descriptionText: 
+  descriptionText: "Damage: \t9 -> 12\nFire Rate: \t2 -> 1,1\nRange: \t5\nHealth:
+    \t10 -> 15"
 --- !u!114 &7052037325936448161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,7 +3291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: 
+  descriptionText: "Damage: \t5 -> 15\nFire Rate: \t1,1  -> 1,43\nRange: \t5\nHealth:
+    \t10 -> 15"
 --- !u!114 &4946765336341565982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,7 +3473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: 
+  descriptionText: "Damage:\t9 -> 15\nFire Rate:\t2 -> 1,43\nRange:\t5\nHealth: \t10
+    -> 15"
 --- !u!114 &8424702659081600793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3997,7 +4002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Shooting rate upgrade
-  descriptionText: 
+  descriptionText: "Damage: \t5\nFire Rate: \t2  -> 1,1\nRange: \t4 -> 5\nHealth:
+    \t5 -> 10"
 --- !u!114 &8566461463499912826
 MonoBehaviour:
   m_ObjectHideFlags: 0
