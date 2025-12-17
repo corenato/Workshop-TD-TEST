@@ -1420,8 +1420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 1
-  descriptionText: "Damage: \t5 -> 12\nFire Rate: \t1,1\nRange: \t5\nHealth: \t10
-    -> 15"
+  descriptionText: "Damage: \t5 -> 7\nFire Rate: \t1,1 -> 0,83\nRange: \t5 -> 6\nHealth:
+    \t10 -> 15"
 --- !u!114 &5245731577824901339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: "Damage: \t5 -> 15\nFire Rate: \t1,1  -> 1,43\nRange: \t5\nHealth:
+  descriptionText: "Damage: \t5 -> 7\nFire Rate: \t1,1  -> 0,67\nRange: \t5\nHealth:
     \t10 -> 15"
 --- !u!114 &4946765336341565982
 MonoBehaviour:
