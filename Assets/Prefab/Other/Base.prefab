@@ -120,13 +120,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copperMine: {fileID: 0}
   goldMine: {fileID: 0}
-  mainBase: {fileID: 0}
+  mainBase: {fileID: 6203764055828844172}
+  resource: {fileID: 8368165569755170376}
   clicker: {fileID: 0}
   mineBuild: []
   towerBuild: []
   selectedTurret: {fileID: 0}
   turretBehaviorGround: {fileID: 0}
   turretBehaviorAir: {fileID: 0}
+  level2DamageTurretPrefab: {fileID: 8150069158098898786, guid: dea986d74e8693246801a38ef4e36f5a, type: 3}
+  level2FirerateTurretPrefab: {fileID: 8150069158098898786, guid: c2000008e2ab0684da536ec1906b59a9, type: 3}
+  level2DamageAirTurretPrefab: {fileID: 8150069158098898786, guid: 6dd5b0d2e73d4f84ca5dad43376c66c8, type: 3}
+  level2RangeAirTurretPrefab: {fileID: 8150069158098898786, guid: 58b51c02c03ab2f4fbcd7d32f76c6977, type: 3}
+  levelUpVFX: {fileID: 3179728508497836031, guid: 93098de5aa2ff84419e03255d8d31776, type: 3}
 --- !u!65 &7165140378389621727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -162,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157218866797653759, guid: 0dda0814d95c3eb499e599ef8dc7a9fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 157218866797653759, guid: 0dda0814d95c3eb499e599ef8dc7a9fa, type: 3}
       propertyPath: m_LocalPosition.z

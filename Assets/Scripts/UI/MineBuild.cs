@@ -13,6 +13,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
     [SerializeField] private Clicker clicker;
 
     public Vector3 offset;
+    public Vector3 mineOffset;
     public TileManager tileManager;
     public TestBase mainBase;
     public EnemySpawner enemySpawner;
@@ -60,7 +61,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
             return;
         }
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
-        mine = (GameObject)Instantiate(MineToBuild, clicker.mineBuild.transform.position, Quaternion.identity); //Construit la mine à l'emplacement de la tile
+        mine = (GameObject)Instantiate(MineToBuild, clicker.mineBuild.transform.position + mineOffset, Quaternion.identity); //Construit la mine à l'emplacement de la tile
         tileManager.DestroyHalo();
 
         if (mine.GetComponent<CopperMine>() != null)

@@ -41,17 +41,17 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
-        lightPath1.SetActive(false);
-        lightPath2.SetActive(false);
-        lightPath3.SetActive(false);
+        //lightPath1.SetActive(false);
+        //lightPath2.SetActive(false);
+        //lightPath3.SetActive(false);
         // Ensure the list is initialized (prevents null refs when generating spawns)
         if (enemiesToSpawn == null)
             enemiesToSpawn = new List<GameObject>();
     }
     public void Start()
     {
-        testUI = FindAnyObjectByType<TestUI>();
-        testUI.winPanel.SetActive(false);
+        //testUI = FindAnyObjectByType<TestUI>();
+        //testUI.winPanel.SetActive(false);
     }
     void Update()
     {
@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemiesToSpawn.Count == 0 && enemiesSpawned.Count == 0)
         {
-            DeactivateAllLightPaths();
+            //DeactivateAllLightPaths();
             isBuildPhase = true;
             countDown -= Time.deltaTime;
             ActivateLightPaths();

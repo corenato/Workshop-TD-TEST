@@ -16,6 +16,8 @@ public class TurretBehaviorAir : MonoBehaviour
     public float Firerate = 1f;
     public float FireCoutDown = 0f;
     public int turretBulletDamage;
+    public bool isLevel2Damage;
+    public bool isLevel2Range;
 
     public GameObject towerPanel;
     public GameObject upgradePanel;
@@ -39,12 +41,32 @@ public class TurretBehaviorAir : MonoBehaviour
         rangeLV3Type1Button.interactable = false;
         rangeLV3Type2Button.interactable = false;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
-        turretBulletDamage = 5;
-        Firerate = 1.43f;
-        Range = 4f;
-        turretMaxHealth = 5;
+        //turretBulletDamage = 5;
+        //Firerate = 1.43f;
+        //Range = 4f;
+        //turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
         resourceManager = ResourceManager.Instance;
+
+        if (isLevel2Damage)
+        {
+            damageLv2Button.interactable = false;
+            rangeLv2Button.interactable = false;
+            damageLV3Type1Button.interactable = true;
+            damageLV3Type2Button.interactable = true;
+            rangeLV3Type1Button.interactable = false;
+            rangeLV3Type2Button.interactable = false;
+        }
+
+        if (isLevel2Range)
+        {
+            damageLv2Button.interactable = false;
+            rangeLv2Button.interactable = false;
+            damageLV3Type1Button.interactable = false;
+            damageLV3Type2Button.interactable = false;
+            rangeLV3Type1Button.interactable = true;
+            rangeLV3Type2Button.interactable = true;
+        }
     }
 
     // Update is called once per frame
