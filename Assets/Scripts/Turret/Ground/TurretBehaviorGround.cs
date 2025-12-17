@@ -232,5 +232,10 @@ public class TurretBehaviorGround : MonoBehaviour
         upgradePanel.SetActive(true);
       
     }
-   
+
+    public void CloseUpgradePanel()
+    {
+        upgradePanel.SetActive(false);
+    }
+
 }
