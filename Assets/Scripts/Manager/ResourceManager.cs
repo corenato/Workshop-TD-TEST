@@ -13,6 +13,11 @@ public class ResourceManager : MonoBehaviour
     public GameObject selectedTurret;
     public TurretBehaviorGround turretBehaviorGround;
     public TurretBehaviorAir turretBehaviorAir;
+    [SerializeField] private GameObject level2DamageTurretPrefab;
+    [SerializeField] private GameObject level2FirerateTurretPrefab;
+    [SerializeField] private GameObject level2DamageAirTurretPrefab;
+    [SerializeField] private GameObject level2RangeAirTurretPrefab;
+    [SerializeField] private GameObject levelUpVFX;
 
     public static ResourceManager Instance { get; private set; }
 
@@ -233,7 +238,10 @@ public class ResourceManager : MonoBehaviour
         {
             mainBase.currentScrap -= 40;
             copperMine.resourceTotal -= 10;
-            resource.turretBehaviorGround.GroundLV2DamageStats();
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
+            Instantiate(resource.level2DamageTurretPrefab, resource.selectedTurret.transform.position, resource.selectedTurret.transform.rotation);
+            //resource.turretBehaviorGround.GroundLV2DamageStats();
+            Destroy(resource.selectedTurret);
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
         }
@@ -252,6 +260,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 40;
             copperMine.resourceTotal -= 10;
             goldMine.resourceTotal -= 8;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorGround.GroundLV3Damage1Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
@@ -271,6 +280,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 30;
             copperMine.resourceTotal -= 15;
             goldMine.resourceTotal -= 8;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorGround.GroundLV3Damage2Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
@@ -288,7 +298,10 @@ public class ResourceManager : MonoBehaviour
         {
             mainBase.currentScrap -= 40;
             copperMine.resourceTotal -= 10;
-            resource.turretBehaviorGround.GroundLV2FirerateStats();
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
+            Instantiate(resource.level2FirerateTurretPrefab, resource.selectedTurret.transform.position, resource.selectedTurret.transform.rotation);
+            //resource.turretBehaviorGround.GroundLV2FirerateStats();
+            Destroy(resource.selectedTurret);
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
         }
@@ -307,6 +320,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 30;
             copperMine.resourceTotal -= 15;
             goldMine.resourceTotal -= 8;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorGround.GroundLV3Firerate1Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
@@ -326,6 +340,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 30;
             copperMine.resourceTotal -= 15;
             goldMine.resourceTotal -= 8;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorGround.GroundLV3Firerate2Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorGround = null;
@@ -343,7 +358,10 @@ public class ResourceManager : MonoBehaviour
         {
             mainBase.currentScrap -= 49;
             copperMine.resourceTotal -= 11;
-            resource.turretBehaviorAir.AirLV2DamageStats();
+            //resource.turretBehaviorAir.AirLV2DamageStats();
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
+            Instantiate(resource.level2DamageAirTurretPrefab, resource.selectedTurret.transform.position, resource.selectedTurret.transform.rotation);
+            Destroy(resource.selectedTurret);
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
         }
@@ -362,6 +380,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 33;
             copperMine.resourceTotal -= 17;
             goldMine.resourceTotal -= 9;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorAir.AirLV3Damage1Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
@@ -381,6 +400,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 33;
             copperMine.resourceTotal -= 17;
             goldMine.resourceTotal -= 9;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorAir.AirLV3Damage2Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
@@ -398,7 +418,10 @@ public class ResourceManager : MonoBehaviour
         {
             mainBase.currentScrap -= 49;
             copperMine.resourceTotal -= 11;
-            resource.turretBehaviorAir.AirLV2RangeStats();
+            //resource.turretBehaviorAir.AirLV2RangeStats();
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
+            Instantiate(resource.level2RangeAirTurretPrefab, resource.selectedTurret.transform.position, resource.selectedTurret.transform.rotation);
+            Destroy(resource.selectedTurret);
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
         }
@@ -417,6 +440,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 33;
             copperMine.resourceTotal -= 17;
             goldMine.resourceTotal -= 9;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorAir.AirLV3Range1Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
@@ -436,6 +460,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 33;
             copperMine.resourceTotal -= 17;
             goldMine.resourceTotal -= 9;
+            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             resource.turretBehaviorAir.AirLV3Range2Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;

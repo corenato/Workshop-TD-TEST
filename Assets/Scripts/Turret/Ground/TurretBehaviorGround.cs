@@ -16,6 +16,8 @@ public class TurretBehaviorGround : MonoBehaviour
     public float Firerate = 1f;
     public float FireCoutDown = 0f;
     public int turretBulletDamage;
+    public bool isLevel2Damage;
+    public bool isLevel2Firerate;
 
     public GameObject towerPanel;
     public GameObject upgradePanel;
@@ -39,12 +41,32 @@ public class TurretBehaviorGround : MonoBehaviour
         firerateLV3Type1Button.interactable = false;
         firerateLV3Type2Button.interactable = false;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
-        turretBulletDamage = 5;
-        Firerate = 2f;
-        Range = 4f;
-        turretMaxHealth = 5;
+        //turretBulletDamage = 5;
+        //Firerate = 2f;
+        //Range = 4f;
+        //turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
         resourceManager = ResourceManager.Instance;
+
+        if (isLevel2Damage)
+        {
+            damageLv2Button.interactable = false;
+            firerateLv2Button.interactable = false;
+            damageLV3Type1Button.interactable = true;
+            damageLV3Type2Button.interactable = true;
+            firerateLV3Type1Button.interactable = false;
+            firerateLV3Type2Button.interactable = false;
+        }
+
+        if (isLevel2Firerate)
+        {
+            damageLv2Button.interactable = false;
+            firerateLv2Button.interactable = false;
+            damageLV3Type1Button.interactable = false;
+            damageLV3Type2Button.interactable = false;
+            firerateLV3Type1Button.interactable = true;
+            firerateLV3Type2Button.interactable = true;
+        }
     }
 
     // Update is called once per frame
@@ -129,10 +151,10 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void GroundLV2DamageStats() 
     {
-        turretBulletDamage = 9;
-        Range = 5f;
-        turretMaxHealth = 10;
-        turretCurrentHealth = turretMaxHealth;
+        //turretBulletDamage = 9;
+        //Range = 5f;
+        //turretMaxHealth = 10;
+        //turretCurrentHealth = turretMaxHealth;
         upgradePanel.SetActive(false);
         damageLv2Button.interactable = false;
         firerateLv2Button.interactable = false;

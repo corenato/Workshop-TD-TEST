@@ -24,12 +24,13 @@ public class CopperMine : MonoBehaviour
     public Button durabilityLV1Button;
     public Button durabilityLV2Button;
     public Button repairButton;
-    
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //cpMine = GameObject.FindGameObjectWithTag("CopperMine");
-        //resourceManager = mainBase.GetComponent<ResourceManager>();
+        resourceManager = ResourceManager.Instance;
 
         mineGlobalLevel = 1;
         mineProductionLevel = 0;
