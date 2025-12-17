@@ -25,6 +25,8 @@ public class CopperMine : MonoBehaviour
     public Button durabilityLV2Button;
     public Button repairButton;
 
+    public GameObject smokeVFX;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,6 +55,7 @@ public class CopperMine : MonoBehaviour
     void Update()
     {
         resourceGain = resourceRaw * 5;
+
     }
 
     public void ProduceResource()
@@ -78,6 +81,7 @@ public class CopperMine : MonoBehaviour
             {
                 isMining = false;
                 repairButton.interactable = true;
+                Instantiate(smokeVFX, transform.position, Quaternion.identity);
             }
         }
     }

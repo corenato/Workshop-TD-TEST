@@ -25,6 +25,8 @@ public class GoldMine : MonoBehaviour
     public Button durabilityLV2Button;
     public Button repairButton;
 
+    public GameObject smokeVFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
@@ -77,6 +79,7 @@ public class GoldMine : MonoBehaviour
             {
                 isMining = false;
                 repairButton.interactable = true;
+                Instantiate(smokeVFX, transform.position, Quaternion.identity);
             }
         }
     }

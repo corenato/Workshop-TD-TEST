@@ -359,7 +359,7 @@ public class ResourceManager : MonoBehaviour
             mainBase.currentScrap -= 49;
             copperMine.resourceTotal -= 11;
             //resource.turretBehaviorAir.AirLV2DamageStats();
-            Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
+            //Instantiate(levelUpVFX, resource.selectedTurret.transform.position, Quaternion.identity, transform);
             Instantiate(resource.level2DamageAirTurretPrefab, resource.selectedTurret.transform.position, resource.selectedTurret.transform.rotation);
             Destroy(resource.selectedTurret);
             resource.selectedTurret = null;

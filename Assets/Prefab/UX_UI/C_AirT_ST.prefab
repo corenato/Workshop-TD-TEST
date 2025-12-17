@@ -275,7 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Range upgrade
-  descriptionText: 
+  descriptionText: "Damage: \t5 -> 7\nFire Rate: \t1,43  \nRange: \t4 -> 6\nHealth:
+    \t5 -> 10"
 --- !u!114 &5418981492799992870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,14 +455,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 18c6ab1cfeb0bf943a95951916ef385c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b339ee9d3981e04085319ea423d85eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -975,7 +976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: 
+  descriptionText: "Damage: \t9 -> 15\nFire Rate: \t1,43\nRange: \t5 -> 6\nHealth:
+    \t10 -> 15"
 --- !u!114 &4990962711892145202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: 
+  descriptionText: 'D: 7
+
+    FR: 1,43  -> 1,11
+
+    R: 6 -> 9
+
+    Health : 10 ->
+    15'
 --- !u!114 &1494042197761222592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,8 +1499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2612b57eec49fd649bd526ba7d01b91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: Damages upgrade
-  descriptionText: 
+  titleText: Damage upgrade
+  descriptionText: "Damage: \t5 -> 9\nFire Rate: \t1,43  \nRange: \t4 -> 5\nHealth:
+    \t5 -> 10"
 --- !u!114 &6919432177198937240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2599,7 +2609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 1
-  descriptionText: 
+  descriptionText: "Damage: \t7 -> 9\nFire Rate: \t1,43  -> 1,11\nRange: \t6 -> 7\nHealth:
+    \t10 -> 15"
 --- !u!114 &4334772996395455897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13c3e811bbbb61a4bbeb3847c4776faf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a9baec8825931d4b9b75fb9271af0d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3224,7 +3235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 1
-  descriptionText: 
+  descriptionText: "Damage: \t9 -> 12\nFire Rate: \t1,43  -> 1,1\nRange: \t5 -> 6\nHealth:
+    \t10 -> 15"
 --- !u!114 &8928672270279569308
 MonoBehaviour:
   m_ObjectHideFlags: 0

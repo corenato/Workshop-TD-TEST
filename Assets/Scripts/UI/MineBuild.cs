@@ -61,6 +61,7 @@ public class MineBuild : MonoBehaviour /*IPointerDownHandler*/
             return;
         }
         GameObject MineToBuild = TileManager.instance.GetMineToBuild();  //Detecte quelle mine est sélectionnee
+        Debug.Log(MineToBuild);
         mine = (GameObject)Instantiate(MineToBuild, clicker.mineBuild.transform.position + mineOffset, Quaternion.identity); //Construit la mine à l'emplacement de la tile
         tileManager.DestroyHalo();
 
