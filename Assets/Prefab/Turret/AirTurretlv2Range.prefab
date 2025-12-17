@@ -457,37 +457,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &841781383910210769
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2789560093094884554}
-  m_Layer: 0
-  m_Name: FirePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2789560093094884554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841781383910210769}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.000000014901159, z: -0, w: 1}
-  m_LocalPosition: {x: -0.021, y: 1.164, z: -2.032}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 87740257633134321}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891516598367267345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2079,7 @@ MonoBehaviour:
   towerPanel: {fileID: 4645695387031433943}
   upgradePanel: {fileID: 207426513713343756}
   BulletPrefab: {fileID: 7054791219434266484, guid: 26b6b336d43093b41ba83bf3de13abdb, type: 3}
-  FirePoint: {fileID: 2789560093094884554}
+  FirePoint: {fileID: 8671145075328147874}
   damageLv2Button: {fileID: 6685362599510498965}
   rangeLv2Button: {fileID: 3852297467529989927}
   damageLV3Type1Button: {fileID: 2433566444728444305}
@@ -2898,10 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8331052619268595677, guid: 3a66477967ffe304889dfadce160c675, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2789560093094884554}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a66477967ffe304889dfadce160c675, type: 3}
 --- !u!4 &87740257633134321 stripped
@@ -2912,5 +2878,10 @@ Transform:
 --- !u!4 &3225397788947439065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6802833782461441269, guid: 3a66477967ffe304889dfadce160c675, type: 3}
+  m_PrefabInstance: {fileID: 8262539040439335212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8671145075328147874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 791639550586853518, guid: 3a66477967ffe304889dfadce160c675, type: 3}
   m_PrefabInstance: {fileID: 8262539040439335212}
   m_PrefabAsset: {fileID: 0}

@@ -18,7 +18,7 @@ public class TurretBehaviorAir : MonoBehaviour
     public int turretBulletDamage;
     public bool isLevel2Damage;
     public bool isLevel2Range;
-
+    public Vector3 rotationOffset;
     public GameObject towerPanel;
     public GameObject upgradePanel;
     public GameObject BulletPrefab;
@@ -72,6 +72,7 @@ public class TurretBehaviorAir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(transform.localScale);
         FireCoutDown -= Time.deltaTime;
 
         if (Target == null)
@@ -90,6 +91,7 @@ public class TurretBehaviorAir : MonoBehaviour
             FireCoutDown = Firerate;
         }
     }
+
 
     void Shoot()
     {

@@ -13,7 +13,6 @@ public class TestUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI health;
     [SerializeField] private TextMeshProUGUI currentWave;
     [SerializeField] private TextMeshProUGUI remainingWaves;
-    [SerializeField] private TextMeshProUGUI actualWave;
     [SerializeField] private TextMeshProUGUI buildPhaseTimer;
     [SerializeField] private GameObject timerPanel;
     public GameObject gameOverPanel;
@@ -33,7 +32,6 @@ public class TestUI : MonoBehaviour
         health.text = mainBase.currentBaseHealth.ToString();
         currentWave.text = enemySpawner.WaveIndex.ToString();
         remainingWaves.text = enemySpawner.remainingWaves.ToString();
-        actualWave.text = enemySpawner.WaveIndex.ToString() + " / " + enemySpawner.remainingWaves.ToString();
 
         if (enemySpawner.remainingWaves == 0)
         {
