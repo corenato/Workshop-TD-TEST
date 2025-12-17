@@ -234,4 +234,9 @@ public class TurretBehaviorAir : MonoBehaviour
         upgradePanel.SetActive(true);
     }
 
+    public void CloseUpgradePanel()
+    {
+        upgradePanel.SetActive(false);
+    }
+
 }
