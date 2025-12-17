@@ -46,11 +46,11 @@ public class EnemyManager : MonoBehaviour
         if (this.gameObject.CompareTag("GroundEnemy"))
         {
             Target = Path.Points[0];
-            maxHealth = 20;
-            Speed = 2f;
-            damageToBase = 4;
-            damageToTurret = 0;
-            scrapDrop = 5;
+            //maxHealth = 20;
+            //Speed = 2f;
+            //damageToBase = 4;
+            //damageToTurret = 0;
+            //scrapDrop = 5;
             transformationCountdown = 4f;
         }
 
