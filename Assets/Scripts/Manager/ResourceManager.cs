@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -464,6 +465,33 @@ public class ResourceManager : MonoBehaviour
             resource.turretBehaviorAir.AirLV3Range2Stats();
             resource.selectedTurret = null;
             resource.turretBehaviorAir = null;
+        }
+    }
+
+    public void GiveScrap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mainBase = FindAnyObjectByType<TestBase>();
+            mainBase.currentScrap += 200;
+        }
+    }
+
+    public void GiveCopper(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            copperMine = FindAnyObjectByType<CopperMine>();
+            copperMine.resourceTotal += 50;
+        }
+    }
+
+    public void GiveGold(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            goldMine = FindAnyObjectByType<GoldMine>();
+            goldMine.resourceTotal += 50;
         }
     }
 }
