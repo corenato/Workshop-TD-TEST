@@ -8291,6 +8291,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2b413d7a5fda0489825ce63e48d7b8, type: 3}
+--- !u!223 &1652579360 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7648470039842337199, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+  m_PrefabInstance: {fileID: 2056367874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1652592000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3584795215470545299, guid: 8373b5b4606e4304aac65a82bea52ff0, type: 3}
@@ -10116,12 +10121,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3692761290552405538, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692761290552405538, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704945018936893873, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: Canvas_Settings
+      value: 
+      objectReference: {fileID: 1652579360}
     - target: {fileID: 7089000695132108417, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7089000695132108417, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769684609614803619, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769684609614803619, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769684609614803619, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7973894004964369504, guid: 55e281f9e7ed6194894afd5051d88c5f, type: 3}

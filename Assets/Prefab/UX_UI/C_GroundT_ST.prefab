@@ -4001,7 +4001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2612b57eec49fd649bd526ba7d01b91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: Shooting rate upgrade
+  titleText: Fire rate upgrade
   descriptionText: "Damage: \t5\nFire Rate: \t2  -> 1,1\nRange: \t4 -> 5\nHealth:
     \t5 -> 10"
 --- !u!114 &8566461463499912826

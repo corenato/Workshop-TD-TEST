@@ -1233,14 +1233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleText: Upgrade 2
-  descriptionText: 'D: 7
-
-    FR: 1,43  -> 1,11
-
-    R: 6 -> 9
-
-    Health : 10 ->
-    15'
+  descriptionText: "Damage: \t7\nFire Rate: \t1,43  -> 1,11\nRange: \t6 -> 9\nHealth:
+    \t10 -> 15"
 --- !u!114 &1494042197761222592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3015,7 +3009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2612b57eec49fd649bd526ba7d01b91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: Shooting rate upgrade
+  titleText: Fire rate upgrade
   descriptionText: 
 --- !u!114 &1427567482513659823
 MonoBehaviour:
