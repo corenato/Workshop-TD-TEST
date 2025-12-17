@@ -1570,7 +1570,7 @@ MonoBehaviour:
   durabilityLV1Button: {fileID: 6584772960666649937}
   durabilityLV2Button: {fileID: 5508934047488590825}
   repairButton: {fileID: 5580399533979332521}
-  offset: {x: 0, y: 0, z: 0}
+  smokeVFX: {fileID: 1071611440489293010, guid: dbae4fc1806eb074c8d5454bbfa233f3, type: 3}
 --- !u!65 &5500694733903788332
 BoxCollider:
   m_ObjectHideFlags: 0

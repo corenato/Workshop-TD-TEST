@@ -85,8 +85,8 @@ MonoBehaviour:
   DyingEffect: {fileID: 9009584884077122642, guid: 31072e1fed707ee4cb595db1f588ea46, type: 3}
   bulletTag: Bullet
   baseTag: Base
-  firstMesh: {fileID: 6170375122420096459}
-  secondMesh: {fileID: 8406605899149343613}
+  firstMesh: {fileID: 8406605899149343613}
+  secondMesh: {fileID: 6170375122420096459}
   transfoVFX: {fileID: 9046014670668493873, guid: ced26bc8ee1119e40967e28714376bd7, type: 3}
   transformationCountdown: 0
   targetPosition: {x: 0, y: 0, z: 0}
@@ -196,15 +196,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2562590458575177284, guid: 57700b8b624c7d74ea023ded610cf165, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2562590458575177284, guid: 57700b8b624c7d74ea023ded610cf165, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2562590458575177284, guid: 57700b8b624c7d74ea023ded610cf165, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2562590458575177284, guid: 57700b8b624c7d74ea023ded610cf165, type: 3}
       propertyPath: m_LocalPosition.x
