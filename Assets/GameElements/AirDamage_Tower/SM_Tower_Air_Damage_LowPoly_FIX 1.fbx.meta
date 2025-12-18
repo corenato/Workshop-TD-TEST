@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 507d1d80eaed0b446a470205af2b51d9
+guid: 057b087f78af3b14aa559ec6bd26b2b4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert17
-    second: {fileID: 2100000, guid: af0159d1a31989544a9753afeb5ab43f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -38,7 +33,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.45
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -55,7 +50,7 @@ ModelImporter:
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
+    bakeAxisConversion: 1
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -93,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 0.45
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

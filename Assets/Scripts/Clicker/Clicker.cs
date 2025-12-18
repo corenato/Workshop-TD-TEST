@@ -173,7 +173,6 @@ public class Clicker : MonoBehaviour
         {
             if (normalSpeed == true)
             {
-                Debug.Log("aa");
                 Time.timeScale = 2f;
                 normalSpeed = false;
                 doubleSpeed = true;
@@ -181,7 +180,6 @@ public class Clicker : MonoBehaviour
             
             else if (doubleSpeed == true)
             {
-                Debug.Log("bb");
                 Time.timeScale = 4f;
                 doubleSpeed = false;
                 quadSpeed = true;
@@ -189,7 +187,6 @@ public class Clicker : MonoBehaviour
 
             else if (quadSpeed == true)
             {
-                Debug.Log("cc");
                 Time.timeScale = 1f;
                 quadSpeed = false;
                 normalSpeed = true;

@@ -128,9 +128,9 @@ public class ResourceManager : MonoBehaviour
 
         if (copperMine.isMining == false)
         {
-            if (mainBase.currentScrap >= 50)
+            if (mainBase.currentScrap >= 40)
             {
-                mainBase.currentScrap -= 50;
+                mainBase.currentScrap -= 40;
                 copperMine.RepairMine();
             }
         }

@@ -9,6 +9,7 @@ public class TurretBehaviorAir : MonoBehaviour
     [SerializeField] public int turretCurrentHealth;
     [SerializeField] private float TurnSpeed = 10f;
     public ResourceManager resourceManager;
+    public EnemySpawner enemySpawner;
 
     public float Range = 2f;
     public string airEnemyTag = "AirEnemy";
@@ -18,7 +19,10 @@ public class TurretBehaviorAir : MonoBehaviour
     public int turretBulletDamage;
     public bool isLevel2Damage;
     public bool isLevel2Range;
+    public bool canShoot;
+
     public Vector3 rotationOffset;
+    public GameObject smokeVFX;
     public GameObject towerPanel;
     public GameObject upgradePanel;
     public GameObject BulletPrefab;
@@ -30,6 +34,8 @@ public class TurretBehaviorAir : MonoBehaviour
     public Button rangeLV3Type1Button;
     public Button rangeLV3Type2Button;
 
+    public string[] targetTags = new[] { "AirEnemy","KamikazeEnemy" };
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +46,7 @@ public class TurretBehaviorAir : MonoBehaviour
         damageLV3Type2Button.interactable = false;
         rangeLV3Type1Button.interactable = false;
         rangeLV3Type2Button.interactable = false;
+        canShoot = true;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
         //turretBulletDamage = 5;
         //Firerate = 1.43f;
@@ -47,6 +54,8 @@ public class TurretBehaviorAir : MonoBehaviour
         //turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
         resourceManager = ResourceManager.Instance;
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
+        Debug.Log(smokeVFX.activeSelf);
 
         if (isLevel2Damage)
         {
@@ -72,23 +81,30 @@ public class TurretBehaviorAir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.localScale);
-        FireCoutDown -= Time.deltaTime;
-
-        if (Target == null)
+        if (enemySpawner.isBuildPhase == true)
         {
-            return;
+            canShoot = true;
         }
 
-        Vector3 Dir = Target.position - transform.position;
-        Quaternion LookRotation = Quaternion.LookRotation(Dir);
-        Vector3 Rotation = Quaternion.Lerp(PartToRotate.rotation, LookRotation, Time.deltaTime * TurnSpeed).eulerAngles;
-        PartToRotate.rotation = Quaternion.Euler(Rotation.x, Rotation.y, 0f);
-
-        if (FireCoutDown <= 0f)
+        if (canShoot == true)
         {
-            Shoot();
-            FireCoutDown = Firerate;
+            FireCoutDown -= Time.deltaTime;
+
+            if (Target == null)
+            {
+                return;
+            }
+
+            Vector3 Dir = Target.position - transform.position;
+            Quaternion LookRotation = Quaternion.LookRotation(Dir);
+            Vector3 Rotation = Quaternion.Lerp(PartToRotate.rotation, LookRotation, Time.deltaTime * TurnSpeed).eulerAngles;
+            PartToRotate.rotation = Quaternion.Euler(Rotation.x, Rotation.y, 0f);
+
+            if (FireCoutDown <= 0f)
+            {
+                Shoot();
+                FireCoutDown = Firerate;
+            }
         }
     }
 
@@ -107,20 +123,24 @@ public class TurretBehaviorAir : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(airEnemyTag); 
+        //GameObject[] airEnemies = GameObject.FindGameObjectsWithTag(airEnemyTag); 
 
         float ShortestDistance = Mathf.Infinity;
         GameObject NearestEnemy = null;
 
-        foreach (GameObject enemy in airEnemies)
+        foreach (var tag in targetTags)
         {
-            float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (DistanceToEnemy < ShortestDistance)
-            {
-                ShortestDistance = DistanceToEnemy;
-                NearestEnemy = enemy;
-            }
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
 
+            foreach (GameObject enemy in enemies)
+            {
+                float DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (DistanceToEnemy < ShortestDistance)
+                {
+                    ShortestDistance = DistanceToEnemy;
+                    NearestEnemy = enemy;
+                }
+            }   
         }
 
 
@@ -147,7 +167,9 @@ public class TurretBehaviorAir : MonoBehaviour
 
         if (turretCurrentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            //smokeVFX.SetActive(true);
+            canShoot = false;
+
         }
     }
 
@@ -166,8 +188,8 @@ public class TurretBehaviorAir : MonoBehaviour
 
     public void AirLV3Damage1Stats()
     {
-        turretBulletDamage = 12;
-        Firerate = 1.1f;
+        turretBulletDamage = 13;
+        Firerate = 0.56f;
         Range = 6f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -178,8 +200,8 @@ public class TurretBehaviorAir : MonoBehaviour
 
     public void AirLV3Damage2Stats()
     {
-        turretBulletDamage = 15;
-        Firerate = 1.43f;
+        turretBulletDamage = 16;
+        Firerate = 0.71f;
         Range = 6f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -203,8 +225,8 @@ public class TurretBehaviorAir : MonoBehaviour
 
     public void AirLV3Range1Stats()
     {
-        turretBulletDamage = 9;
-        Firerate = 1.11f;
+        turretBulletDamage = 10;
+        Firerate = 0.56f;
         Range = 7f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -215,8 +237,8 @@ public class TurretBehaviorAir : MonoBehaviour
 
     public void AirLV3Range2Stats()
     {
-        turretBulletDamage = 7;
-        Firerate = 1.11f;
+        turretBulletDamage = 8;
+        Firerate = 0.56f;
         Range = 9f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;

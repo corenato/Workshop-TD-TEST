@@ -9,7 +9,8 @@ public class TurretBehaviorGround : MonoBehaviour
     [SerializeField] private int turretMaxHealth;
     [SerializeField] private int turretCurrentHealth;
     public ResourceManager resourceManager;
-    
+    public EnemySpawner enemySpawner;
+
     public float Range = 2f;
     public string EnemyTag = "GroundEnemy";
     public Transform PartToRotate;
@@ -18,7 +19,8 @@ public class TurretBehaviorGround : MonoBehaviour
     public int turretBulletDamage;
     public bool isLevel2Damage;
     public bool isLevel2Firerate;
-
+    public bool canShoot;
+    public GameObject smokeVFX;
     public GameObject towerPanel;
     public GameObject upgradePanel;
     public GameObject BulletPrefab;
@@ -40,6 +42,7 @@ public class TurretBehaviorGround : MonoBehaviour
         damageLV3Type2Button.interactable = false;
         firerateLV3Type1Button.interactable = false;
         firerateLV3Type2Button.interactable = false;
+        canShoot = true;
         InvokeRepeating("UpdateTarget", 0f, 0.25f);
         //turretBulletDamage = 5;
         //Firerate = 2f;
@@ -47,6 +50,7 @@ public class TurretBehaviorGround : MonoBehaviour
         //turretMaxHealth = 5;
         turretCurrentHealth = turretMaxHealth;
         resourceManager = ResourceManager.Instance;
+        enemySpawner = FindAnyObjectByType<EnemySpawner>();
 
         if (isLevel2Damage)
         {
@@ -72,22 +76,30 @@ public class TurretBehaviorGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FireCoutDown -= Time.deltaTime;
-
-        if (Target == null)
+        if (enemySpawner.isBuildPhase == true)
         {
-            return;
+            canShoot = true;
         }
 
-        Vector3 Dir = Target.position - transform.position;
-        Quaternion LookRotation = Quaternion.LookRotation(Dir);
-        Vector3 Rotation = Quaternion.Lerp(PartToRotate.rotation, LookRotation, Time.deltaTime * TurnSpeed).eulerAngles;
-        PartToRotate.rotation = Quaternion.Euler(Rotation.x, Rotation.y, 0f);
-
-        if (FireCoutDown <= 0f)
+        if (canShoot == true)
         {
-            Shoot();
-            FireCoutDown = Firerate;
+            FireCoutDown -= Time.deltaTime;
+
+            if (Target == null)
+            {
+                return;
+            }
+
+            Vector3 Dir = Target.position - transform.position;
+            Quaternion LookRotation = Quaternion.LookRotation(Dir);
+            Vector3 Rotation = Quaternion.Lerp(PartToRotate.rotation, LookRotation, Time.deltaTime * TurnSpeed).eulerAngles;
+            PartToRotate.rotation = Quaternion.Euler(Rotation.x, Rotation.y, 0f);
+
+            if (FireCoutDown <= 0f)
+            {
+                Shoot();
+                FireCoutDown = Firerate;
+            }
         }
     }
 
@@ -145,7 +157,7 @@ public class TurretBehaviorGround : MonoBehaviour
 
         if (turretCurrentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            canShoot = false;
         }
     }
 
@@ -164,8 +176,8 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void GroundLV3Damage1Stats()
     {
-        turretBulletDamage = 12;
-        Firerate = 1.1f;
+        turretBulletDamage = 13;
+        Firerate = 0.56f;
         Range = 5f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -176,8 +188,8 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void GroundLV3Damage2Stats()
     {
-        turretBulletDamage = 15;
-        Firerate = 1.43f;
+        turretBulletDamage = 16;
+        Firerate = 0.71f;
         Range = 5f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -201,8 +213,8 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void GroundLV3Firerate1Stats()
     {
-        turretBulletDamage = 7;
-        Firerate = 0.83f;
+        turretBulletDamage = 8;
+        Firerate = 0.42f;
         Range = 6f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;
@@ -213,8 +225,8 @@ public class TurretBehaviorGround : MonoBehaviour
 
     public void GroundLV3Firerate2Stats()
     {
-        turretBulletDamage = 7;
-        Firerate = 0.67f;
+        turretBulletDamage = 8;
+        Firerate = 0.33f;
         Range = 5f;
         turretMaxHealth = 15;
         turretCurrentHealth = turretMaxHealth;

@@ -36,9 +36,9 @@ public class GoldMine : MonoBehaviour
         mineGlobalLevel = 1;
         mineProductionLevel = 0;
         mineDurabilityLevel = 0;
-        mineDurability = 3;
+        mineDurability = 4;
         resourceRaw = 2;
-        resourceTotal = 0;
+        resourceTotal = 5;
         isMining = true;
         enemySpawner.goldMine = this;
         hasMinedThisTurn = false;
@@ -105,7 +105,7 @@ public class GoldMine : MonoBehaviour
 
     public void DurabilityLV1()
     {
-        mineDurability++;
+        mineDurability = 5;
         mineDurabilityLevel++;
         mineGlobalLevel++;
         isMining = true;
@@ -116,7 +116,7 @@ public class GoldMine : MonoBehaviour
 
     public void DurabilityLV2()
     {
-        mineDurability++;
+        mineDurability = 6;
         mineDurabilityLevel++;
         mineGlobalLevel++;
         isMining = true;

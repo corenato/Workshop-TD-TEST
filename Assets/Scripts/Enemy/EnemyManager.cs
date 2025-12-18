@@ -109,11 +109,11 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyDied()
     {
-        IsDead = true;
+        //IsDead = true;
+        Debug.Log("Enemy Died");
 
-        
-        GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
-        Destroy(EffectINS, 2f);
+        //GameObject EffectINS = (GameObject)Instantiate(DyingEffect, transform.position, transform.rotation);
+        //Destroy(EffectINS, 2f);
         enemySpawner.DecreaseEnemyCount(this.gameObject);
         Destroy(this.gameObject);
         //Debug.Log(EnemySpawner.spawnedEnemyCount);
@@ -150,6 +150,28 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("GroundTurret") && isTransformed == true)
+        {
+            if (other.gameObject.TryGetComponent(out TurretBehaviorGround groundTurret))
+            {
+                isDestroyed = true;
+                other.gameObject.GetComponent<TurretBehaviorGround>().TakeDamage(damageToTurret);
+                EnemyDied();
+            }
+        }
+
+        if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("AirTurret") && isTransformed == true)
+        {
+            if (other.gameObject.TryGetComponent(out TurretBehaviorAir airTurret))
+            {
+                //Debug.Log("Collision");
+                isDestroyed = true;
+                other.gameObject.GetComponent<TurretBehaviorAir>().TakeDamage(damageToTurret);
+                EnemyDied();
+            }
+        }
+
+
         if (other.gameObject.CompareTag("Base"))
         {
             //Debug.Log("Collision");
@@ -167,6 +189,7 @@ public class EnemyManager : MonoBehaviour
                 if(isTransformed == false)
                 {
                     MeshTransformTrigger();
+                    isTransformed = true;
                 }
 
             }
@@ -179,6 +202,7 @@ public class EnemyManager : MonoBehaviour
                 if (isTransformed == false)
                 {
                     MeshTransformTrigger();
+                    isTransformed = true;
                 }
             }
             return;
@@ -190,30 +214,32 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("GroundTurret") && isDestroyed == false)
-        {
-            if (other.gameObject.TryGetComponent(out TurretBehaviorGround groundTurret))
-            {
-                //Debug.Log("Collision");
-                isDestroyed = true;
-                other.gameObject.GetComponent<TurretBehaviorGround>().TakeDamage(damageToTurret);
-                EnemyDied();
-            }
-        }
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    Debug.Log("00");
+    //    if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("GroundTurret") && isDestroyed == false)
+    //    {
+    //        Debug.Log("aa");
+    //        if (other.gameObject.TryGetComponent(out TurretBehaviorGround groundTurret))
+    //        {
+    //            Debug.Log("bb");
+    //            isDestroyed = true;
+    //            other.gameObject.GetComponent<TurretBehaviorGround>().TakeDamage(damageToTurret);
+    //            EnemyDied();
+    //        }
+    //    }
 
-        if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("AirTurret") && isDestroyed == false)
-        {
-            if (other.gameObject.TryGetComponent(out TurretBehaviorAir groundTurret))
-            {
-                //Debug.Log("Collision");
-                isDestroyed = true;
-                other.gameObject.GetComponent<TurretBehaviorAir>().TakeDamage(damageToTurret);
-                EnemyDied();
-            }
-        }
-    }
+    //    if (this.gameObject.CompareTag("KamikazeEnemy") && other.gameObject.CompareTag("AirTurret") && isDestroyed == false)
+    //    {
+    //        if (other.gameObject.TryGetComponent(out TurretBehaviorAir airTurret))
+    //        {
+    //            //Debug.Log("Collision");
+    //            isDestroyed = true;
+    //            other.gameObject.GetComponent<TurretBehaviorAir>().TakeDamage(damageToTurret);
+    //            EnemyDied();
+    //        }
+    //    }
+    //}
 
 
     private void SetGroundPath()

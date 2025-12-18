@@ -2643,14 +2643,17 @@ MonoBehaviour:
   turretMaxHealth: 10
   turretCurrentHealth: 0
   resourceManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
   Range: 5
   EnemyTag: GroundEnemy
   PartToRotate: {fileID: 5873312597088517018}
-  Firerate: 1.1
+  Firerate: 0.56
   FireCoutDown: 0
-  turretBulletDamage: 5
+  turretBulletDamage: 6
   isLevel2Damage: 0
   isLevel2Firerate: 1
+  canShoot: 0
+  smokeVFX: {fileID: 0}
   towerPanel: {fileID: 5914307210653212121}
   upgradePanel: {fileID: 6568405091198433064}
   BulletPrefab: {fileID: 7054791219434266484, guid: 26b6b336d43093b41ba83bf3de13abdb, type: 3}

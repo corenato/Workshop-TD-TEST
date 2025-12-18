@@ -37,7 +37,7 @@ public class CopperMine : MonoBehaviour
         mineGlobalLevel = 1;
         mineProductionLevel = 0;
         mineDurabilityLevel = 0;
-        mineDurability = 3;
+        mineDurability = 4;
         resourceRaw = 2;
         resourceTotal = 10;
         isMining = true;
@@ -54,7 +54,7 @@ public class CopperMine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        resourceGain = resourceRaw * 5;
+        resourceGain = resourceRaw * 10;
 
     }
 
@@ -81,7 +81,7 @@ public class CopperMine : MonoBehaviour
             {
                 isMining = false;
                 repairButton.interactable = true;
-                Instantiate(smokeVFX, transform.position, Quaternion.identity);
+                Instantiate(smokeVFX, transform.position, Quaternion.identity, transform);
             }
         }
     }
@@ -107,7 +107,7 @@ public class CopperMine : MonoBehaviour
 
     public void DurabilityLV1()
     {
-        mineDurability++;
+        mineDurability = 5;
         mineDurabilityLevel++;
         mineGlobalLevel++;
         isMining = true;
@@ -118,7 +118,7 @@ public class CopperMine : MonoBehaviour
 
     public void DurabilityLV2()
     {
-        mineDurability++;
+        mineDurability = 6;
         mineDurabilityLevel++;
         mineGlobalLevel++;
         isMining = true;
@@ -131,6 +131,7 @@ public class CopperMine : MonoBehaviour
         mineDurability = 3 + mineDurabilityLevel;
         isMining = true;
         repairButton.interactable = false;
+        Destroy(smokeVFX);
     }
 
     public void CloseUpgradePanel()

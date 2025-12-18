@@ -2643,14 +2643,17 @@ MonoBehaviour:
   turretMaxHealth: 10
   turretCurrentHealth: 0
   resourceManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
   Range: 5
   EnemyTag: GroundEnemy
   PartToRotate: {fileID: 3576971976120010037}
-  Firerate: 2
+  Firerate: 1
   FireCoutDown: 0
-  turretBulletDamage: 9
+  turretBulletDamage: 10
   isLevel2Damage: 1
   isLevel2Firerate: 0
+  canShoot: 0
+  smokeVFX: {fileID: 0}
   towerPanel: {fileID: 5914307210653212121}
   upgradePanel: {fileID: 7905007420670088996}
   BulletPrefab: {fileID: 7054791219434266484, guid: 26b6b336d43093b41ba83bf3de13abdb, type: 3}
@@ -3228,18 +3231,6 @@ PrefabInstance:
       value: SM_Ground_Tower_Level2_Damage Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3278,10 +3269,6 @@ PrefabInstance:
     - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8988726582397869058, guid: 908c6808ec86b7b419d34c2ca25c0e1c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

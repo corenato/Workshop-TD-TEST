@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] public WaveEnemyEntry waveEnemyEntry;
     [SerializeField] private List<GameObject> enemiesToSpawn;
     [SerializeField] private List<GameObject> enemiesSpawned;
+    public TurretBehaviorAir[] turretBehaviorAir;
 
     public CopperMine copperMine;
     [SerializeField] private GameObject cpMine;
