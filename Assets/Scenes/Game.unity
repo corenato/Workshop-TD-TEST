@@ -29425,7 +29425,7 @@ MonoBehaviour:
   minimumFOV: 25
   defaultPosition: {x: 13.5, y: 28, z: -15}
   zoomSpeed: 5
-  minHeight: 10
+  minHeight: 5
   maxHeight: 100
   groundY: 0
   panSpeed: 1

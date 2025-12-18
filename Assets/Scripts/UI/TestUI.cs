@@ -4,8 +4,6 @@ using UnityEngine;
 public class TestUI : MonoBehaviour
 {
     [SerializeField] private TestBase mainBase;
-    public GameObject gameOverPanel;
-    public GameObject winPanel;
     [SerializeField] private CopperMine copperMine;
     [SerializeField] private GoldMine goldMine;
     [SerializeField] private EnemySpawner enemySpawner;
@@ -17,6 +15,8 @@ public class TestUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI remainingWaves;
     [SerializeField] private TextMeshProUGUI buildPhaseTimer;
     [SerializeField] private GameObject timerPanel;
+    public GameObject gameOverPanel;
+    public GameObject winPanel;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
